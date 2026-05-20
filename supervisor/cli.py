@@ -168,6 +168,44 @@ def supervisor_bench(
           f"report at {_bench.REPORT_PATH})")
 
 
+@supervisor_app.command("bench-abduction")
+def supervisor_bench_abduction(
+    induce_per_intent: int = typer.Option(6, "--per-intent"),
+    test_sample: int = typer.Option(120, "--test-sample"),
+    rounds: int = typer.Option(3, "--rounds"),
+    per_round: int = typer.Option(8, "--per-round", help="features abducted per round"),
+    seed: int = typer.Option(0, "--seed"),
+) -> None:
+    """Is abduction a real thinking tool FOR AN LLM? Same LLM, same feature
+    budget; abductive (figure/ground diff of the confusion, with corpus
+    retrieval) vs naive (blind brainstorming). The delta is the result."""
+    r = _bench.run_abduction(induce_per_intent=induce_per_intent,
+                             test_sample=test_sample, rounds=rounds,
+                             per_round=per_round, seed=seed)
+    s, a, nv = r["start_arm5"], r["abductive_6a"], r["naive_6n"]
+    d = r["delta_6a_minus_6n"]
+    print(f"\n# Abduction experiment — banking77 (test={r['test_sample']})")
+    print(f"  start (no growth)  rind_cover={s['rind_coverage']:.0%}  correct/total={s['rind_correct_of_total']}")
+    print(f"  6a abductive       rind_cover={a['rind_coverage']:.0%}  correct/total={a['rind_correct_of_total']}  (+{a['features_added']} feats)")
+    print(f"  6n naive control   rind_cover={nv['rind_coverage']:.0%}  correct/total={nv['rind_correct_of_total']}  (+{nv['features_added']} feats)")
+    print(f"  DELTA 6a-6n        cover={d['rind_coverage']:+.3f}  correct/total={d['rind_correct_of_total']:+.3f}")
+    print(f"  -> abduction {'HELPS' if d['rind_correct_of_total'] > 0 else 'does NOT help'} at equal budget")
+
+
+@supervisor_app.command("nearby")
+def supervisor_nearby(
+    query: str = typer.Argument(..., help="query to find nearby corpus examples for"),
+    k: int = typer.Option(8, "-k"),
+    intent: str = typer.Option(None, "--intent", help="filter to one intent"),
+) -> None:
+    """Corpus retrieval tool: nearest Banking77 train examples to a query
+    (TF-IDF cosine). The 'find nearby examples' tool the abductive loop uses."""
+    train = _bench._load("train")
+    nearby = _bench.make_retriever(train)
+    for text, label, score in nearby(query, k=k, intent=intent):
+        print(f"  {score:.3f}  [{label}]  {text}")
+
+
 def main() -> None:
     """Console-script entry point."""
     supervisor_app()

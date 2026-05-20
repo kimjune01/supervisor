@@ -82,6 +82,51 @@ def _classify(text: str, intents: list[str], system: str, model: str) -> str | N
 
 # ---------------------------------------------------------------- TF-IDF arms (3,4)
 
+def make_retriever(train: list[tuple[str, str]]):
+    """Corpus access for the supervisor: a 'find nearby examples' tool. TF-IDF
+    cosine over the train corpus. Returns nearby(text, k, intent=None) ->
+    [(text, label, score)], optionally filtered to one intent. This is the
+    cli-tool stratum (FINDINGS #33) handed to the abductive loop so it diffs the
+    actually-confusable BOUNDARY cases, not arbitrary examples."""
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    from sklearn.metrics.pairwise import linear_kernel
+    texts = [t for t, _ in train]
+    labels = [l for _, l in train]
+    vec = TfidfVectorizer(ngram_range=(1, 2), min_df=2, sublinear_tf=True)
+    mat = vec.fit_transform(texts)
+
+    def nearby(text: str, k: int = 8, intent: str | None = None):
+        sims = linear_kernel(vec.transform([text]), mat).ravel()
+        order = sims.argsort()[::-1]
+        out = []
+        for i in order:
+            if intent is not None and labels[i] != intent:
+                continue
+            if texts[i] == text:
+                continue
+            out.append((texts[i], labels[i], float(sims[i])))
+            if len(out) >= k:
+                break
+        return out
+    return nearby
+
+
+def _boundary_examples(nearby, by_intent, x: str, y: str, k: int = 6):
+    """The confusable boundary: examples of X nearest to Y's region and vice
+    versa. Seed from a couple of each intent's examples, retrieve cross-near."""
+    x_seed = by_intent[x][:2]
+    y_seed = by_intent[y][:2]
+    x_bound, y_bound = [], []
+    for s in y_seed:  # X examples that look like Y
+        x_bound += [t for t, _, _ in nearby(s, k=k, intent=x)]
+    for s in x_seed:  # Y examples that look like X
+        y_bound += [t for t, _, _ in nearby(s, k=k, intent=y)]
+    # de-dup, fall back to plain slices if retrieval came up empty
+    x_bound = list(dict.fromkeys(x_bound)) or by_intent[x][:k]
+    y_bound = list(dict.fromkeys(y_bound)) or by_intent[y][:k]
+    return x_bound[:k], y_bound[:k]
+
+
 def _fit_tfidf(train: list[tuple[str, str]]):
     from sklearn.feature_extraction.text import TfidfVectorizer
     from sklearn.linear_model import LogisticRegression
@@ -120,6 +165,20 @@ def _propose_schema(by_intent, intents, model) -> dict:
                 "flags": ["is_problem_report", "mentions_timing", "mentions_fee", "mentions_card"]}
     return {"subject_values": [str(v) for v in out["subject_values"]],
             "flags": [str(f) for f in (out.get("flags") or [])]}
+
+
+def _extract_flags(text, flags: list[str], model) -> dict:
+    """Extract ONLY the given boolean flags for a query (incremental growth:
+    new abducted features cost a small flag-only call, not a full re-extract)."""
+    if not flags:
+        return {}
+    out = _ask_sonnet(
+        f"For the banking query, set each flag true/false based only on the "
+        f"query text. Flags: {flags}. Return JSON: "
+        '{"flags": {"<flag>": true/false}}',
+        f"Query: {text}", model, timeout=40)
+    fl = (out or {}).get("flags") or {}
+    return {f: bool(fl.get(f, False)) for f in flags}
 
 
 def _extract(text, schema, model) -> dict | None:
@@ -278,4 +337,211 @@ def run(induce_per_intent: int = 6, test_sample: int = 120,
                 "isolation. Weigh sonnet calls ~10x haiku for cost.",
     }
     REPORT_PATH.write_text(json.dumps(report, indent=2))
+    return report
+
+
+# ================================================================ abduction
+#
+# Is abduction a real thinking tool FOR AN LLM? Same LLM, same feature budget,
+# same deterministic gate; the only difference is HOW new features are born:
+#   6a (abductive): figure/ground DIFF of the confusion. The shape of the
+#       failure names the feature. (tri-abduction: diff the two confused
+#       intents' examples; bi-abduction available on misclassified residue.)
+#   6n (naive control): the LLM brainstorms the same NUMBER of features from
+#       the intent list, BLIND to where the rind is failing.
+# If 6a > 6n at equal budget, the diff earned its keep. If 6a ~= 6n, abduction
+# is just feature-count here. The delta is the result.
+
+ABDUCTION_REPORT = BENCH_DIR / "abduction_report.json"
+
+
+def _confusion_pairs(vecs, schema, rules, top: int) -> list[tuple[str, str]]:
+    """Where the current rules fail to separate intents. On the (held-out)
+    vectors, for each example compute the rule verdict; tally (true, predicted)
+    off-diagonal and residue collisions. Return the top confused (X, Y) pairs."""
+    pair_counts: Counter = Counter()
+    for vec, true in vecs:
+        fired = _apply(vec, schema, rules)
+        if true in fired and len(fired) > 1:      # true intent fires but so do others
+            for other in fired:
+                if other != true:
+                    pair_counts[tuple(sorted((true, other)))] += 1
+        elif fired and true not in fired:          # fires only wrong intents
+            for other in fired:
+                pair_counts[tuple(sorted((true, other)))] += 1
+    return [p for p, _ in pair_counts.most_common(top)]
+
+
+def _abduct(x: str, ex_x: list[str], y: str, ex_y: list[str],
+            existing: list[str], model: str) -> dict | None:
+    """Tri-abduction: diff examples of intent X vs intent Y, propose ONE boolean
+    feature (extractable from query text) that separates them, reasoning about
+    whether it extends an existing rule or makes a new distinction. Figure =
+    what differs; ground = what they share."""
+    out = _ask_sonnet(
+        "Two intents are being CONFUSED by the current feature set. Diff their "
+        "example queries (figure = what systematically differs, ground = what "
+        "they share) and propose ONE new BOOLEAN feature, extractable from query "
+        "text alone, whose presence separates intent X from intent Y. Do not "
+        f"duplicate an existing feature: {existing}. Return JSON: "
+        '{"flag": "snake_case_name", "definition": "true when ...", '
+        '"separates": "X has it / Y lacks it (or vice versa)"}',
+        f"Intent X = {x}\nX examples:\n" + "\n".join(f"- {q}" for q in ex_x[:8]) +
+        f"\n\nIntent Y = {y}\nY examples:\n" + "\n".join(f"- {q}" for q in ex_y[:8]),
+        model)
+    if not out or not out.get("flag"):
+        return None
+    return {"flag": str(out["flag"]), "definition": out.get("definition", ""),
+            "from": f"{x} vs {y}"}
+
+
+def _naive_feature(intents: list[str], existing: list[str], model: str) -> dict | None:
+    """Control: propose a new boolean feature WITHOUT the confusion diff — blind
+    to where the rind fails. Same output shape, same budget."""
+    out = _ask_sonnet(
+        "Propose ONE new BOOLEAN feature, extractable from a banking query's "
+        "text alone, that would help an intent classifier over these intents. "
+        f"Do not duplicate an existing feature: {existing}. Return JSON: "
+        '{"flag": "snake_case_name", "definition": "true when ..."}',
+        f"Intents: {', '.join(intents)}", model)
+    if not out or not out.get("flag"):
+        return None
+    return {"flag": str(out["flag"]), "definition": out.get("definition", ""),
+            "from": "naive"}
+
+
+def _grow(mode: str, schema0: dict, base_vecs: dict, test_vecs: dict,
+          induce_items, test_items, intents, by_intent,
+          rounds: int, per_round: int, min_precision: float, min_fires: int,
+          extractor: str, proposer: str, nearby=None) -> dict:
+    """One arm of the abduction experiment. base_vecs/test_vecs: text->vec dicts
+    seeded with the initial (subject + initial flags) extraction, mutated in
+    place as flags are added. Returns rind metrics + the feature provenance."""
+    schema = {"subject_values": schema0["subject_values"],
+              "flags": list(schema0["flags"])}
+    provenance: list[dict] = []
+    haiku = 0
+    induce_vecs = [(base_vecs[q], l) for q, l in induce_items]
+    for rnd in range(rounds):
+        rules = _induce(induce_vecs, schema, min_precision, min_fires)
+        new_flags: list[dict] = []
+        if mode == "abductive":
+            pairs = _confusion_pairs(induce_vecs, schema, rules, per_round)
+            for x, y in pairs:
+                if nearby is not None:
+                    ex_x, ex_y = _boundary_examples(nearby, by_intent, x, y)
+                else:
+                    ex_x, ex_y = by_intent[x][:8], by_intent[y][:8]
+                f = _abduct(x, ex_x, y, ex_y, schema["flags"], proposer)
+                if f and f["flag"] not in schema["flags"]:
+                    new_flags.append(f)
+        else:  # naive control
+            for _ in range(per_round):
+                f = _naive_feature(intents, schema["flags"], proposer)
+                if f and f["flag"] not in schema["flags"] and \
+                        f["flag"] not in [g["flag"] for g in new_flags]:
+                    new_flags.append(f)
+        if not new_flags:
+            break
+        names = [f["flag"] for f in new_flags]
+        schema["flags"].extend(names)
+        provenance += new_flags
+        # incremental extraction of ONLY the new flags
+        for q, _ in induce_items:
+            base_vecs[q].update(_extract_flags(q, names, extractor)); haiku += 1
+        for q, _ in test_items:
+            test_vecs[q].update(_extract_flags(q, names, extractor)); haiku += 1
+        induce_vecs = [(base_vecs[q], l) for q, l in induce_items]
+
+    rules = _induce(induce_vecs, schema, min_precision, min_fires)
+    rind_n = rind_ok = 0
+    for q, g in test_items:
+        fired = _apply(test_vecs[q], schema, rules)
+        if len(fired) == 1:
+            rind_n += 1; rind_ok += int(next(iter(fired)) == g)
+    n = len(test_items)
+    return {
+        "mode": mode,
+        "features_added": len(provenance),
+        "total_flags": len(schema["flags"]),
+        "rules": len(rules),
+        "rind_coverage": round(rind_n / n, 3),
+        "rind_accuracy": round(rind_ok / rind_n, 3) if rind_n else None,
+        "rind_correct_of_total": round(rind_ok / n, 3),
+        "extract_calls": haiku,
+        "provenance": provenance,
+    }
+
+
+def run_abduction(induce_per_intent: int = 6, test_sample: int = 120,
+                  rounds: int = 3, per_round: int = 8,
+                  min_precision: float = 0.85, min_fires: int = 3,
+                  seed: int = 0, extractor: str = _HAIKU,
+                  proposer: str = _SONNET) -> dict:
+    """The clean delta: does an LLM build a better rind from confusion-diffs
+    (abductive) than from blind brainstorming (naive), at equal feature budget?"""
+    BENCH_DIR.mkdir(parents=True, exist_ok=True)
+    train, test = _load("train"), _load("test")
+    intents = sorted({l for _, l in train})
+    by_intent = defaultdict(list)
+    for t, l in train:
+        by_intent[l].append(t)
+
+    rng = random.Random(seed)
+    induce_items = []
+    for it in intents:
+        qs = by_intent[it][:]; rng.shuffle(qs)
+        induce_items += [(q, it) for q in qs[:induce_per_intent]]
+    test_items = rng.sample(test, min(test_sample, len(test)))
+
+    # Initial schema (Sonnet) + initial full extraction (Haiku), shared start.
+    schema0 = _propose_schema(by_intent, intents, proposer)
+    print(f"init schema: {len(schema0['subject_values'])} subjects, "
+          f"{len(schema0['flags'])} flags; extracting initial vectors ...")
+    base_vecs, test_vecs = {}, {}
+    for q, _ in induce_items:
+        base_vecs[q] = _extract(q, schema0, extractor) or {"subject": None}
+    for q, _ in test_items:
+        test_vecs[q] = _extract(q, schema0, extractor) or {"subject": None}
+
+    # arm-5 starting point (no growth)
+    start = _grow("none-start", schema0,
+                  {k: dict(v) for k, v in base_vecs.items()},
+                  {k: dict(v) for k, v in test_vecs.items()},
+                  induce_items, test_items, intents, by_intent,
+                  rounds=0, per_round=0, min_precision=min_precision,
+                  min_fires=min_fires, extractor=extractor, proposer=proposer)
+
+    print("growing ABDUCTIVE arm (with corpus retrieval) ...")
+    nearby = make_retriever(train)
+    abductive = _grow("abductive", schema0,
+                      {k: dict(v) for k, v in base_vecs.items()},
+                      {k: dict(v) for k, v in test_vecs.items()},
+                      induce_items, test_items, intents, by_intent,
+                      rounds, per_round, min_precision, min_fires, extractor, proposer,
+                      nearby=nearby)
+    print("growing NAIVE control arm ...")
+    naive = _grow("naive", schema0,
+                  {k: dict(v) for k, v in base_vecs.items()},
+                  {k: dict(v) for k, v in test_vecs.items()},
+                  induce_items, test_items, intents, by_intent,
+                  rounds, per_round, min_precision, min_fires, extractor, proposer)
+
+    report = {
+        "dataset": "banking77", "intents": len(intents),
+        "test_sample": len(test_items),
+        "params": {"induce_per_intent": induce_per_intent, "rounds": rounds,
+                   "per_round": per_round, "min_precision": min_precision,
+                   "min_fires": min_fires, "seed": seed},
+        "start_arm5": start,
+        "abductive_6a": abductive,
+        "naive_6n": naive,
+        "delta_6a_minus_6n": {
+            "rind_coverage": round(abductive["rind_coverage"] - naive["rind_coverage"], 3),
+            "rind_correct_of_total": round(
+                abductive["rind_correct_of_total"] - naive["rind_correct_of_total"], 3),
+        },
+        "verdict": "abduction helps if delta > 0 at equal feature budget",
+    }
+    ABDUCTION_REPORT.write_text(json.dumps(report, indent=2))
     return report
