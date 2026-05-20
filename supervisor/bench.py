@@ -28,12 +28,35 @@ once, then rules are pure counting.
 from __future__ import annotations
 
 import csv
+import datetime as dt
 import json
 import random
+import subprocess
 from collections import Counter, defaultdict
 from pathlib import Path
 
 from supervisor.core import SUPERVISOR_DIR, _ask_sonnet
+
+
+def _provenance() -> dict:
+    """Stamp every result with what's needed to reproduce it (ch12/ch25): the
+    repo commit, UTC timestamp, corpus source, and model versions. LLM calls are
+    non-deterministic, so exact replication needs the pinned models + temp=0;
+    the corpus is a frozen closed-PR/issue set (Banking77), so it doesn't drift."""
+    here = Path(__file__).resolve().parent.parent
+    try:
+        sha = subprocess.run(["git", "-C", str(here), "rev-parse", "HEAD"],
+                             capture_output=True, text=True, timeout=10).stdout.strip()
+    except Exception:
+        sha = "unknown"
+    return {
+        "git_sha": sha,
+        "utc": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
+        "corpus": "banking77 (PolyAI-LDN/task-specific-datasets, frozen)",
+        "models": {"cheap": _HAIKU, "strong": _SONNET},
+        "caveat": "LLM verdicts are non-deterministic; pin models + temperature=0 "
+                  "for bit-reproduction. Structural findings are drift-robust.",
+    }
 
 BENCH_DIR = SUPERVISOR_DIR / "bench"
 REPORT_PATH = BENCH_DIR / "report.json"
@@ -335,6 +358,7 @@ def run(induce_per_intent: int = 6, test_sample: int = 120,
         "note": "arms 3-5 reuse the cached sonnet predictions for their residue; "
                 "call counts under each arm are what that arm would cost in "
                 "isolation. Weigh sonnet calls ~10x haiku for cost.",
+        "provenance": _provenance(),
     }
     REPORT_PATH.write_text(json.dumps(report, indent=2))
     return report
@@ -542,6 +566,7 @@ def run_abduction(induce_per_intent: int = 6, test_sample: int = 120,
                 abductive["rind_correct_of_total"] - naive["rind_correct_of_total"], 3),
         },
         "verdict": "abduction helps if delta > 0 at equal feature budget",
+        "provenance": _provenance(),
     }
     ABDUCTION_REPORT.write_text(json.dumps(report, indent=2))
     return report
