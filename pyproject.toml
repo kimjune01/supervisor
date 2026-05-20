@@ -1,8 +1,9 @@
 [project]
 name = "supervisor"
 version = "0.1.0"
-description = "The encoding loop as a higher-order function — supplement an expert system, resolve its residue via LLM calls. No weight training."
+description = "The encoding loop as a higher-order function. Supplement an expert system, resolve its residue via LLM calls. No weight training."
 readme = "README.md"
+license = "AGPL-3.0-or-later"
 requires-python = ">=3.11"
 dependencies = [
     "typer>=0.12",

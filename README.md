@@ -88,3 +88,10 @@ regret channel). See the caveat in `docs/FINDINGS.md`.
 - `supervisor/specs.py` — instantiations: local (sweep) + corpus (`gh`), regret channel.
 - `supervisor/_deps.py` — the small surface vendored out of sweep.
 - `supervisor/cli.py` — `supervisor run|list|show|archive`.
+
+## License
+
+[AGPL-3.0-or-later](LICENSE). Copyleft, including over a network: if you run a
+modified supervisor as a service, you must offer its source. The encoded
+artifacts a supervisor produces are yours; the loop that produces them stays
+open.
