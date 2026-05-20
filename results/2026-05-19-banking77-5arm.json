@@ -1,0 +1,90 @@
+{
+  "dataset": "banking77",
+  "intents": 77,
+  "test_sample": 120,
+  "params": {
+    "induce_per_intent": 6,
+    "min_precision": 0.9,
+    "min_fires": 4,
+    "reject_thresholds": [
+      0.3,
+      0.5,
+      0.7
+    ],
+    "seed": 0
+  },
+  "models": {
+    "cheap": "claude-haiku-4-5-20251001",
+    "strong": "claude-sonnet-4-6"
+  },
+  "arms": {
+    "sonnet_only": {
+      "accuracy": 0.817,
+      "calls": {
+        "sonnet": 120
+      }
+    },
+    "haiku_only": {
+      "accuracy": 0.817,
+      "calls": {
+        "haiku": 120
+      }
+    },
+    "tfidf_only": {
+      "accuracy": 0.875,
+      "calls": {}
+    },
+    "tfidf_reject": {
+      "thr=0.3": {
+        "accuracy": 0.942,
+        "shell_coverage": 0.9,
+        "calls": {
+          "sonnet_residue": 12
+        }
+      },
+      "thr=0.5": {
+        "accuracy": 0.942,
+        "shell_coverage": 0.817,
+        "calls": {
+          "sonnet_residue": 22
+        }
+      },
+      "thr=0.7": {
+        "accuracy": 0.942,
+        "shell_coverage": 0.675,
+        "calls": {
+          "sonnet_residue": 39
+        }
+      }
+    },
+    "features_rules": {
+      "accuracy": 0.817,
+      "rind": {
+        "rules": 1,
+        "intents_covered": 1,
+        "coverage": 0.008,
+        "accuracy": 1.0
+      },
+      "calls": {
+        "haiku_extract": 582,
+        "sonnet_schema": 1,
+        "sonnet_residue": 119
+      }
+    }
+  },
+  "total_calls_this_run": {
+    "haiku": 702,
+    "sonnet": 121
+  },
+  "note": "arms 3-5 reuse the cached sonnet predictions for their residue; call counts under each arm are what that arm would cost in isolation. Weigh sonnet calls ~10x haiku for cost.",
+  "provenance": {
+    "git_sha": "dfd696e9294db3ec28f10c5da08d568e6b2f88cf",
+    "utc": "2026-05-20T04:00:12+00:00",
+    "corpus": "banking77 (PolyAI-LDN/task-specific-datasets, frozen)",
+    "models": {
+      "cheap": "claude-haiku-4-5-20251001",
+      "strong": "claude-sonnet-4-6"
+    },
+    "note": "recorded manually; run predates auto-stamp"
+  }
+}

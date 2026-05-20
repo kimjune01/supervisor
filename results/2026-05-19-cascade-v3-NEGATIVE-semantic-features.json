@@ -1,0 +1,73 @@
+{
+  "dataset": "banking77",
+  "n_test": 3080,
+  "objective": "safe coverage @ precision >= 98% (cost-floor)",
+  "baseline_tfidf": {
+    "safe_coverage": 0.716,
+    "threshold": 0.631,
+    "precision": 0.98
+  },
+  "cascade_abducted": {
+    "safe_coverage": 0.695,
+    "threshold": 0.661,
+    "precision": 0.98
+  },
+  "delta_coverage": -0.021,
+  "committed_features": [
+    {
+      "flag": "is_direct_debit",
+      "pair": [
+        "card_payment_not_recognised",
+        "direct_debit_payment_not_recognised"
+      ]
+    },
+    {
+      "flag": "was_completed_then_undone",
+      "pair": [
+        "top_up_failed",
+        "top_up_reverted"
+      ]
+    },
+    {
+      "flag": "card_as_funding_instrument",
+      "pair": [
+        "supported_cards_and_currencies",
+        "transfer_into_account"
+      ]
+    },
+    {
+      "flag": "reports_observed_pending_state",
+      "pair": [
+        "pending_top_up",
+        "top_up_reverted"
+      ]
+    }
+  ],
+  "n_committed": 4,
+  "calls": {
+    "abduct": 4,
+    "validate": 80,
+    "disambiguate": 27
+  },
+  "params": {
+    "top_pairs": 8,
+    "safe_floor": 0.98,
+    "shell_threshold": 0.6,
+    "seed": 0
+  },
+  "models": {
+    "extractor": "claude-haiku-4-5-20251001",
+    "abductor": "claude-sonnet-4-6"
+  },
+  "provenance": {
+    "git_sha": "9842c2ce73ed9797f4b5eca2af9be6e942d8dc98",
+    "utc": "2026-05-20T05:31:26+00:00",
+    "verdict": "NEGATIVE (-2.1%) but features now genuinely semantic. Diagnosis: (a) overfit train agreement precision (100% on ~17 samples) -> overconfident promotion; (b) DEEP: frozen one-liners forbid the clarification the abducted axes ARE -> cannot clear 98% on confusable pairs. Predicted by the generative-dataset argument. Deciding experiment: simulated-customer eval.",
+    "committed_axes": [
+      "is_direct_debit",
+      "was_completed_then_undone",
+      "card_as_funding_instrument",
+      "reports_observed_pending_state"
+    ]
+  }
+}

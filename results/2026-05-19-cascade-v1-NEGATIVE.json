@@ -1,0 +1,57 @@
+{
+  "dataset": "banking77",
+  "n_test": 3080,
+  "objective": "safe coverage @ precision >= 98% (cost-floor)",
+  "baseline_tfidf": {
+    "safe_coverage": 0.716,
+    "threshold": 0.631,
+    "precision": 0.98
+  },
+  "cascade_abducted": {
+    "safe_coverage": 0.694,
+    "threshold": 0.66,
+    "precision": 0.98
+  },
+  "delta_coverage": -0.022,
+  "committed_features": [
+    {
+      "flag": "mentions_direct_debit",
+      "pair": [
+        "card_payment_not_recognised",
+        "direct_debit_payment_not_recognised"
+      ]
+    },
+    {
+      "flag": "mentions_card",
+      "pair": [
+        "supported_cards_and_currencies",
+        "transfer_into_account"
+      ]
+    }
+  ],
+  "n_committed": 2,
+  "calls": {
+    "abduct": 4,
+    "validate": 64,
+    "disambiguate": 14
+  },
+  "params": {
+    "top_pairs": 8,
+    "safe_floor": 0.98,
+    "shell_threshold": 0.6,
+    "seed": 0
+  },
+  "models": {
+    "extractor": "claude-haiku-4-5-20251001",
+    "abductor": "claude-sonnet-4-6"
+  },
+  "provenance": {
+    "git_sha": "60412775a3f112659f5847cd1e75ffb90ac6153c",
+    "utc": "2026-05-20T05:08:57+00:00",
+    "verdict": "NEGATIVE (-2.2%); diagnosed: overconfident promotion of sub-floor features + lexical-redundant abduction",
+    "models": {
+      "extractor": "haiku-4-5",
+      "abductor": "sonnet-4-6"
+    }
+  }
+}
