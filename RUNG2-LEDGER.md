@@ -79,7 +79,18 @@ gradle-wrapper needing network on some images (decompose's wrapper tried to down
 gradle distribution and failed offline — may need network during setup, only cut it for
 the solve), and C#/Dart gate derivation (kiota/dart — derive returns None by design).
 
-## How to resume (when credits are back)
+### L4 — the credit wall was self-inflicted: headless leaked ANTHROPIC_API_KEY
+The "credit balance too low" was NOT a real plan-token shortage. `claude` (Claude Code)
+prefers `ANTHROPIC_API_KEY` over the subscription login when the env var is set, so every
+headless `claude --print` billed the pay-per-token API pool (depleted) instead of the Max
+plan. The rung-1 *rigid* loop scrubbed the key (`env_nokey()`) and used the plan fine; the
+rung-2 driver (and the freeform/bench/bug-hunt runs launched via raw Bash) inherited the
+env WITH the key → API billing → drained over the session. **Fix:** `run_agent` now runs
+`claude` with `ANTHROPIC_API_KEY` scrubbed (`plan_env()`) → uses the subscription's plentiful
+Sonnet tokens. Verified: `env -u ANTHROPIC_API_KEY claude --print` returns normally. The
+wall dissolves; re-running on the plan.
+
+## How to resume (when credits are back / now, on the plan)
 1. Confirm headless credits available (`echo hi | claude --print --model claude-sonnet-4-5`).
 2. Consider serial, not 4-way parallel, to avoid burning the pool in a burst — or a small
    concurrency (2). Throughput is secondary to not hitting the wall mid-batch.
