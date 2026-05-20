@@ -15,9 +15,20 @@ bigger than model-strength.
   *still failed* — probably the issue's *wrong suggested fix* derails recall inside
   an agent loop. So contamination muddies BOTH the failures and the solves.
 - **The only clean test: POST-CUTOFF instances** — bugs/PRs created *after* the
-  model's training cutoff, so the fix cannot be memorized. Use SWE-bench-Live or a
-  freshly-scraped held-out set; filter instances by `created_at` > model cutoff.
-  Check each model's cutoff against `instance["created_at"]`.
+  model's training cutoff, so the fix cannot be memorized. Filter instances by
+  `created_at` > model cutoff. Concrete sources (see Roadmap §0 for the ladder):
+  - **SWE-rebench (Nebius)** — best decontaminated source. Continuously updated,
+    contamination tracked against model release dates. V2 = 32k executable tasks,
+    20 langs, with `created_at`/`FAIL_TO_PASS`/`PASS_TO_PASS`/`image_name`.
+    `nebius/SWE-rebench-V2` on HF.
+  - **SWE-bench-Live (Microsoft fork)** — `full` split, but the public HF viewer
+    tops out at `created_at` = **2025-08-30**. NOT clean for any model with a
+    later cutoff. If used, filter `created_at > cutoff + 30d`.
+  - For extra rigor: require no browsing during solve; exclude repos known to be
+    in post-training eval corpora.
+  - OpenAI (Feb 2026) stopped reporting SWE-bench Verified — found ≥59.4% flawed
+    tests in an audited subset, all frontier models could reproduce some gold
+    patches — and now recommends **SWE-bench Pro** (Scale; 731 public instances).
 - Weaker signals while you lack post-cutoff data: (a) the **trajectory** — does the
   model genuinely perturb/inspect and reason, or emit the gold fix immediately
   (recall smell)? (b) solve with the issue text **withheld** — if it still nails the
@@ -125,8 +136,23 @@ and reuse encoded kill-conditions/fix-templates so later solves get cheaper.
 
 ## Roadmap (the quest)
 0. **POST-CUTOFF instances first** — without them, nothing below is a real claim.
-   Source fresh bugs (SWE-bench-Live / scrape PRs created after the model cutoff).
-   This is the gate on the entire quest. [HARD GATE]
+   This is the gate on the entire quest. [HARD GATE] Cheapest→most-definitive ladder
+   (each rung names the claim it licenses — don't overclaim a lower rung):
+
+   | Rung | Setup | Effort | Claim licensed |
+   |---|---|---|---|
+   | 0 | Static patch review on Lite fails, no exec | Hours | "patch looks plausible" — no rate |
+   | 1 | Host checkout on *fetchable* Lite/Verified, run targeted tests | 0.5–2d | directional smoke signal, selected tasks |
+   | 2 | Host checkout on post-cutoff Live/rebench slice | 1–3d | some uncontaminated traction (env-biased) |
+   | 3 | Docker harness, small Lite subset | ~1d, 120GB+ disk | legacy SWE-bench mechanics, small slice |
+   | 4 | Docker harness, Verified (500) | days | legacy Verified score — contamination dominates |
+   | 5 | Docker harness, SWE-bench-Live `full`, filtered `created_at>cutoff` | days–wks | **public post-cutoff resolution rate** |
+   | 6 | SWE-rebench monthly/V2 slice, filtered by `created_at` | days–wks | decontaminated public monthly signal |
+   | 7 | SWE-bench Pro public + held-out/commercial | highest | most defensible frontier claim |
+
+   Plan: run rungs 1–2 now for cheap triage; reserve real claims for rung 5 or 6.
+   The sympy-12171 Lite solve is a **legacy diagnostic only** until the same engine
+   is validated on post-cutoff SWE-rebench/Live.
 1. **Confirm cheap-autonomous** — Sonnet loop solves >=1 SOTA-fail (run TIMED OUT,
    retry with timeout>=300s). [gate]
 2. **Docker harness** — clear the commit-wall; run a real RATE on the 52 (and on
