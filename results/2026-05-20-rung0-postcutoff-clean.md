@@ -1,7 +1,9 @@
-# Rung 0 CLEAN — post-cutoff static plausibility (no execution)
+# Rung 0 CLEAN — post-cutoff static plausibility (PLUMBING, not evidence)
 
-*2026-05-20. The interpretable rung 0: generator and instances chosen so recall is
-impossible, so "looks plausible" actually means "diagnosed," not "remembered."*
+*2026-05-20. Generator and instances chosen so recall is impossible. **But rung 0
+does not exercise the engine** — with no repo there is nothing to perturb, so this
+is a single model call, not the loop. It measures the base model's prior, not the
+method. Kept as a calibration note; the first real measurement is rung 1.*
 
 ## Setup
 - **Generator:** `claude-sonnet-4-5` (training cutoff **Jul 2025**). Chosen over
@@ -22,22 +24,25 @@ impossible, so "looks plausible" actually means "diagnosed," not "remembered."*
 | effekt-1101 | Scala | 2025-08-06 | 35 | partly / med-low | implemented symptom-fix but *named* gold's upstream fix; conf appropriately low |
 
 ## Finding
-This is the first rung-0 result that licenses anything. On the contaminated Lite
-run (`2026-05-20-rung0-static-plausibility.md`), plausibility and recall were
-entangled — the "high plausible" patches were the ones reeking of memorization.
-Here recall is impossible by construction, so the signal is clean:
+Fixing contamination exposed a deeper limit: **rung 0 cannot test the method.** The
+thesis is that the loop (reproduce → perturb-and-inspect → mirror → re-test) beats
+one-shot guessing. With no repo, nothing is perturbed — the engine is never invoked.
+So what this run observed is the **base model's prior**, not the engine:
 
-- From the **issue text alone**, Sonnet 4.5 reached the correct root-cause
+- From the **issue text alone**, Sonnet 4.5 reached a plausible root-cause
   **direction** on all three unseen bugs (two strongly, one partially while
-  correctly flagging its own symptom-vs-cause hedge).
-- It nailed no exact file/API — expected with no repo access. That gap is exactly
-  what rung 1 (host checkout + perturb-and-inspect) is for.
-- Self-confidence was calibrated: 75 where the direction held, 35 where it hedged.
+  flagging its own symptom-vs-cause hedge). For a frontier model, this is close to
+  expected — not a surprising result, and there is no baseline here.
+- It nailed no exact file/API — expected with no repo access.
+- Self-confidence tracked direction (75 vs 35), n=3. Thin.
 
-**Licenses:** "the engine plausibly diagnoses bugs it provably could not have
-memorized." **Does not license:** a resolved rate (no execution) or exact-fix
-accuracy (no repo). Next clean step is rung 1 on these same instances — but their
-non-Python toolchains (dotnet/gradle/sbt) are the cost the Python prototype dodged.
+**Licenses:** nothing about the engine. **Genuinely learned (all meta):**
+1. A hard constraint — post-cutoff ∩ Python ∩ executable = empty in public data
+   (mainstream langs top out 2025-07 in V2; clean Python needs build-your-own).
+2. The cutoff-based selection pipeline is mechanically sound and executable.
+
+**Next:** skip rung 0 as a stage; start measurement at **rung 1** (a checkout to
+perturb) — where the non-Python toolchains (dotnet/gradle/sbt) become the real cost.
 
 Generator transcript with patches + gold was at
 `/tmp/swebench-abduction/rung0_postcutoff_results.md` (ephemeral).

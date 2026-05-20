@@ -170,18 +170,27 @@ and reuse encoded kill-conditions/fix-templates so later solves get cheaper.
 
    | Rung | Setup (all post-cutoff unless noted) | Effort | Claim licensed |
    |---|---|---|---|
-   | S | **Lite/Verified, harness smoke test** — does the pipeline run end-to-end? | hours | **NONE** — plumbing only, never cited as result |
-   | 0 | Static patch gen + plausibility, no exec, post-cutoff slice | hours | "plausibly fixes a bug it could not have memorized" |
+   | S | **Plumbing — NOT evidence.** Lite/Verified harness smoke test; *and* static patch-gen on a post-cutoff slice (no exec). | hours | **NONE** — see "Why rung 0 is plumbing" below |
    | 1 | Host checkout on *fetchable* post-cutoff instances, run targeted tests | 0.5–2d | directional uncontaminated rate, small n, env-biased |
    | 2 | Docker harness, small post-cutoff slice (SWE-rebench monthly / Live `full` filtered) | ~1d, 120GB+ disk | clean small-n resolution rate, harness-graded |
    | 3 | Docker harness, full post-cutoff split, filtered `created_at>cutoff` | days–wks | **decontaminated public resolution rate** |
    | 4 | SWE-rebench rolling monthly leaderboard (newest split) | wks, recurring | continuously-fresh signal, contamination-tracked |
    | 5 | SWE-bench Pro public + held-out/commercial | highest/access | most defensible frontier claim |
 
-   Plan: run S to shake out the harness, then 0–1 on a post-cutoff slice for cheap
-   *interpretable* triage (plausibility now means something — recall is impossible),
-   reserve rate claims for 3+. The sympy-12171 Lite solve is **plumbing (rung S),
-   not evidence** — it stays in `results/` as a worked harness example, not a result.
+   **Why rung 0 is plumbing (dropped as a measurement stage).** Static patch-gen with
+   no repo does not exercise the method: the thesis is that the *loop*
+   (reproduce → perturb-and-inspect → mirror → re-test) beats one-shot guessing, and
+   with no system to perturb, rung 0 is a single model call. So "the model names a
+   plausible root cause from an issue" measures the **base model's prior**, not the
+   engine — even when post-cutoff makes it recall-free. The first rung that actually
+   tests the thesis is **rung 1** (a checkout to perturb). Both the Lite static run
+   (`results/2026-05-20-rung0-static-plausibility.md`) and the clean post-cutoff one
+   (`results/2026-05-20-rung0-postcutoff-clean.md`) are kept as plumbing/calibration
+   notes, not as evidence about the engine. The sympy-12171 Lite solve is likewise
+   plumbing (a worked harness example), not a result.
+
+   Plan: do the rung-S plumbing once to shake out harness + selection, then start
+   real measurement at **rung 1**; reserve rate claims for 3+.
 
    **Instance selection (the one filter that does all the work):**
    ```python
