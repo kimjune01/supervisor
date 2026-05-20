@@ -54,3 +54,31 @@ needs the execution environment hand-held; a freeform agent with real tools like
 would not — a hypothesis to test next.
 
 Transcript: was at `/tmp/swebench-abduction/rung1_transcript.txt` (ephemeral).
+
+## Harness comparison: rigid supervisor loop vs freeform full-tool agent
+Same instance, same clean model (Sonnet 4.5), same gate (17/17), same no-hint prompt.
+Only the harness shape differs.
+
+| | Rigid supervisor loop (JSON inspect/read/patch) | Freeform agent (full default toolset) |
+|---|---|---|
+| Solved | yes | yes |
+| Reached solve | after **3 operator reruns** fixing plumbing (budget; context window dropping the task; env not anchored → it tried to `git clone`) | **first run**, ~299s wall-clock |
+| Iteration | patch#1 fail → re-inspect → patch#2 pass (18 steps) | iterated internally, solved in one invocation |
+| Operator scaffolding | high — I hand-held budget/context/environment | low — handed it one `box-sh` helper + the prompt |
+| Fan-out | not supported by the prototype | available, **unused** (bug too localized to need breadth) |
+| Fix shape | interface-parent check only | interface-default **and** abstract — more thorough |
+
+**Verdict (n=1, one localized bug — do not over-generalize).** The freeform agent
+solved it first try with minimal scaffolding; the rigid loop solved it only after I
+fixed three plumbing failures. But the dominant advantage was **self-management of
+context / navigation / environment** (the exact things the rigid enum made me hand-
+hold), not a unique "isolate the buggy region" move — the freeform agent grepped to
+the rule quickly, but so could the rigid one once it knew where it was. The "freeform
+is faster" read also partly conflates harness *maturity* (my prototype was buggy)
+with harness *shape*; a fair restatement is **freeform needed far less operator
+scaffolding to reach a solve**. Fan-out was never exercised — its value (parallel
+hypotheses, breadth) would show on an *ambiguous* bug, not this single-file fix, and
+would require pinning subagents to Sonnet 4.5 (contamination) + per-hypothesis repo
+copies (parallel interventions collide on one container). Both arms produced
+divergent-but-correct fixes — neither matched gold's `KaSymbolModality.OPEN` — which
+is consistent across both: clean-model diagnosis, not recall.
