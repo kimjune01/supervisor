@@ -159,6 +159,112 @@ def _validate_agreement(feat, by_intent, pipe, cls, model, floor, k=10):
     return verdict, agree_prec, agree_cov, a  # true_intent unused now (direct pick)
 
 
+def _ask_clarifying_q(a, b, axis, definition, model):
+    """Turn the abducted axis into the single most-informative clarifying
+    question that separates the pair (economy of research: one question)."""
+    out = _ask_sonnet(
+        "A support query is ambiguous between two intents. Write ONE short, "
+        "natural clarifying question whose answer separates them along this "
+        f"axis: {axis} ({definition}). Intents: A={a}, B={b}. "
+        'Return JSON: {"question": "..."}', "", model, timeout=30)
+    return (out or {}).get("question") if out else None
+
+
+def _simulated_customer(true_intent_query, question, model):
+    """A cooperative customer who actually has the need behind `true_intent_query`
+    answers the agent's clarifying question consistently. Tests the UPPER BOUND
+    of clarification (real customers are noisier / some hang up)."""
+    out = _ask_sonnet(
+        "You are a bank customer. Your actual situation/need is shown below. A "
+        "support agent asks a clarifying question. Answer it naturally and "
+        "truthfully, consistent with your situation, in one sentence. "
+        'Return JSON: {"answer": "..."}',
+        f"Your situation (what you originally said): {true_intent_query}\n\n"
+        f"Agent's question: {question}", model, timeout=30)
+    return (out or {}).get("answer") if out else None
+
+
+def _resolve_with_answer(query, answer, a, b, axis, model):
+    """2-way disambiguation WITH the clarification answer in hand."""
+    out = _ask_sonnet(
+        f"Decide which intent the customer means, using their clarification. "
+        f"Axis: {axis}. Options: A={a}, B={b}. "
+        'Return JSON: {"choice":"A" or "B"}',
+        f"Original: {query}\nClarifying answer: {answer}", model, timeout=30)
+    c = (out or {}).get("choice", "").upper()
+    return a if c == "A" else b if c == "B" else None
+
+
+def run_clarify(top_pairs: int = 8, safe_floor: float = 0.98,
+                shell_threshold: float = 0.6, extractor: str = _HAIKU,
+                abductor: str = _SONNET, max_clarify: int = 60, seed: int = 0) -> dict:
+    """DECIDING experiment: on the confusable tail, ASK the abducted axis as a
+    clarifying question; a simulated customer answers; resolve. Does clarification
+    clear the pairs at >= floor (where blind disambiguation could not)?"""
+    import numpy as np
+    pipe, train, test = _fit()
+    cls = list(pipe.named_steps["c"].classes_)
+    by_intent = defaultdict(list)
+    for t, l in train:
+        by_intent[l].append(t)
+    nearby = make_retriever(train)
+
+    texts = [x for x, _ in test]
+    gold = [y for _, y in test]
+    P = pipe.predict_proba(texts)
+    conf = P.max(1)
+    pred = [cls[i] for i in P.argmax(1)]
+    top2 = [tuple(cls[j] for j in np.argsort(-P[i])[:2]) for i in range(len(texts))]
+    correct0 = [int(pred[i] == gold[i]) for i in range(len(texts))]
+    base_cov, _, _ = _safe_coverage(np.array(conf), correct0, safe_floor)
+
+    # abduct axes for the top confused pairs (reuse the semantic abduction)
+    pairs = _confused_pairs(pipe, train, top_pairs)
+    axis_for = {}
+    for (a, b) in pairs:
+        ex_a = [t for t, _, _ in nearby(by_intent[b][0], k=6, intent=a)] or by_intent[a][:6]
+        ex_b = [t for t, _, _ in nearby(by_intent[a][0], k=6, intent=b)] or by_intent[b][:6]
+        feat = _tri_abduct(a, ex_a, b, ex_b, abductor)
+        if feat:
+            q = _ask_clarifying_q(a, b, feat["axis"], feat["definition"], abductor)
+            if q:
+                axis_for[frozenset((a, b))] = (a, b, feat["axis"], feat["definition"], q)
+
+    # clarify on the confusable tail (cooperative simulated customer)
+    new_pred, new_conf = list(pred), list(conf)
+    clar_total = clar_correct = 0
+    rng = random.Random(seed)
+    tail = [i for i in range(len(texts))
+            if conf[i] < shell_threshold and frozenset(top2[i]) in axis_for]
+    rng.shuffle(tail)
+    for i in tail[:max_clarify]:
+        a, b, axis, definition, q = axis_for[frozenset(top2[i])]
+        ans = _simulated_customer(texts[i], q, extractor)
+        if not ans:
+            continue
+        pick = _resolve_with_answer(texts[i], ans, a, b, axis, extractor)
+        if pick is None:
+            continue
+        clar_total += 1
+        clar_correct += int(pick == gold[i])
+        new_pred[i] = pick
+        new_conf[i] = max(conf[i], 0.99)  # clarified -> treat as resolved
+
+    correct1 = [int(new_pred[i] == gold[i]) for i in range(len(texts))]
+    clar_cov, _, _ = _safe_coverage(np.array(new_conf), correct1, safe_floor)
+    report = {
+        "dataset": "banking77", "n_test": len(texts), "experiment": "clarification",
+        "baseline_safe_coverage": round(base_cov, 3),
+        "clarified_safe_coverage": round(clar_cov, 3),
+        "delta_coverage": round(clar_cov - base_cov, 3),
+        "clarification_precision": round(clar_correct / clar_total, 3) if clar_total else None,
+        "n_clarified": clar_total,
+        "note": "simulated cooperative customer = UPPER BOUND on clarification",
+    }
+    (SUPERVISOR_DIR / "bench" / "clarify_report.json").write_text(json.dumps(report, indent=2))
+    return report
+
+
 def run(top_pairs: int = 8, safe_floor: float = 0.98,
         shell_threshold: float = 0.6, extractor: str = _HAIKU,
         abductor: str = _SONNET, seed: int = 0) -> dict:

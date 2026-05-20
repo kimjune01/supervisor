@@ -213,6 +213,56 @@ def supervisor_cascade(
     print(f"  committed: {[f['flag'] for f in r['committed_features']]}")
 
 
+@supervisor_app.command("online")
+def supervisor_online(
+    stream_n: int = typer.Option(1500, "--stream-n"),
+    floor: float = typer.Option(0.95, "--floor"),
+    window: int = typer.Option(150, "--window"),
+    gate_min_fires: int = typer.Option(5, "--gate-fires"),
+) -> None:
+    """The pure learning curve: expert>sonnet>supervisor, NO tf-idf. Expert =
+    abduced rules only. Measures Sonnet-rate falling + expert-coverage rising +
+    precision held over the stream. Gate is goal-aligned (validates against the
+    gold label on held-out stream-so-far) -> no Goodhart, less overfit."""
+    from supervisor import online as _o
+    r = _o.run(stream_n=stream_n, floor=floor, window=window, gate_min_fires=gate_min_fires)
+    print(f"\n# Online learning curve — {r['experiment']}")
+    print(f"goal: {r['goal']}")
+    print(f"  window  sonnet_rate  expert_cov  precision  rules")
+    for c in r["curve"]:
+        print(f"  @{c['seen']:<5} {c['sonnet_rate']:>8.0%}    {c['expert_coverage']:>7.0%}   "
+              f"{c['precision']:>7.0%}   {c['rules']}")
+    print(f"  Sonnet-rate: {r['first_window_sonnet_rate']:.0%} -> {r['last_window_sonnet_rate']:.0%} "
+          f"(cost-decrease = the structural result)")
+    print(f"  held-out test: expert covers {r['test_expert_coverage']:.0%} at "
+          f"precision {r['test_expert_precision']}  (abduction's isolated buy)")
+
+
+@supervisor_app.command("clarify")
+def supervisor_clarify(
+    top_pairs: int = typer.Option(8, "--top-pairs"),
+    safe_floor: float = typer.Option(0.98, "--floor"),
+    shell_threshold: float = typer.Option(0.6, "--shell"),
+    max_clarify: int = typer.Option(60, "--max-clarify", help="tail cases to clarify (cost bound)"),
+) -> None:
+    """DECIDING experiment: ask the abducted axis as a clarifying question, a
+    simulated customer answers, resolve. Headline = clarification_precision: do
+    the confusable pairs clear at >= floor when the signal is available?"""
+    from supervisor import cascade as _c
+    r = _c.run_clarify(top_pairs=top_pairs, safe_floor=safe_floor,
+                       shell_threshold=shell_threshold, max_clarify=max_clarify)
+    print(f"\n# Clarification eval — banking77 (n={r['n_test']})")
+    print(f"  clarification precision (HEADLINE): {r['clarification_precision']}  "
+          f"on {r['n_clarified']} clarified tail cases")
+    print(f"  baseline safe coverage:  {r['baseline_safe_coverage']:.1%}")
+    print(f"  clarified safe coverage: {r['clarified_safe_coverage']:.1%}  "
+          f"(delta {r['delta_coverage']:+.1%}; promotion-dependent)")
+    print(f"  ({r['note']})")
+    p = r['clarification_precision']
+    if p is not None:
+        print(f"  -> clarification {'CLEARS the pairs (>=floor)' if p >= safe_floor else 'does NOT clear (genuine ambiguity or noisy answers)'}")
+
+
 @supervisor_app.command("nearby")
 def supervisor_nearby(
     query: str = typer.Argument(..., help="query to find nearby corpus examples for"),
