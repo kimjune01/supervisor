@@ -149,17 +149,23 @@ def supervisor_bench(
     faithfulness."""
     if dataset != "banking77":
         raise typer.BadParameter("only 'banking77' is wired up so far")
-    r = _bench.run(per_intent=per_intent, test_sample=test_sample,
+    r = _bench.run(induce_per_intent=per_intent, test_sample=test_sample,
                    min_precision=min_precision, seed=seed)
+    a = r["arms"]
     print(f"\n# Bench — {r['dataset']} ({r['intents']} intents, "
-          f"test_sample={r['params']['test_sample']})")
-    rind, res, tot, base = r["rind"], r["residue"], r["total"], r["baseline_llm_only"]
-    print(f"  RIND      cover={rind['coverage']:.0%}  acc={rind['accuracy']}  "
-          f"intents={rind['intents_covered']}/{r['intents']}  llm_calls=0")
-    print(f"  RESIDUE   n={res['count']}  acc={res['accuracy']}  llm_calls={res['llm_calls']}")
-    print(f"  TOTAL     acc={tot['accuracy']}  llm_calls={tot['llm_calls']}")
-    print(f"  BASELINE  acc={base['accuracy']}  llm_calls={base['llm_calls']}  (sonnet-only, same prompt)")
-    print(f"  saved {r['llm_calls_saved_vs_baseline']} llm calls vs baseline")
+          f"test_sample={r['test_sample']})")
+    print(f"  sonnet-only     acc={a['sonnet_only']['accuracy']}  (control, expensive)")
+    print(f"  haiku-only      acc={a['haiku_only']['accuracy']}  (cheap model)")
+    print(f"  tfidf-only      acc={a['tfidf_only']['accuracy']}  (trained, no LLM)")
+    for thr, m in a["tfidf_reject"].items():
+        print(f"  tfidf+reject {thr}  acc={m['accuracy']}  "
+              f"shell_cover={m['shell_coverage']:.0%}  sonnet_residue={m['calls']['sonnet_residue']}")
+    f = a["features_rules"]
+    print(f"  features+rules  acc={f['accuracy']}  "
+          f"rind_cover={f['rind']['coverage']:.0%}  rind_acc={f['rind']['accuracy']}  "
+          f"intents={f['rind']['intents_covered']}/{r['intents']}")
+    print(f"\n  (4 trained-shell vs 5 no-weights-rules is the key contrast; "
+          f"report at {_bench.REPORT_PATH})")
 
 
 def main() -> None:
