@@ -42,3 +42,22 @@ Licenses: "a clean model running the /investigate method solves a non-trivial,
 hidden-cause, post-cutoff bug in a clean room (offline, no retrieval)." Stronger than
 detekt (real recursion diagnosis, not a one-liner). Does NOT license: a rate (n=1), or
 the fan-out slowdown as a number (needs medians via parallel containers).
+
+## Bug-hunt (level 3): tests pass ≠ correct
+Ran a clean-room adversarial bug-hunt on the fix — Sonnet-4.5 *adversary* (codex/gemini
+are 2026 models, contaminated here, so fell back to the documented clean-cutoff Sonnet
+adversary), web-blocked, offline, scoped to the diff's blast radius. **Verdict: DEFECT
+FOUND.** The fix resolves the StackOverflowError (bench-green) but changes diamond-
+dependency classification to order-dependent (first-visit-wins): a shared child reachable
+via both an included and an excluded path is misclassified by visit order. The test suite
+doesn't cover that case → green but regressive on the edge.
+
+This is the concrete demonstration that **passing the test gate is not correctness**:
+- level 1 (bench-resolved): tests pass ✓
+- level 2 (read the diff): looks like a clean cycle guard ✓
+- level 3 (adversarial review): found a diamond-dependency hole the tests miss.
+
+Caveats: the finding is **analytical, not demonstrated** (the adversary reasoned it but
+did not write a failing test; ~40% adversary false-positive prior). And the flaw is
+partly pre-existing — our diff made it deterministic/worse, so it's an in-scope
+regression but not a wholly new bug. To confirm: construct the diamond test and run it.
