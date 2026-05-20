@@ -192,6 +192,27 @@ def supervisor_bench_abduction(
     print(f"  -> abduction {'HELPS' if d['rind_correct_of_total'] > 0 else 'does NOT help'} at equal budget")
 
 
+@supervisor_app.command("cascade")
+def supervisor_cascade(
+    top_pairs: int = typer.Option(8, "--top-pairs", help="confused pairs to abduct features for"),
+    safe_floor: float = typer.Option(0.98, "--floor", help="precision floor (0.98=50x cost ratio)"),
+    shell_threshold: float = typer.Option(0.6, "--shell", help="TF-IDF confidence above which the shell auto-routes alone"),
+) -> None:
+    """The cost-asymmetric supervisor: TF-IDF shell + tri-abducted disambiguation
+    on the confusable tail, gated four-bin into the hygraph. Reports SAFE COVERAGE
+    @ the precision floor vs the TF-IDF baseline. LLM only on the tail."""
+    from supervisor import cascade as _c
+    r = _c.run(top_pairs=top_pairs, safe_floor=safe_floor, shell_threshold=shell_threshold)
+    b, a = r["baseline_tfidf"], r["cascade_abducted"]
+    print(f"\n# Cascade — banking77 (full test n={r['n_test']})")
+    print(f"objective: {r['objective']}")
+    print(f"  baseline TF-IDF      safe_coverage={b['safe_coverage']:.1%}  (prec {b['precision']:.1%})")
+    print(f"  + abducted features  safe_coverage={a['safe_coverage']:.1%}  (prec {a['precision']:.1%})")
+    print(f"  DELTA coverage       {r['delta_coverage']:+.1%}  ({r['n_committed']} features committed)")
+    print(f"  calls: {r['calls']}")
+    print(f"  committed: {[f['flag'] for f in r['committed_features']]}")
+
+
 @supervisor_app.command("nearby")
 def supervisor_nearby(
     query: str = typer.Argument(..., help="query to find nearby corpus examples for"),
