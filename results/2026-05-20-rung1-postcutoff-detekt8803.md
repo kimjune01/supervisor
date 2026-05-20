@@ -82,3 +82,24 @@ would require pinning subagents to Sonnet 4.5 (contamination) + per-hypothesis r
 copies (parallel interventions collide on one container). Both arms produced
 divergent-but-correct fixes — neither matched gold's `KaSymbolModality.OPEN` — which
 is consistent across both: clean-model diagnosis, not recall.
+
+## Isolation-guidance bench (the 2.2x was noise)
+A single pair suggested the "isolate the buggy subregion" prompt cut wall-clock 2.2x
+(135s vs 299s). Ran 4 trials each arm (same instance/model/container, reset between,
+gradle-gated) to check. It did not hold:
+
+| arm | median | min–max | solved |
+|---|---|---|---|
+| base (no guidance) | 210.2s | 152–321 | 4/4 |
+| iso (guidance) | 211.0s | 204–335 | 4/4 |
+
+**1.00x median speedup; distributions fully overlap** (base had the single fastest
+run). The 2.2x was variance — a lucky-fast iso vs unlucky-slow base. The repeats
+caught a false claim the single pair would have shipped.
+
+**Why no effect here (not "guidance is useless"):** detekt-8803 is too small to test
+the hypothesis — the buggy rule is one grep away regardless, so there is nothing to
+isolate *from*. Subregion-isolation should only pay when the repo is large enough that
+whole-repo reading is the dominant cost. **The speedup is therefore a rung-2 question**
+(needs a meaty target), not a settled result. Guidance kept (8/8 solved, didn't hurt,
+delta-debugging is sound craft) but claims no speedup until a big repo shows one.
