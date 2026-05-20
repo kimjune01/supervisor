@@ -85,54 +85,78 @@ def _confused_pairs(pipe, train, top: int):
 
 def _tri_abduct(x, ex_x, y, ex_y, model):
     """Tri-abduction: diff the two confused intents' boundary examples, name the
-    ONE binary semantic axis that separates them. One LLM call."""
+    ONE binary SEMANTIC axis that separates them — the dimension a bag-of-words
+    classifier is BLIND to. One LLM call."""
     out = _ask_sonnet(
-        "Two intents are confused by a bag-of-words classifier because they "
-        "share vocabulary. Diff their examples (figure = the semantic axis that "
-        "systematically differs, ground = shared surface) and name ONE binary "
-        "feature, judgeable from the query text, that separates intent A from "
-        "intent B. Return JSON: {\"flag\":\"snake_case\",\"definition\":\"true "
-        "when ... (A) / false when ... (B)\"}",
+        "Two intents are confused by a TF-IDF (bag-of-words) classifier because "
+        "they SHARE the same keywords. A keyword feature is therefore useless — "
+        "TF-IDF already has the words. Diff the examples and name ONE binary "
+        "SEMANTIC feature that separates A from B along an axis the bag-of-words "
+        "CANNOT see: e.g. asks-why-vs-how, problem-vs-request, self-vs-recipient, "
+        "reversal-vs-never-completed, payment-vs-cash-channel. NOT the presence "
+        "of a word. The feature must be judgeable from the query's MEANING, not "
+        "its vocabulary. Return JSON: {\"flag\":\"snake_case\","
+        "\"definition\":\"true when ...(A) / false when ...(B)\","
+        "\"axis\":\"the semantic dimension, in 3-5 words\"}",
         f"Intent A = {x}\nA examples:\n" + "\n".join(f"- {q}" for q in ex_x[:6]) +
         f"\n\nIntent B = {y}\nB examples:\n" + "\n".join(f"- {q}" for q in ex_y[:6]),
         model)
     if not out or not out.get("flag"):
         return None
     return {"flag": str(out["flag"]), "definition": out.get("definition", ""),
-            "pair": [x, y]}
+            "axis": out.get("axis", ""), "pair": [x, y]}
 
 
-def _extract_bool(text, flag, definition, model):
-    """One cheap binary feature extraction for a query."""
+def _disambiguate(text, a, b, axis, definition, model):
+    """Direct axis-guided 2-way disambiguation — robust to polarity/negation.
+    Instead of extracting an abstract boolean (which false-positives on
+    "no credit" vs "ok credit"), ask the model to compare the two readings
+    head-to-head, attending to the abducted semantic axis. Returns a or b (or
+    None). Uses the LLM's strength (semantic comparison), not a brittle flag."""
     out = _ask_sonnet(
-        f"Feature `{flag}`: {definition}\nDecide if it is true for the query. "
-        'Return JSON: {"value": true/false}', f"Query: {text}", model, timeout=30)
-    return bool((out or {}).get("value", False)) if out else None
+        f"Two intents are easily confused. Decide which ONE the query means, "
+        f"attending specifically to this axis: {axis} ({definition}). Watch "
+        f"negation/polarity carefully (e.g. 'no credit' is the OPPOSITE of "
+        f"'credit ok'). Options:\n  A = {a}\n  B = {b}\n"
+        'Return JSON: {"choice": "A" or "B"}',
+        f"Query: {text}", model, timeout=30)
+    c = (out or {}).get("choice", "").upper()
+    return a if c == "A" else b if c == "B" else None
 
 
-def _validate_feature(feat, by_intent, model, k=8):
-    """Four-bin gate, on train: does the feature separate its pair? Extract it on
-    k examples of each intent; if it cleanly splits (true->A, false->B) at >=
-    floor, converge. Returns (verdict, precision, true_intent_when_true)."""
+def _validate_agreement(feat, by_intent, pipe, cls, model, floor, k=10):
+    """The agreement gate (the hypothesis: requiring agreement allows more
+    precise encoding). On train pair examples, get BOTH the TF-IDF prediction
+    and the feature-implied prediction; look only at cases where they AGREE, and
+    measure precision THERE. Commit (converge) iff agreement-precision >= floor.
+    Returns (verdict, agreement_precision, agreement_coverage, true_intent)."""
+    import numpy as np
     a, b = feat["pair"]
+    axis = feat.get("axis", "")
     rows = [(q, a) for q in by_intent[a][:k]] + [(q, b) for q in by_intent[b][:k]]
-    vals = {}
-    for q, lab in rows:
-        v = _extract_bool(q, feat["flag"], feat["definition"], model)
-        if v is not None:
-            vals[(q, lab)] = v
-    if not vals:
-        return "chaos", 0.0, a
-    # which intent does True predict?
-    true_a = sum(1 for (q, lab), v in vals.items() if v and lab == a)
-    true_b = sum(1 for (q, lab), v in vals.items() if v and lab == b)
-    true_intent = a if true_a >= true_b else b
-    false_intent = b if true_intent == a else a
-    correct = sum(1 for (q, lab), v in vals.items()
-                  if (v and lab == true_intent) or (not v and lab == false_intent))
-    prec = correct / len(vals)
-    verdict = "converge" if prec >= 0.85 else ("oscillate" if prec >= 0.6 else "chaos")
-    return verdict, prec, true_intent
+    P = pipe.predict_proba([q for q, _ in rows])
+    ia, ib = cls.index(a), cls.index(b)
+    agree, correct = 0, 0
+    n = 0
+    for idx, (q, lab) in enumerate(rows):
+        pick = _disambiguate(q, a, b, axis, feat["definition"], model)
+        if pick is None:
+            continue
+        n += 1
+        tfidf = a if P[idx][ia] >= P[idx][ib] else b
+        if pick == tfidf:                     # AGREEMENT
+            agree += 1
+            if pick == lab:
+                correct += 1
+    if n == 0:
+        return "chaos", 0.0, 0.0, a
+    if agree == 0:
+        return "oscillate", 0.0, 0.0, a
+    agree_prec = correct / agree
+    agree_cov = agree / n
+    verdict = ("converge" if agree_prec >= floor
+               else "oscillate" if agree_prec >= 0.7 else "chaos")
+    return verdict, agree_prec, agree_cov, a  # true_intent unused now (direct pick)
 
 
 def run(top_pairs: int = 8, safe_floor: float = 0.98,
@@ -158,9 +182,9 @@ def run(top_pairs: int = 8, safe_floor: float = 0.98,
     base_cov, base_thr, base_prec = _safe_coverage(np.array(conf), correct0, safe_floor)
     print(f"baseline TF-IDF safe coverage @ {safe_floor:.0%}: {base_cov:.1%}")
 
-    # --- abduct + gate features for the top confused pairs ---
+    # --- abduct + AGREEMENT-gate features for the top confused pairs ---
     pairs = _confused_pairs(pipe, train, top_pairs)
-    committed = {}  # frozenset(pair) -> {flag, definition, true_intent}
+    committed = {}  # frozenset(pair) -> {flag, definition, true_intent, agree_prec}
     calls = {"abduct": 0, "validate": 0, "disambiguate": 0}
     for (a, b) in pairs:
         obs = g.observe({"signature": f"{a}<->{b}"})
@@ -174,37 +198,41 @@ def run(top_pairs: int = 8, safe_floor: float = 0.98,
             continue
         hyp = g.stage({**feat, "predicate": feat["definition"]},
                       observation=obs, kind="tri", examples=ex_a[:3] + ex_b[:3])
-        verdict, prec, true_intent = _validate_feature(feat, by_intent, extractor)
-        calls["validate"] += 16
-        g.perturb(hyp, verdict, {"train_precision": round(prec, 3)})
+        verdict, aprec, acov, true_intent = _validate_agreement(
+            feat, by_intent, pipe, cls, extractor, safe_floor); calls["validate"] += 20
+        g.perturb(hyp, verdict, {"agreement_precision": round(aprec, 3),
+                                 "agreement_coverage": round(acov, 3), "axis": feat.get("axis")})
         if verdict == "converge":
             feat["true_intent"] = true_intent
+            feat["agree_prec"] = aprec
             committed[frozenset((a, b))] = feat
             g.commit(hyp)
-            print(f"  committed {feat['flag']} for {a}<->{b} (train sep {prec:.0%})")
+            print(f"  committed {feat['flag']} [{feat.get('axis')}] for {a}<->{b} "
+                  f"(agreement prec {aprec:.0%}, cov {acov:.0%})")
         else:
-            g.retract(hyp, f"{verdict}: train separation {prec:.0%} < floor")
-            print(f"  retracted {feat['flag']} ({verdict}, {prec:.0%})")
+            g.retract(hyp, f"{verdict}: agreement precision {aprec:.0%} < floor {safe_floor:.0%}")
+            print(f"  retracted {feat['flag']} ({verdict}, agree {aprec:.0%})")
 
-    # --- disambiguate the confusable tail on the full test ---
-    # New decision: confident shell OR a committed feature that resolves the pair.
+    # --- AGREEMENT-gated routing on the confusable tail (full test) ---
+    # The feature CONFIRMS or CONTRADICTS TF-IDF; it never overrides. Agreement
+    # -> auto-route at the measured agreement precision (calibrated, not 0.99).
+    # Disagreement -> abstain (don't gamble). This is the hypothesis under test.
     new_pred = list(pred)
     new_conf = list(conf)
     for i in range(len(texts)):
         if conf[i] >= shell_threshold:
-            continue  # shell is confident enough; leave it
-        key = frozenset(top2[i])
-        feat = committed.get(key)
+            continue  # shell already confident; leave it
+        feat = committed.get(frozenset(top2[i]))
         if feat is None:
-            continue  # no disambiguator; stays low-conf -> will abstain
-        v = _extract_bool(texts[i], feat["flag"], feat["definition"], extractor)
-        calls["disambiguate"] += 1
-        if v is None:
             continue
         a, b = feat["pair"]
-        chosen = feat["true_intent"] if v else (b if feat["true_intent"] == a else a)
-        new_pred[i] = chosen
-        new_conf[i] = max(conf[i], 0.99)  # disambiguated -> promote to safe-confident
+        pick = _disambiguate(texts[i], a, b, feat.get("axis", ""), feat["definition"], extractor)
+        calls["disambiguate"] += 1
+        if pick is None:
+            continue
+        if pick == pred[i]:                            # AGREEMENT with TF-IDF top-1
+            new_conf[i] = max(conf[i], feat["agree_prec"])   # calibrated, not blanket 0.99
+        # disagreement -> leave low-conf -> abstains (no override, no gamble)
 
     correct1 = [int(new_pred[i] == gold[i]) for i in range(len(texts))]
     casc_cov, casc_thr, casc_prec = _safe_coverage(np.array(new_conf), correct1, safe_floor)
