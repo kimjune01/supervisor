@@ -1,22 +1,25 @@
-# BOOTSTRAP — beat SWE-bench Lite with the abductive diagnosis engine
+# BOOTSTRAP — beat post-cutoff SWE-bench with the abductive diagnosis engine
 
 *Self-contained spec. A fresh agent should be able to continue from this file alone.*
 
-## ⚠️ CONTAMINATION RISK — read this first
-SWE-bench Lite instances are **old public GitHub PRs** (sympy-12171 is from 2017),
-almost certainly **in the training data** of Opus, Sonnet, and the SOTA
-submissions. So "solving" one — especially producing a fix **byte-identical to the
-gold patch** — may be **memorized recall, not diagnosis.** This is the #1 confound,
-bigger than model-strength.
-- It directly undercuts the sympy-12171 result: a 2017 fix, reproduced exactly,
-  is what recall looks like. Treat that result as **suspect** until contamination
-  is controlled.
-- Paradox to keep in mind: the 28 SOTA agents likely had it in training too and
-  *still failed* — probably the issue's *wrong suggested fix* derails recall inside
-  an agent loop. So contamination muddies BOTH the failures and the solves.
-- **The only clean test: POST-CUTOFF instances** — bugs/PRs created *after* the
-  model's training cutoff, so the fix cannot be memorized. Filter instances by
-  `created_at` > model cutoff. Concrete sources (see Roadmap §0 for the ladder):
+## ⚠️ CONTAMINATION — removed by construction, read this first
+Contamination is the #1 confound: SWE-bench Lite instances are **old public GitHub
+PRs** (sympy-12171 is from 2017), almost certainly **in the training data**, so
+"solving" one — especially a fix **byte-identical to the gold patch** — may be
+**memorized recall, not diagnosis.** We do not *manage* this risk; we **eliminate**
+it by only ever evaluating on **post-cutoff instances** (`created_at > model
+cutoff`), where the fix cannot have been memorized. That filter is the entry
+condition for every claim-licensing rung (see Roadmap §0). The consequences:
+- The sympy-12171 result is **plumbing, not evidence** — a 2017 fix reproduced
+  exactly is indistinguishable from recall. It stays as a worked harness example
+  (rung S), never cited as a capability result.
+- Lite/Verified are used *only* as a harness shakedown (rung S) that licenses no
+  claim. The moment a rung licenses a rate or a "beats SOTA", it is post-cutoff.
+- Paradox worth remembering: the 28 SOTA agents likely had Lite in training too and
+  *still failed* — the issue's *wrong suggested fix* derails recall inside an agent
+  loop. Contamination muddies both failures and solves, which is exactly why we
+  refuse to reason from contaminated instances at all.
+- **Post-cutoff sources** — bugs/PRs created *after* the model's training cutoff:
   - **SWE-rebench (Nebius)** — best decontaminated source. Continuously updated,
     contamination tracked against model release dates. V2 = 32k executable tasks,
     20 langs, with `created_at`/`FAIL_TO_PASS`/`PASS_TO_PASS`/`image_name`.
@@ -29,16 +32,18 @@ bigger than model-strength.
   - OpenAI (Feb 2026) stopped reporting SWE-bench Verified — found ≥59.4% flawed
     tests in an audited subset, all frontier models could reproduce some gold
     patches — and now recommends **SWE-bench Pro** (Scale; 731 public instances).
-- Weaker signals while you lack post-cutoff data: (a) the **trajectory** — does the
-  model genuinely perturb/inspect and reason, or emit the gold fix immediately
-  (recall smell)? (b) solve with the issue text **withheld** — if it still nails the
-  exact fix from the repo alone, that's recall.
-**Any "we beat SOTA" claim is void without post-cutoff instances.**
+- Secondary defenses (cheap, stack them on top of post-cutoff selection — they are
+  not substitutes for it): (a) the **trajectory** — does the model genuinely
+  perturb/inspect and reason, or emit the fix immediately (recall smell)? (b) solve
+  with the issue text **withheld** — if it still nails the exact fix from the repo
+  alone, that's recall.
+**Any "we beat SOTA" claim is void unless every cited instance is post-cutoff.**
 
 ## Mission
 Build a **cheap, autonomous, self-improving diagnosis engine** that solves
-SWE-bench Lite instances the SOTA models fail — at a fraction of the cost, with
-auditable provenance. Beat the hard tail, not the leaderboard average.
+**post-cutoff** SWE-bench-style instances the SOTA models fail — at a fraction of
+the cost, with auditable provenance. Beat the hard tail, not the leaderboard
+average. Post-cutoff is non-negotiable: a contaminated solve is not a solve.
 
 ## The thesis (why this should work)
 Supplement an expert system; resolve its residue via LLM calls; encode recurring
@@ -57,15 +62,20 @@ hypothesis. A hypothesis-graph (SMEM) records provenance; recurring root-cause
 patterns get encoded so later instances are cheaper (the learning curve).
 
 ## State of evidence (as of 2026-05-20)
-- **Headroom found:** of 300 SWE-bench Lite instances, **52 are unsolved by ALL
-  28 strong 2025 submissions** (sympy 21, django 17, sphinx 4, rest 10; 44/52
-  pure-Python). List: `/tmp/swebench-abduction/unsolved_by_all_strong.json`.
-- **First solve:** `sympy__sympy-12171` (SOTA-failed by all 28) — RESOLVED, fix
-  **byte-identical to the gold patch**, 9/9 tests pass, re-verified clean.
-  Why SOTA fails it: the issue text *suggests a wrong fix*; the win needs
-  `inspect Derivative(..).args` (counts pre-expanded) + mirror the `Hold[Sum[]]`
-  convention. **CAVEAT: solved by Opus interactively — confounds model strength;
-  the cheap/autonomous version is the open question.**
+- **Headroom found (on Lite — context only, not a target set):** of 300 SWE-bench
+  Lite instances, **52 are unsolved by ALL 28 strong 2025 submissions** (sympy 21,
+  django 17, sphinx 4, rest 10; 44/52 pure-Python). Useful to know the hard tail
+  exists; NOT where claims come from (Lite is contaminated).
+- **Harness shakedown (rung S, NOT evidence):** `sympy__sympy-12171` — RESOLVED,
+  fix byte-identical to gold, 9/9 tests pass. A 2017 fix reproduced exactly is
+  indistinguishable from recall, so this counts only as proof the pipeline runs
+  end-to-end. Mechanism (for the worked example): `inspect Derivative(..).args` +
+  mirror the `Hold[Sum[]]` convention. Do not cite as a capability result.
+- **Rung 0 (static plausibility, Lite) run 2026-05-20** — see
+  `results/2026-05-20-rung0-static-plausibility.md`. Confirmed the engine emits
+  well-shaped patches AND that on contaminated Lite, plausibility and recall are
+  entangled (the two "high plausible" patches reeked of recall; the "fresh" one was
+  wrong). Reinforces: rung 0 only becomes *interpretable* on post-cutoff instances.
 - **Disentangling run — TIMED OUT, no verdict yet.** The autonomous **Sonnet**
   loop (`/tmp/swebench-abduction/swe_solve.py`) crashed: a single `claude --print
   --model claude-sonnet-4-6` call exceeded the 150s timeout (CLI cold-start +
@@ -134,8 +144,10 @@ Extend it: add the hypothesis-graph (`supervisor/hygraph.py`) to record each
 and reuse encoded kill-conditions/fix-templates so later solves get cheaper.
 
 ## Controls — DO NOT fool yourself
-0. **CONTAMINATION (the gate):** old instances may be memorized. No "beat SOTA"
-   claim is valid without **post-cutoff instances**. This dominates all others.
+0. **CONTAMINATION (removed by selection):** never evaluate on pre-cutoff instances.
+   The `created_at > cutoff` filter is applied once at data-pull and makes recall
+   impossible by construction — so this stops being a per-result judgment call.
+   Verify the filter ran (assert min `created_at` > cutoff) and you're done.
 1. **Model strength vs method:** always run cheap (Sonnet/Haiku) AND strong (Opus).
    A cheap model solving a SOTA-fail is the real signal (it can't be raw power).
 2. **Ablation:** with-loop (perturb→inspect→mirror) vs without (just "fix this").
@@ -149,24 +161,37 @@ and reuse encoded kill-conditions/fix-templates so later solves get cheaper.
    without the gold *fix* patch; consult it only after, for comparison.
 
 ## Roadmap (the quest)
-0. **POST-CUTOFF instances first** — without them, nothing below is a real claim.
-   This is the gate on the entire quest. [HARD GATE] Cheapest→most-definitive ladder
-   (each rung names the claim it licenses — don't overclaim a lower rung):
+0. **Contamination is removed by SELECTION, not gated.** Every claim-licensing rung
+   below runs *only* on instances with `created_at > model_cutoff` (the entry
+   condition, applied once when you pull the data — see "Instance selection" below).
+   With that filter in place, contamination cannot enter any rung, so the ladder is
+   ordered purely by cost→definitiveness. Lite/Verified appear once, as a no-claim
+   harness shakedown — explicitly fenced off from evidence.
 
-   | Rung | Setup | Effort | Claim licensed |
+   | Rung | Setup (all post-cutoff unless noted) | Effort | Claim licensed |
    |---|---|---|---|
-   | 0 | Static patch review on Lite fails, no exec | Hours | "patch looks plausible" — no rate |
-   | 1 | Host checkout on *fetchable* Lite/Verified, run targeted tests | 0.5–2d | directional smoke signal, selected tasks |
-   | 2 | Host checkout on post-cutoff Live/rebench slice | 1–3d | some uncontaminated traction (env-biased) |
-   | 3 | Docker harness, small Lite subset | ~1d, 120GB+ disk | legacy SWE-bench mechanics, small slice |
-   | 4 | Docker harness, Verified (500) | days | legacy Verified score — contamination dominates |
-   | 5 | Docker harness, SWE-bench-Live `full`, filtered `created_at>cutoff` | days–wks | **public post-cutoff resolution rate** |
-   | 6 | SWE-rebench monthly/V2 slice, filtered by `created_at` | days–wks | decontaminated public monthly signal |
-   | 7 | SWE-bench Pro public + held-out/commercial | highest | most defensible frontier claim |
+   | S | **Lite/Verified, harness smoke test** — does the pipeline run end-to-end? | hours | **NONE** — plumbing only, never cited as result |
+   | 0 | Static patch gen + plausibility, no exec, post-cutoff slice | hours | "plausibly fixes a bug it could not have memorized" |
+   | 1 | Host checkout on *fetchable* post-cutoff instances, run targeted tests | 0.5–2d | directional uncontaminated rate, small n, env-biased |
+   | 2 | Docker harness, small post-cutoff slice (SWE-rebench monthly / Live `full` filtered) | ~1d, 120GB+ disk | clean small-n resolution rate, harness-graded |
+   | 3 | Docker harness, full post-cutoff split, filtered `created_at>cutoff` | days–wks | **decontaminated public resolution rate** |
+   | 4 | SWE-rebench rolling monthly leaderboard (newest split) | wks, recurring | continuously-fresh signal, contamination-tracked |
+   | 5 | SWE-bench Pro public + held-out/commercial | highest/access | most defensible frontier claim |
 
-   Plan: run rungs 1–2 now for cheap triage; reserve real claims for rung 5 or 6.
-   The sympy-12171 Lite solve is a **legacy diagnostic only** until the same engine
-   is validated on post-cutoff SWE-rebench/Live.
+   Plan: run S to shake out the harness, then 0–1 on a post-cutoff slice for cheap
+   *interpretable* triage (plausibility now means something — recall is impossible),
+   reserve rate claims for 3+. The sympy-12171 Lite solve is **plumbing (rung S),
+   not evidence** — it stays in `results/` as a worked harness example, not a result.
+
+   **Instance selection (the one filter that does all the work):**
+   ```python
+   ds = load_dataset("nebius/SWE-rebench-V2", split="test")   # or SWE-bench-Live full
+   cutoff = MODEL_CUTOFFS[model]            # e.g. opus-4.7 -> "2026-01-01"
+   clean = ds.filter(lambda x: x["created_at"] > cutoff)      # + margin, e.g. +30d
+   ```
+   Pin the cutoff per model from the model card; when in doubt, add a 30-day margin
+   and require no browsing during solve. Note: SWE-bench-Live's public HF view tops
+   out at `created_at` 2025-08-30 — too old for ≥2026 cutoffs, so prefer SWE-rebench.
 1. **Confirm cheap-autonomous** — Sonnet loop solves >=1 SOTA-fail (run TIMED OUT,
    retry with timeout>=300s). [gate]
 2. **Docker harness** — clear the commit-wall; run a real RATE on the 52 (and on
