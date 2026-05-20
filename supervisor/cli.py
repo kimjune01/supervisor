@@ -19,6 +19,7 @@ from supervisor.core import PROPOSALS_DIR, supervise
 from supervisor.specs import (SPECS, contributor_spec, review_action_spec,
                               author_response_spec, with_outcomes,
                               OUTCOME_KEYS)
+from supervisor import bench as _bench
 
 supervisor_app = typer.Typer(
     help="Supervisor — encoding loop over classifiers (propose-only)",
@@ -132,6 +133,33 @@ def supervisor_archive(
     archive_dir.mkdir(parents=True, exist_ok=True)
     path.rename(archive_dir / fn)
     print(f"archived {fn}")
+
+
+@supervisor_app.command("bench")
+def supervisor_bench(
+    dataset: str = typer.Argument("banking77", help="benchmark name (banking77)"),
+    per_intent: int = typer.Option(15, "--per-intent", help="train examples shown per intent when proposing"),
+    test_sample: int = typer.Option(120, "--test-sample", help="held-out test queries to score"),
+    min_precision: float = typer.Option(0.9, "--min-precision", help="train-precision threshold to keep an expert rule"),
+    seed: int = typer.Option(0, "--seed"),
+) -> None:
+    """Run the encoding loop against a public classification benchmark and score
+    rind vs residue vs a strong LLM-only baseline (same classifier, few-shot).
+    Neutral-ground efficacy test: measures GOODNESS (accuracy), not just
+    faithfulness."""
+    if dataset != "banking77":
+        raise typer.BadParameter("only 'banking77' is wired up so far")
+    r = _bench.run(per_intent=per_intent, test_sample=test_sample,
+                   min_precision=min_precision, seed=seed)
+    print(f"\n# Bench — {r['dataset']} ({r['intents']} intents, "
+          f"test_sample={r['params']['test_sample']})")
+    rind, res, tot, base = r["rind"], r["residue"], r["total"], r["baseline_llm_only"]
+    print(f"  RIND      cover={rind['coverage']:.0%}  acc={rind['accuracy']}  "
+          f"intents={rind['intents_covered']}/{r['intents']}  llm_calls=0")
+    print(f"  RESIDUE   n={res['count']}  acc={res['accuracy']}  llm_calls={res['llm_calls']}")
+    print(f"  TOTAL     acc={tot['accuracy']}  llm_calls={tot['llm_calls']}")
+    print(f"  BASELINE  acc={base['accuracy']}  llm_calls={base['llm_calls']}  (sonnet-only, same prompt)")
+    print(f"  saved {r['llm_calls_saved_vs_baseline']} llm calls vs baseline")
 
 
 def main() -> None:
