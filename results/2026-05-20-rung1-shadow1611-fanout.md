@@ -59,5 +59,13 @@ This is the concrete demonstration that **passing the test gate is not correctne
 
 Caveats: the finding is **analytical, not demonstrated** (the adversary reasoned it but
 did not write a failing test; ~40% adversary false-positive prior). And the flaw is
-partly pre-existing — our diff made it deterministic/worse, so it's an in-scope
-regression but not a wholly new bug. To confirm: construct the diamond test and run it.
+partly pre-existing — our diff made it deterministic/worse.
+
+**Deliberately NOT fixed.** shadow-1611 is a *benchmark instance*, not a maintainer we
+ship to. The model's fix already clears the SWE-bench gate (FAIL_TO_PASS green,
+PASS_TO_PASS green) = resolved, by definition. The diamond finding's value is to
+*characterize the bench's pass-bar* (the gate sits below correctness — the OpenAI
+flawed-tests critique, demonstrated on a clean post-cutoff instance), NOT a TODO. Acting
+on it would be gold-plating a scoring target with no downstream beneficiary. Bug-hunt-to-
+correct is reserved for the production lane (a real PR to a real maintainer). See
+`feedback_bench_vs_production_bar` memory.
