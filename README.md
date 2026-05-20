@@ -40,6 +40,28 @@ Every concept in the posts has a single home in the code:
 | regret = reward = (before, action, **outcome**) | (new; see FINDINGS #1–2) | `specs.py` `with_outcomes`, `_regret_gather`, `_SURPRISING` |
 | corpus bootstrap (any GitHub contributor) | Asymptote | `specs.py` `contributor_spec` / `review_action_spec` / `author_response_spec` |
 
+## Where abduction lives — classification vs diagnosis
+
+The same loop has been pointed at two domains, and the contrast is the
+load-bearing scoping result:
+
+- **Classification (Banking77)** — the wrong domain. A trained statistical shell
+  (TF-IDF + reject) wins; abduction is marginal. Three negatives, kept as honest
+  negatives in `bench.py` / `cascade.py` / `online.py`. *You can't TF-IDF a root
+  cause* is the lesson stated in the positive.
+- **Diagnosis on a perturbable system (SWE-bench)** — abduction's home. There is
+  no statistical shortcut: you infer a hidden cause by *perturbing* — reproduce →
+  perturb-and-inspect → read the local convention → fix by mirroring → re-test, and
+  the failure names the next hypothesis. The hypothesis-graph (`hygraph.py`)
+  records `(observation → root cause → fix)` with provenance so recurring patterns
+  get encoded and later instances get cheaper.
+
+The SWE-bench quest — a cheap, autonomous, self-improving diagnosis engine, with
+**contamination as the hard gate** (post-cutoff instances only) — is specced in
+[`BOOTSTRAP-SWEBENCH.md`](BOOTSTRAP-SWEBENCH.md). First result (a SOTA-failed Lite
+instance solved) is in `results/2026-05-20-swebench-abduction-*`, scoped as a
+*legacy diagnostic* until validated post-cutoff.
+
 ## Install
 
 ```sh
@@ -86,6 +108,10 @@ regret channel). See the caveat in `docs/FINDINGS.md`.
 - `supervisor/core.py` — the `supervise(spec)` loop, four-case switch, blinded
   replay gate, propose-only emission. The generalizable harness.
 - `supervisor/specs.py` — instantiations: local (sweep) + corpus (`gh`), regret channel.
+- `supervisor/hygraph.py` — the hypothesis graph (SMEM): observation/hypothesis/rule
+  nodes, Peirce's abductive/deductive/inductive edges, provenance + four-bin verdicts.
+- `supervisor/bench.py` / `cascade.py` / `online.py` — the Banking77 classification
+  arms (the wrong-domain detour; kept as honest negatives + the learning-curve probe).
 - `supervisor/_deps.py` — the small surface vendored out of sweep.
 - `supervisor/cli.py` — `supervisor run|list|show|archive`.
 

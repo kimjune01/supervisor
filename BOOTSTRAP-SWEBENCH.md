@@ -111,6 +111,16 @@ SWE-bench Docker harness** (pinned per-instance env). Docker IS available here
 (28.5.2). See https://github.com/swe-bench/SWE-bench (harness + `swebench` pip pkg,
 `python -m swebench.harness.run_evaluation`).
 
+**Compute — rent a cheap Hetzner CPU box, don't run the harness locally.** The
+harness is CPU-only (the model runs over the API/CLI; the box just builds images
+and runs tests) and disk-hungry (per-instance Docker images, 120GB+ for a Lite
+slice). A Hetzner dedicated/cloud instance (e.g. CCX/CPX, ~€0.02–0.05/hr, or an
+auction dedicated box for a few €/day) gives the cores + disk + bandwidth to pull
+images without thrashing the laptop. Spin up → `git clone` SWE-bench + `pip install
+swebench` → run the harness with `--max_workers` matched to vCPUs → rsync results
+back → tear down. `docker system prune -af` between runs; the disk fills fast.
+Keep model calls pointed at your existing plan (the box only needs the CLI/creds).
+
 ## The autonomous loop (prototype: /tmp/swebench-abduction/swe_solve.py)
 A model (Sonnet for cost, Opus for hard cases) gets the issue + failing test, and
 emits ONE JSON action/turn: `inspect` (run python to observe), `read` (a file),
