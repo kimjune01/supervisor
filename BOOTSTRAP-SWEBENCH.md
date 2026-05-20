@@ -111,15 +111,19 @@ SWE-bench Docker harness** (pinned per-instance env). Docker IS available here
 (28.5.2). See https://github.com/swe-bench/SWE-bench (harness + `swebench` pip pkg,
 `python -m swebench.harness.run_evaluation`).
 
-**Compute — rent a cheap Hetzner CPU box, don't run the harness locally.** The
-harness is CPU-only (the model runs over the API/CLI; the box just builds images
-and runs tests) and disk-hungry (per-instance Docker images, 120GB+ for a Lite
-slice). A Hetzner dedicated/cloud instance (e.g. CCX/CPX, ~€0.02–0.05/hr, or an
-auction dedicated box for a few €/day) gives the cores + disk + bandwidth to pull
-images without thrashing the laptop. Spin up → `git clone` SWE-bench + `pip install
-swebench` → run the harness with `--max_workers` matched to vCPUs → rsync results
-back → tear down. `docker system prune -af` between runs; the disk fills fast.
-Keep model calls pointed at your existing plan (the box only needs the CLI/creds).
+**Compute — a cheap CPU box (e.g. Hetzner) is one option, NOT a settled
+recommendation.** The harness itself is CPU-only and disk-hungry (per-instance
+Docker images, 120GB+ for a Lite slice), so a rented CCX/CPX or auction dedicated
+box (~€0.02–0.05/hr up to a few €/day) has the cores + disk + bandwidth the laptop
+lacks. Open questions before relying on it:
+- **ToS risk (the real blocker):** running your Claude *plan* (Pro/Max) creds on a
+  rented server for automated, headless harness calls likely violates Anthropic's
+  terms (plans are for interactive personal use, not server/automated workloads).
+  Don't do this. If you go remote, use a metered **API key** for the model calls
+  and keep the harness (which needs no model) on whatever box is convenient.
+- Hetzner's own AUP also restricts some automated workloads — check before scaling.
+So: the box solves the *disk/CPU* problem for the harness; it does NOT license
+pointing plan creds at it. Decide the model-call path (API key vs local) first.
 
 ## The autonomous loop (prototype: /tmp/swebench-abduction/swe_solve.py)
 A model (Sonnet for cost, Opus for hard cases) gets the issue + failing test, and
