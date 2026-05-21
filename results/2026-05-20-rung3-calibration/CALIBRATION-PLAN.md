@@ -11,9 +11,10 @@ is an improvement target fed back into the skill (the backward pass).
 
 It asserts **no rate**. The team only publishes a result from a frozen config that **matches
 or beats SOTA models on a clean comparable set** — nobody cares about a bench number that
-doesn't beat SOTA. This round earns that config; the publishable rung gets its own clean
-preregistration later (declared estimand, optional-stopping / precision rule, finite-population
-CIs, a matched baseline run).
+doesn't beat SOTA. This round produces a **frozen candidate config**; it does not itself
+estimate performance or prove SOTA-competitiveness. Only the later publishable rung — its own
+clean preregistration (declared estimand, optional-stopping / precision rule, finite-population
+CIs, a matched baseline on the identical tail) — estimates the rate.
 
 ## Contamination firewall (the load-bearing rule)
 **Every instance revealed during calibration is BURNED for the publishable evaluation.** We
@@ -35,18 +36,24 @@ The doubling ladder belongs to a **single, unmodified skill version**. **Any mod
 the `/investigate` skill or the harness resets the rung back to 5.** A config "earns" its way
 up only by climbing **without changes**.
 
-This is *why optional stopping is harmless here* — it is not a statistical design we're
-peeking at. No claim ever rides on a peeked-then-extended sequence, because the moment we
-change anything the evidence ladder is voided and restarts from scratch. The eventual
-publishable config is a skill version that climbed the full ladder with **zero modifications**,
-then gets graded on the clean (never-revealed) tail.
+This narrows the optional-stopping concern, it does not abolish it: the rule prevents any
+**publishable rate from being estimated on an adaptively modified calibration prefix** (the
+bad "peek → tweak → extend the same sequence → report it" pattern). It does **not** make
+optional stopping categorically harmless. Two residuals remain and are tolerated *only because
+the publishable claim lives on a never-revealed tail*: (a) the final config is **selected** by
+having survived prior burned prefixes while other versions failed/were changed — selection over
+configs, not bias in the clean-tail estimate; (b) **multiple comparisons across skill versions**
+can overfit the calibration distribution. Both are why the ladder yields a *candidate*, and the
+clean tail (config frozen first, estimand/CI/baseline preregistered) is what actually estimates
+performance.
 
 **Reset mechanics (minimize burn):** a restart re-runs the modified skill on the instances
 **already revealed** (they're already burned — re-running costs no new contamination, and it
-verifies the fix didn't regress instances that previously passed). **Fresh instances are
-revealed only when a skill version climbs past the deepest prefix any prior version reached.**
-So the clean tail is spent slowly — a new instance is burned only when the skill is good
-enough to deserve it.
+verifies the fix didn't regress instances that previously passed). **The burned prefix is
+global across all skill versions, not per-version.** Fresh instances are revealed only when a
+skill version climbs past the deepest prefix *any* prior version reached. This spends the clean
+tail slowly — a cost-control rule, not a performance claim (later revealed instances are by
+construction reached by selected configs, so they are calibration, never evidence of a rate).
 
 ## Calibration pool (frozen order, NOT an evaluation population)
 - **Source:** `nebius/SWE-rebench-V2`, parquet `default/train/0.parquet` (32,079 rows).
@@ -84,7 +91,13 @@ the first things expected to break — exactly what we want to learn cheaply.
    issue text + test names are NOT mounted in the agent-visible workspace.
 
 Any pre-flight failure = skip the Sonnet solve for that instance and log it; no point burning
-tokens (or the instance) on an environment we can't even set up.
+*tokens* on an environment we can't even set up.
+
+> **Burn rule (hard).** Any instance whose id, issue text, test_patch, gold-eval output, image
+> behavior, or harness transcript is **inspected** during calibration is **burned** for the
+> publishable evaluation — *regardless of whether a Sonnet solve ran.* Skipping the solve saves
+> tokens only; it does not preserve the instance. "Revealed" = "inspected," and the burned
+> prefix is global. (A pre-flight failure still burns the instance; it just doesn't cost tokens.)
 
 ## Per-run log (one record per instance — so /retro gets trendable signal, not anecdotes)
 `instance_id`, repo, language, **image digest**, gold-eval verdict + transcript, solve
@@ -122,5 +135,20 @@ After each round, `/retro` over the trajectories:
 - **If the round was clean** (no modification needed) → keep the skill hash frozen and **double
   the prefix**, revealing fresh instances.
 
-Output: a hardened skill version that climbed the full ladder unmodified — a frozen,
-SOTA-competitive config — not a rate.
+Output: a hardened skill version that climbed the full ladder unmodified — a frozen
+**candidate** config — not a rate. (Whether it's SOTA-competitive is decided by the publishable
+rung, not here.)
+
+## Publishable-tail protocol (committed now; full prereg comes later)
+Fixed in advance so calibration choices can't bend the eventual claim:
+- **Eligible set:** only **never-inspected** instances of this pool (the clean tail), or a
+  fresh dataset pull. The burned prefix is excluded by the global burn rule above.
+- **Defect handling:** the same pre-flight + `--golden-eval` filter is applied **blind, before
+  any solve**, to the tail. Instances whose gold patch doesn't grade are excluded as bench
+  defects and reported separately — they never silently re-enter the scored denominator.
+- **Freeze before evaluation:** the candidate skill git hash + full config is frozen and
+  recorded *before* the tail is touched. No modification during tail evaluation (that's the
+  whole point of the practice rungs).
+- **Baseline:** the SOTA comparison runs on the **identical tail**, same harness, same grading.
+- **Estimand + uncertainty:** declared in the tail's own preregistration (finite-population
+  rate, DNFs = failures, CI method, stopping/precision rule). Not asserted here.
