@@ -120,6 +120,17 @@ model-behavior}.
 `model-incomplete-patch` · `official-harness-mismatch`. Bench-defects and harness/toolchain
 classes are **harness work**; only `model-*` classes are skill-calibration signal proper.
 
+## Round ledger (which prefix is burned)
+- **Round 1** (positions 1–5): cardiologist/jump.jl/rook RESOLVED; detekt-8604 + mixedmodels.jl-858
+  bench defects. Surfaced harness fix #1 (patch capture vs agent-committed diffs). See `ROUND1-RESULT.md`.
+- **Round 2** (positions 6–10): `usethis-2142` [r], `kiota-6947` [csharp], `analytics-swift-406`
+  [swift], `runic.jl-170` [julia], `ferrite.jl-1235` [julia]. New toolchains R/csharp/swift —
+  highest expected breakage = highest calibration signal.
+- **Operator rule (2026-05-20):** a reset-to-5 advances to a *fresh* 5-slice of the frozen
+  permutation; we do **not** re-run already-attributed bench defects. Once golden-eval attributes
+  a failure to the bench, we accept it — **never massage the bench runner or patch around flaky
+  goldens.** Positions 1–10 are now burned (10/123).
+
 ## RESOLVED definition (when it happens)
 `from_fail_to_pass ⊇ FAIL_TO_PASS` AND `failed_from_pass_to_pass == []`, per the official
 harness — never the agent's prose. Gate-grounded: the agent declares RESOLVED only when its
