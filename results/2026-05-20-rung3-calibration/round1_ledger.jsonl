@@ -1,0 +1,8 @@
+{"instance": "rook__rook-16165", "stage": "start"}
+{"instance": "rook__rook-16165", "stage": "done", "agent_claim": true, "wall_s": 116, "patch_bytes": 632, "agent_log": "/tmp/swebench-abduction/r3_out_rook__rook-16165.txt", "patch_file": "/tmp/swebench-abduction/r3_patch_rook__rook-16165.diff"}
+{"instance": "kevincianfarini__cardiologist-164", "stage": "start"}
+{"instance": "kevincianfarini__cardiologist-164", "stage": "done", "agent_claim": true, "wall_s": 396, "patch_bytes": 10907, "agent_log": "/tmp/swebench-abduction/r3_out_kevincianfarini__cardiologist-164.txt", "patch_file": "/tmp/swebench-abduction/r3_patch_kevincianfarini__cardiologist-164.diff"}
+{"instance": "jump-dev__jump.jl-4050", "stage": "start"}
+{"instance": "jump-dev__jump.jl-4050", "stage": "done", "agent_claim": true, "wall_s": 718, "patch_bytes": 0, "agent_log": "/tmp/swebench-abduction/r3_out_jump-dev__jump.jl-4050.txt", "patch_file": "/tmp/swebench-abduction/r3_patch_jump-dev__jump.jl-4050.diff"}
+{"instance": "jump-dev__jump.jl-4050", "stage": "start"}
+{"instance": "jump-dev__jump.jl-4050", "stage": "done", "agent_claim": true, "wall_s": 838, "patch_bytes": 1325, "agent_log": "/tmp/swebench-abduction/r3_out_jump-dev__jump.jl-4050.txt", "patch_file": "/tmp/swebench-abduction/r3_patch_jump-dev__jump.jl-4050.diff"}

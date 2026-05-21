@@ -1,0 +1,317 @@
+HEAD is now at 82f95e2db Merge pull request #16160 from rook/mergify/bp/release-1.17/pr-16153
+=== RUN   Test_checkCsiCephConfigMapExists
+2026-05-21 03:01:30.174295 I | ceph-csi: csi ceph.conf configmap "csi-ceph-conf-override" exists
+--- PASS: Test_checkCsiCephConfigMapExists (0.00s)
+=== RUN   TestCreateUpdateCephConnection
+2026-05-21 03:01:30.174473 I | ceph-csi: Configuring ceph connection CR "testcluster" in namespace "test"
+2026-05-21 03:01:30.174869 I | ceph-csi: Successfully created ceph connection CR "testcluster"
+2026-05-21 03:01:30.174965 I | ceph-csi: Configuring ceph connection CR "testcluster" in namespace "test"
+2026-05-21 03:01:30.175013 I | ceph-csi: Successfully created ceph connection CR "testcluster"
+--- PASS: TestCreateUpdateCephConnection (0.00s)
+=== RUN   TestUpdateCsiClusterConfig
+=== RUN   TestUpdateCsiClusterConfig/add_a_simple_mons_list
+=== RUN   TestUpdateCsiClusterConfig/add_a_2nd_mon_to_the_current_cluster
+=== RUN   TestUpdateCsiClusterConfig/add_mount_options_to_the_current_cluster
+=== RUN   TestUpdateCsiClusterConfig/add_a_2nd_cluster_with_3_mons
+=== RUN   TestUpdateCsiClusterConfig/remove_a_mon_from_the_2nd_cluster
+=== RUN   TestUpdateCsiClusterConfig/add_a_3rd_cluster_with_subvolumegroup
+=== RUN   TestUpdateCsiClusterConfig/update_mount_options_in_presence_of_subvolumegroup
+=== RUN   TestUpdateCsiClusterConfig/add_a_4th_mon_to_the_3rd_cluster_and_subvolumegroup_is_preserved
+=== RUN   TestUpdateCsiClusterConfig/remove_subvolumegroup
+=== RUN   TestUpdateCsiClusterConfig/add_subvolumegroup_and_mons_after
+=== RUN   TestUpdateCsiClusterConfig/does_it_return_error_on_garbage_input?
+=== RUN   TestUpdateCsiClusterConfig/test_mon_IP's_update_across_all_clusterID's_belong_to_same_cluster
+=== RUN   TestUpdateCsiClusterConfig/test_multus_cluster
+=== RUN   TestUpdateCsiClusterConfig/test_crush_location_labels_are_set
+=== RUN   TestUpdateCsiClusterConfig/test_empty_namespace_correction
+2026-05-21 03:01:30.176331 I | ceph-csi: correcting CSI config map entry for cluster ID "cluster-id-and-namespace"; empty namespace will be set to "cluster-id-and-namespace"
+=== RUN   TestUpdateCsiClusterConfig/test_empty_namespace_correction_and_clear_netNamespaceFilePath
+2026-05-21 03:01:30.176391 I | ceph-csi: correcting CSI config map entry for cluster ID "cluster-id-and-namespace"; empty namespace will be set to "cluster-id-and-namespace"
+--- PASS: TestUpdateCsiClusterConfig (0.00s)
+    --- PASS: TestUpdateCsiClusterConfig/add_a_simple_mons_list (0.00s)
+    --- PASS: TestUpdateCsiClusterConfig/add_a_2nd_mon_to_the_current_cluster (0.00s)
+    --- PASS: TestUpdateCsiClusterConfig/add_mount_options_to_the_current_cluster (0.00s)
+    --- PASS: TestUpdateCsiClusterConfig/add_a_2nd_cluster_with_3_mons (0.00s)
+    --- PASS: TestUpdateCsiClusterConfig/remove_a_mon_from_the_2nd_cluster (0.00s)
+    --- PASS: TestUpdateCsiClusterConfig/add_a_3rd_cluster_with_subvolumegroup (0.00s)
+    --- PASS: TestUpdateCsiClusterConfig/update_mount_options_in_presence_of_subvolumegroup (0.00s)
+    --- PASS: TestUpdateCsiClusterConfig/add_a_4th_mon_to_the_3rd_cluster_and_subvolumegroup_is_preserved (0.00s)
+    --- PASS: TestUpdateCsiClusterConfig/remove_subvolumegroup (0.00s)
+    --- PASS: TestUpdateCsiClusterConfig/add_subvolumegroup_and_mons_after (0.00s)
+    --- PASS: TestUpdateCsiClusterConfig/does_it_return_error_on_garbage_input? (0.00s)
+    --- PASS: TestUpdateCsiClusterConfig/test_mon_IP's_update_across_all_clusterID's_belong_to_same_cluster (0.00s)
+    --- PASS: TestUpdateCsiClusterConfig/test_multus_cluster (0.00s)
+    --- PASS: TestUpdateCsiClusterConfig/test_crush_location_labels_are_set (0.00s)
+    --- PASS: TestUpdateCsiClusterConfig/test_empty_namespace_correction (0.00s)
+    --- PASS: TestUpdateCsiClusterConfig/test_empty_namespace_correction_and_clear_netNamespaceFilePath (0.00s)
+=== RUN   TestMonEndpoints
+=== RUN   TestMonEndpoints/msgrv1_when_not_require_msgr2
+=== RUN   TestMonEndpoints/convert_to_msgr2
+=== RUN   TestMonEndpoints/remains_msgr2
+=== RUN   TestMonEndpoints/ipv6_endpoint_conversion
+--- PASS: TestMonEndpoints (0.00s)
+    --- PASS: TestMonEndpoints/msgrv1_when_not_require_msgr2 (0.00s)
+    --- PASS: TestMonEndpoints/convert_to_msgr2 (0.00s)
+    --- PASS: TestMonEndpoints/remains_msgr2 (0.00s)
+    --- PASS: TestMonEndpoints/ipv6_endpoint_conversion (0.00s)
+=== RUN   TestUpdateCSIDriverOptions
+=== RUN   TestUpdateCSIDriverOptions/empty_current_config
+=== RUN   TestUpdateCSIDriverOptions/single_matching_current_config
+=== RUN   TestUpdateCSIDriverOptions/multiple_matching_current_config
+--- PASS: TestUpdateCSIDriverOptions (0.00s)
+    --- PASS: TestUpdateCSIDriverOptions/empty_current_config (0.00s)
+    --- PASS: TestUpdateCSIDriverOptions/single_matching_current_config (0.00s)
+    --- PASS: TestUpdateCSIDriverOptions/multiple_matching_current_config (0.00s)
+=== RUN   TestUpdateNetNamespaceFilePath
+=== RUN   TestUpdateNetNamespaceFilePath/empty
+=== RUN   TestUpdateNetNamespaceFilePath/holder_enabled
+=== RUN   TestUpdateNetNamespaceFilePath/holder_disabled
+=== RUN   TestUpdateNetNamespaceFilePath/Holder_enabled_and_disabled_later
+--- PASS: TestUpdateNetNamespaceFilePath (0.00s)
+    --- PASS: TestUpdateNetNamespaceFilePath/empty (0.00s)
+    --- PASS: TestUpdateNetNamespaceFilePath/holder_enabled (0.00s)
+    --- PASS: TestUpdateNetNamespaceFilePath/holder_disabled (0.00s)
+    --- PASS: TestUpdateNetNamespaceFilePath/Holder_enabled_and_disabled_later (0.00s)
+=== RUN   Test_updateCsiConfigMapOwnerRefs
+=== RUN   Test_updateCsiConfigMapOwnerRefs/no_configmap
+=== RUN   Test_updateCsiConfigMapOwnerRefs/no_existing_owner_ref
+2026-05-21 03:01:30.176828 I | ceph-csi: updating csi configmap "rook-ceph-csi-config" (in "test-ns") owner info
+=== RUN   Test_updateCsiConfigMapOwnerRefs/correct_existing_owner_ref
+=== RUN   Test_updateCsiConfigMapOwnerRefs/single_incorrect_existing_owner_ref
+2026-05-21 03:01:30.176976 I | ceph-csi: updating csi configmap "rook-ceph-csi-config" (in "test-ns") owner info
+=== RUN   Test_updateCsiConfigMapOwnerRefs/multiple_existing_owner_refs,_one_correct
+2026-05-21 03:01:30.177055 I | ceph-csi: updating csi configmap "rook-ceph-csi-config" (in "test-ns") owner info
+--- PASS: Test_updateCsiConfigMapOwnerRefs (0.00s)
+    --- PASS: Test_updateCsiConfigMapOwnerRefs/no_configmap (0.00s)
+    --- PASS: Test_updateCsiConfigMapOwnerRefs/no_existing_owner_ref (0.00s)
+    --- PASS: Test_updateCsiConfigMapOwnerRefs/correct_existing_owner_ref (0.00s)
+    --- PASS: Test_updateCsiConfigMapOwnerRefs/single_incorrect_existing_owner_ref (0.00s)
+    --- PASS: Test_updateCsiConfigMapOwnerRefs/multiple_existing_owner_refs,_one_correct (0.00s)
+=== RUN   TestCreateUpdateClientProfile
+2026-05-21 03:01:30.177173 I | ceph-csi: creating ceph-csi clientProfile CR for rados namespace
+2026-05-21 03:01:30.177192 I | ceph-csi: successfully created ceph-csi clientProfile CR for RBD "cephBlockPoolRadosNames"
+2026-05-21 03:01:30.177200 I | ceph-csi: Creating ceph-csi clientProfile CR for subvolume group
+2026-05-21 03:01:30.177214 I | ceph-csi: successfully created ceph-csi clientProfile CR for subVolGrp "cephSubVolumeGroupNames"
+--- PASS: TestCreateUpdateClientProfile (0.00s)
+=== RUN   TestCephCSIController
+=== RUN   TestCephCSIController/failure_because_no_CephCluster
+2026-05-21 03:01:30.177550 I | ceph-csi: successfully created csi config map "rook-ceph-csi-config"
+2026-05-21 03:01:30.177564 D | op-k8sutil: loading operator settings configmap from rook-ceph/rook-ceph-operator-config
+2026-05-21 03:01:30.177575 D | op-k8sutil: operator's configmap resource not found. will use default value or env var.
+2026-05-21 03:01:30.178135 D | ceph-csi: no ceph cluster found not deploying ceph csi driver
+2026-05-21 03:01:30.178152 D | ceph-csi: either EnableRBD if `false` or EnableCSIOperator is `true`, `EnableRBD is false` and `EnableCSIOperator is false
+2026-05-21 03:01:30.178162 I | op-k8sutil: removing daemonset csi-rbdplugin if it exists
+2026-05-21 03:01:30.178196 D | op-k8sutil: removing csi-rbdplugin-provisioner deployment if it exists
+2026-05-21 03:01:30.178210 I | op-k8sutil: removing deployment csi-rbdplugin-provisioner if it exists
+2026-05-21 03:01:30.178259 D | ceph-csi: rook-ceph.rbd.csi.ceph.com CSIDriver not found; skipping deletion.
+2026-05-21 03:01:30.178281 I | ceph-csi: successfully removed CSI Ceph RBD driver
+2026-05-21 03:01:30.178291 D | ceph-csi: either EnableCephFS if `false` or EnableCSIOperator is `true`, `EnableCephFS is false` and `EnableCSIOperator is false
+2026-05-21 03:01:30.178294 I | op-k8sutil: removing daemonset csi-cephfsplugin if it exists
+2026-05-21 03:01:30.178300 D | op-k8sutil: removing csi-cephfsplugin-provisioner deployment if it exists
+2026-05-21 03:01:30.178302 I | op-k8sutil: removing deployment csi-cephfsplugin-provisioner if it exists
+2026-05-21 03:01:30.178310 D | ceph-csi: rook-ceph.cephfs.csi.ceph.com CSIDriver not found; skipping deletion.
+2026-05-21 03:01:30.178312 I | ceph-csi: successfully removed CSI CephFS driver
+2026-05-21 03:01:30.178314 D | ceph-csi: either EnableNFS if `false` or EnableCSIOperator is `true`, `EnableNFS is false` and `EnableCSIOperator is false
+2026-05-21 03:01:30.178317 I | op-k8sutil: removing daemonset csi-nfsplugin if it exists
+2026-05-21 03:01:30.178320 D | op-k8sutil: removing csi-nfsplugin-provisioner deployment if it exists
+2026-05-21 03:01:30.178322 I | op-k8sutil: removing deployment csi-nfsplugin-provisioner if it exists
+2026-05-21 03:01:30.178335 D | ceph-csi: rook-ceph.nfs.csi.ceph.com CSIDriver not found; skipping deletion.
+2026-05-21 03:01:30.178337 I | ceph-csi: successfully removed CSI NFS driver
+=== RUN   TestCephCSIController/success_ceph_csi_deployment
+2026-05-21 03:01:30.178527 I | ceph-csi: successfully created csi config map "rook-ceph-csi-config"
+2026-05-21 03:01:30.178532 D | op-k8sutil: loading operator settings configmap from rook-ceph/rook-ceph-operator-config
+2026-05-21 03:01:30.178536 D | op-k8sutil: operator's configmap resource not found. will use default value or env var.
+2026-05-21 03:01:30.178636 D | ceph-csi: set logrotate values in csi param
+2026-05-21 03:01:30.178695 D | ceph-spec: found existing monitor secrets for cluster rook-ceph
+2026-05-21 03:01:30.187319 I | ceph-csi: successfully started CSI Ceph RBD driver
+2026-05-21 03:01:30.188007 I | ceph-csi: successfully started CSI CephFS driver
+2026-05-21 03:01:30.188241 I | ceph-csi: CSIDriver object created for driver "rook-ceph.rbd.csi.ceph.com"
+2026-05-21 03:01:30.188457 I | ceph-csi: CSIDriver object created for driver "rook-ceph.cephfs.csi.ceph.com"
+2026-05-21 03:01:30.188487 D | ceph-csi: either EnableNFS if `false` or EnableCSIOperator is `true`, `EnableNFS is true` and `EnableCSIOperator is false
+2026-05-21 03:01:30.188492 I | op-k8sutil: removing daemonset csi-nfsplugin if it exists
+2026-05-21 03:01:30.188517 D | op-k8sutil: removing csi-nfsplugin-provisioner deployment if it exists
+2026-05-21 03:01:30.188521 I | op-k8sutil: removing deployment csi-nfsplugin-provisioner if it exists
+2026-05-21 03:01:30.188531 D | ceph-csi: rook-ceph.nfs.csi.ceph.com CSIDriver not found; skipping deletion.
+2026-05-21 03:01:30.188534 I | ceph-csi: successfully removed CSI NFS driver
+=== RUN   TestCephCSIController/success_ceph_csi_deployment_with_multus
+2026-05-21 03:01:30.188789 I | ceph-csi: successfully created csi config map "rook-ceph-csi-config"
+2026-05-21 03:01:30.188797 D | op-k8sutil: loading operator settings configmap from rook-ceph/rook-ceph-operator-config
+2026-05-21 03:01:30.188801 D | op-k8sutil: operator's configmap resource not found. will use default value or env var.
+2026-05-21 03:01:30.188908 D | ceph-csi: set logrotate values in csi param
+2026-05-21 03:01:30.188950 D | ceph-spec: found existing monitor secrets for cluster rook-ceph
+2026-05-21 03:01:30.191431 I | ceph-csi: successfully started CSI Ceph RBD driver
+2026-05-21 03:01:30.191778 I | ceph-csi: successfully started CSI CephFS driver
+2026-05-21 03:01:30.191793 I | ceph-csi: CSIDriver object created for driver "rook-ceph.rbd.csi.ceph.com"
+2026-05-21 03:01:30.191801 I | ceph-csi: CSIDriver object created for driver "rook-ceph.cephfs.csi.ceph.com"
+2026-05-21 03:01:30.191805 D | ceph-csi: either EnableNFS if `false` or EnableCSIOperator is `true`, `EnableNFS is true` and `EnableCSIOperator is false
+2026-05-21 03:01:30.191807 I | op-k8sutil: removing daemonset csi-nfsplugin if it exists
+2026-05-21 03:01:30.191813 D | op-k8sutil: removing csi-nfsplugin-provisioner deployment if it exists
+2026-05-21 03:01:30.191821 I | op-k8sutil: removing deployment csi-nfsplugin-provisioner if it exists
+2026-05-21 03:01:30.191832 D | ceph-csi: rook-ceph.nfs.csi.ceph.com CSIDriver not found; skipping deletion.
+2026-05-21 03:01:30.191834 I | ceph-csi: successfully removed CSI NFS driver
+--- PASS: TestCephCSIController (0.01s)
+    --- PASS: TestCephCSIController/failure_because_no_CephCluster (0.00s)
+    --- PASS: TestCephCSIController/success_ceph_csi_deployment (0.01s)
+    --- PASS: TestCephCSIController/success_ceph_csi_deployment_with_multus (0.00s)
+=== RUN   TestReconcileCSI_createOrUpdateOperatorConfig
+2026-05-21 03:01:30.191983 I | ceph-csi: Creating ceph-CSI operator config CR
+2026-05-21 03:01:30.192006 I | ceph-csi: Successfully create imageSet cm rook-csi-operator-image-set-configmap for ceph-CSI operator-config CR "ceph-csi-operator-config"
+2026-05-21 03:01:30.192038 I | ceph-csi: Successfully created ceph-CSI operator config CR "ceph-csi-operator-config"
+--- PASS: TestReconcileCSI_createOrUpdateOperatorConfig (0.00s)
+=== RUN   TestReconcileCSI_createOrUpdateDriverResources
+2026-05-21 03:01:30.192372 I | ceph-csi: Creating RBD driver resources
+2026-05-21 03:01:30.192376 I | ceph-csi: adding annotation to CSIDriver resource for csi-operator to own it
+2026-05-21 03:01:30.192382 D | ceph-csi: rook-ceph.rbd.csi.ceph.com CSIDriver not found; skipping ownership transfer.
+2026-05-21 03:01:30.192398 I | ceph-csi: Successfully create imageSet cm rook-csi-operator-image-set-configmap for ceph-CSI operator-config CR "ceph-csi-operator-config"
+2026-05-21 03:01:30.192416 I | ceph-csi: successfully created CSI driver cr "test.rbd.csi.ceph.com"
+2026-05-21 03:01:30.192418 I | ceph-csi: Creating CephFS driver resources
+2026-05-21 03:01:30.192420 I | ceph-csi: adding annotation to CSIDriver resource for csi-operator to own it
+2026-05-21 03:01:30.192425 D | ceph-csi: rook-ceph.cephfs.csi.ceph.com CSIDriver not found; skipping ownership transfer.
+2026-05-21 03:01:30.192506 I | ceph-csi: Successfully updated imageSet cm rook-csi-operator-image-set-configmap for ceph-CSI operator-config CR "ceph-csi-operator-config"
+2026-05-21 03:01:30.192516 I | ceph-csi: successfully created CSI driver cr "test.cephfs.csi.ceph.com"
+2026-05-21 03:01:30.192524 I | ceph-csi: Creating NFS driver resources
+2026-05-21 03:01:30.192526 I | ceph-csi: adding annotation to CSIDriver resource for csi-operator to own it
+2026-05-21 03:01:30.192531 D | ceph-csi: rook-ceph.nfs.csi.ceph.com CSIDriver not found; skipping ownership transfer.
+2026-05-21 03:01:30.192564 I | ceph-csi: Successfully updated imageSet cm rook-csi-operator-image-set-configmap for ceph-CSI operator-config CR "ceph-csi-operator-config"
+2026-05-21 03:01:30.192573 I | ceph-csi: successfully created CSI driver cr "test.nfs.csi.ceph.com"
+--- PASS: TestReconcileCSI_createOrUpdateDriverResources (0.00s)
+=== RUN   Test_cmPredicate
+=== RUN   Test_cmPredicate/create_event_is_a_CM_but_not_the_operator_config
+=== RUN   Test_cmPredicate/delete_event_is_a_CM_and_it's_not_the_operator_config
+=== RUN   Test_cmPredicate/create_event_is_a_CM_and_it's_the_operator_config
+=== RUN   Test_cmPredicate/delete_event_is_a_CM_and_it's_the_operator_config
+=== RUN   Test_cmPredicate/update_event_is_a_CM_and_it's_the_operator_config_but_nothing_changed
+2026-05-21 03:01:30.192860 D | ceph-csi: operator configmap diff:
+ 
+=== RUN   Test_cmPredicate/update_event_is_a_CM_and_the_content_changed_with_correct_setting
+2026-05-21 03:01:30.192975 D | ceph-csi: operator configmap diff:
+   map[string]string{
++ 	"CSI_PROVISIONER_REPLICAS": "2",
+- 	"foo":                      "bar",
+  }
+--- PASS: Test_cmPredicate (0.00s)
+    --- PASS: Test_cmPredicate/create_event_is_a_CM_but_not_the_operator_config (0.00s)
+    --- PASS: Test_cmPredicate/delete_event_is_a_CM_and_it's_not_the_operator_config (0.00s)
+    --- PASS: Test_cmPredicate/create_event_is_a_CM_and_it's_the_operator_config (0.00s)
+    --- PASS: Test_cmPredicate/delete_event_is_a_CM_and_it's_the_operator_config (0.00s)
+    --- PASS: Test_cmPredicate/update_event_is_a_CM_and_it's_the_operator_config_but_nothing_changed (0.00s)
+    --- PASS: Test_cmPredicate/update_event_is_a_CM_and_the_content_changed_with_correct_setting (0.00s)
+=== RUN   Test_cephClusterPredicate
+=== RUN   Test_cephClusterPredicate/create_event_is_a_CephCluster_and_it's_the_first_instance_and_a_cm_is_present
+2026-05-21 03:01:30.193098 D | ceph-spec: found 0 ceph clusters in namespace "rook-ceph"
+=== RUN   Test_cephClusterPredicate/create_event_is_a_CephCluster_and_it's_not_the_first_instance
+2026-05-21 03:01:30.193156 D | ceph-spec: found 0 ceph clusters in namespace "rook-ceph"
+=== RUN   Test_cephClusterPredicate/create_event_is_a_CephCluster_and_it's_not_the_first_instance_but_no_cm_so_we_reconcile
+2026-05-21 03:01:30.193216 D | ceph-spec: found 0 ceph clusters in namespace "rook-ceph"
+2026-05-21 03:01:30.193250 D | ceph-csi: could not find operator configuration ConfigMap, will reconcile the csi controller
+=== RUN   Test_cephClusterPredicate/create_event_is_a_CephCluster_and_a_cluster_already_exists_-_not_reconciling
+2026-05-21 03:01:30.193384 D | ceph-spec: found 2 ceph clusters in namespace "rook-ceph"
+--- PASS: Test_cephClusterPredicate (0.00s)
+    --- PASS: Test_cephClusterPredicate/create_event_is_a_CephCluster_and_it's_the_first_instance_and_a_cm_is_present (0.00s)
+    --- PASS: Test_cephClusterPredicate/create_event_is_a_CephCluster_and_it's_not_the_first_instance (0.00s)
+    --- PASS: Test_cephClusterPredicate/create_event_is_a_CephCluster_and_it's_not_the_first_instance_but_no_cm_so_we_reconcile (0.00s)
+    --- PASS: Test_cephClusterPredicate/create_event_is_a_CephCluster_and_a_cluster_already_exists_-_not_reconciling (0.00s)
+=== RUN   TestCephCSIKeyringRBDNodeCaps
+--- PASS: TestCephCSIKeyringRBDNodeCaps (0.00s)
+=== RUN   TestCephCSIKeyringRBDProvisionerCaps
+--- PASS: TestCephCSIKeyringRBDProvisionerCaps (0.00s)
+=== RUN   TestCephCSIKeyringCephFSNodeCaps
+--- PASS: TestCephCSIKeyringCephFSNodeCaps (0.00s)
+=== RUN   TestCephCSIKeyringCephFSProvisionerCaps
+--- PASS: TestCephCSIKeyringCephFSProvisionerCaps (0.00s)
+=== RUN   Test_deleteOwnedCSISecretsByCephCluster
+2026-05-21 03:01:30.193496 D | op-cfg-keyring: creating secret for rook-csi-cephfs-provisioner
+2026-05-21 03:01:30.193509 D | op-cfg-keyring: creating secret for rook-csi-cephfs-node
+2026-05-21 03:01:30.193524 D | op-cfg-keyring: creating secret for rook-csi-rbd-provisioner
+2026-05-21 03:01:30.193533 D | op-cfg-keyring: creating secret for rook-csi-rbd-node
+2026-05-21 03:01:30.193540 I | ceph-csi: created kubernetes csi secrets for cluster "rook-ceph"
+2026-05-21 03:01:30.193556 I | op-k8sutil: removed secret "rook-ceph/rook-csi-rbd-node"
+2026-05-21 03:01:30.193563 I | op-k8sutil: removed secret "rook-ceph/rook-csi-rbd-provisioner"
+2026-05-21 03:01:30.193569 I | op-k8sutil: removed secret "rook-ceph/rook-csi-cephfs-node"
+--- PASS: Test_deleteOwnedCSISecretsByCephCluster (0.00s)
+=== RUN   Test_getCSIDriverNamePrefixFromDeployment
+=== RUN   Test_getCSIDriverNamePrefixFromDeployment/get_csi_driver_name_prefix_for_rbd_when_deployment_exists
+=== RUN   Test_getCSIDriverNamePrefixFromDeployment/get_csi_driver_name_prefix_for_rbd_when_deployment_does_not_exist
+=== RUN   Test_getCSIDriverNamePrefixFromDeployment/get_csi_driver_name_prefix_for_cephfs_when_deployment_exists
+=== RUN   Test_getCSIDriverNamePrefixFromDeployment/get_csi_driver_name_prefix_for_cephfs_when_deployment_does_not_exist
+=== RUN   Test_getCSIDriverNamePrefixFromDeployment/get_csi_driver_name_prefix_for_nfs_when_deployment_exists
+=== RUN   Test_getCSIDriverNamePrefixFromDeployment/get_csi_driver_name_prefix_for_nfs_when_deployment_does_not_exist
+--- PASS: Test_getCSIDriverNamePrefixFromDeployment (0.00s)
+    --- PASS: Test_getCSIDriverNamePrefixFromDeployment/get_csi_driver_name_prefix_for_rbd_when_deployment_exists (0.00s)
+    --- PASS: Test_getCSIDriverNamePrefixFromDeployment/get_csi_driver_name_prefix_for_rbd_when_deployment_does_not_exist (0.00s)
+    --- PASS: Test_getCSIDriverNamePrefixFromDeployment/get_csi_driver_name_prefix_for_cephfs_when_deployment_exists (0.00s)
+    --- PASS: Test_getCSIDriverNamePrefixFromDeployment/get_csi_driver_name_prefix_for_cephfs_when_deployment_does_not_exist (0.00s)
+    --- PASS: Test_getCSIDriverNamePrefixFromDeployment/get_csi_driver_name_prefix_for_nfs_when_deployment_exists (0.00s)
+    --- PASS: Test_getCSIDriverNamePrefixFromDeployment/get_csi_driver_name_prefix_for_nfs_when_deployment_does_not_exist (0.00s)
+=== RUN   TestDaemonSetTemplate
+--- PASS: TestDaemonSetTemplate (0.00s)
+=== RUN   TestDeploymentTemplate
+--- PASS: TestDeploymentTemplate (0.00s)
+=== RUN   TestGetPortFromConfig
+--- PASS: TestGetPortFromConfig (0.00s)
+=== RUN   TestApplyingResourcesToRBDPlugin
+--- PASS: TestApplyingResourcesToRBDPlugin (0.00s)
+=== RUN   Test_applyVolumeToPodSpec
+--- PASS: Test_applyVolumeToPodSpec (0.01s)
+=== RUN   Test_applyVolumeMountToContainer
+--- PASS: Test_applyVolumeMountToContainer (0.00s)
+=== RUN   Test_getImage
+=== RUN   Test_getImage/test_with_default_image
+=== RUN   Test_getImage/test_with_user_image
+=== RUN   Test_getImage/test_with_user_image_without_version
+--- PASS: Test_getImage (0.00s)
+    --- PASS: Test_getImage/test_with_default_image (0.00s)
+    --- PASS: Test_getImage/test_with_user_image (0.00s)
+    --- PASS: Test_getImage/test_with_user_image_without_version (0.00s)
+PASS
+ok  	github.com/rook/rook/pkg/operator/ceph/csi	0.047s
+Unable to find image 'swerebenchv2/rook-rook:16165-82f95e2' locally
+16165-82f95e2: Pulling from swerebenchv2/rook-rook
+80372770b820: Pulling fs layer
+2dd76d0edcca: Pulling fs layer
+9be97a962c17: Pulling fs layer
+48319c20c27d: Pulling fs layer
+2dd76d0edcca: Waiting
+80372770b820: Waiting
+9be97a962c17: Waiting
+7bede71f56fb: Pulling fs layer
+48319c20c27d: Waiting
+37eca9b97aa9: Pulling fs layer
+2c480e6214ad: Pulling fs layer
+f88bafcbfe68: Pulling fs layer
+7bede71f56fb: Waiting
+37eca9b97aa9: Waiting
+2c480e6214ad: Waiting
+f88bafcbfe68: Waiting
+80372770b820: Verifying Checksum
+80372770b820: Download complete
+2dd76d0edcca: Verifying Checksum
+2dd76d0edcca: Download complete
+9be97a962c17: Verifying Checksum
+9be97a962c17: Download complete
+48319c20c27d: Verifying Checksum
+48319c20c27d: Download complete
+7bede71f56fb: Verifying Checksum
+7bede71f56fb: Download complete
+80372770b820: Pull complete
+f88bafcbfe68: Verifying Checksum
+f88bafcbfe68: Download complete
+37eca9b97aa9: Verifying Checksum
+37eca9b97aa9: Download complete
+2c480e6214ad: Verifying Checksum
+2c480e6214ad: Download complete
+2dd76d0edcca: Pull complete
+9be97a962c17: Pull complete
+48319c20c27d: Pull complete
+7bede71f56fb: Pull complete
+37eca9b97aa9: Pull complete
+2c480e6214ad: Pull complete
+f88bafcbfe68: Pull complete
+Digest: sha256:59ab0052b10a5dec13cd3692922f509a6080a11df377c4b1491b684c37469805
+Status: Downloaded newer image for swerebenchv2/rook-rook:16165-82f95e2
+Checking patch pkg/operator/ceph/csi/spec.go...
+Applied patch to 'pkg/operator/ceph/csi/spec.go' cleanly.
+Applied patch pkg/operator/ceph/csi/spec.go cleanly.
+Checking patch pkg/operator/ceph/csi/util_test.go...
+Applied patch to 'pkg/operator/ceph/csi/util_test.go' cleanly.
+Applied patch pkg/operator/ceph/csi/util_test.go cleanly.
