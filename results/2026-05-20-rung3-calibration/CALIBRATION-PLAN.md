@@ -47,6 +47,13 @@ can overfit the calibration distribution. Both are why the ladder yields a *cand
 clean tail (config frozen first, estimand/CI/baseline preregistered) is what actually estimates
 performance.
 
+**The tail is the overfitting detector — not a thing the calibration design must pre-empt.**
+Whether the harness/skill overfit the calibration problems is *not decidable here*; it is
+decided entirely by performance on the final rung. A config that climbed the ladder but then
+drops on the never-revealed tail was overfitting, and the gap measures it. A config that holds
+generalized. We do not argue the overfitting risk away in advance — we let the one measurement
+that's allowed to count adjudicate it.
+
 **Reset mechanics (minimize burn):** a restart re-runs the modified skill on the instances
 **already revealed** (they're already burned — re-running costs no new contamination, and it
 verifies the fix didn't regress instances that previously passed). **The burned prefix is
