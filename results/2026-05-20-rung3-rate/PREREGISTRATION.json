@@ -1,0 +1,881 @@
+{
+  "dataset": "nebius/SWE-rebench-V2 (parquet default/train/0.parquet)",
+  "filter": "created_at > '2025-07-22' AND language != 'python'",
+  "population_N": 123,
+  "population_sha256": "09863d6a4d7b549f7516a8abda0098e5ddbba0d25107a64debd06baec4eaa99a",
+  "seed": 20260520,
+  "rng": "python random.Random(SEED).shuffle on instance_ids sorted ascending",
+  "round_schedule": [
+    5,
+    10,
+    20,
+    40,
+    80,
+    123
+  ],
+  "permutation": [
+    "juliastats__mixedmodels.jl-858",
+    "kevincianfarini__cardiologist-164",
+    "detekt__detekt-8604",
+    "rook__rook-16165",
+    "jump-dev__jump.jl-4050",
+    "r-lib__usethis-2142",
+    "microsoft__kiota-6947",
+    "segmentio__analytics-swift-406",
+    "fredrikekre__runic.jl-170",
+    "ferrite-fem__ferrite.jl-1235",
+    "detekt__detekt-8787",
+    "geoswift__geoswift-307",
+    "gradleup__shadow-1596",
+    "detekt__detekt-8588",
+    "spectreconsole__spectre.console-1942",
+    "juliasymbolics__symbolics.jl-1613",
+    "orchestr7__ktoml-357",
+    "juliadiff__forwarddiff.jl-770",
+    "partiql__partiql-lang-kotlin-1789",
+    "juliaai__mljbase.jl-1023",
+    "detekt__detekt-8777",
+    "dart-lang__pana-1480",
+    "gradleup__shadow-1731",
+    "dart-lang__pub-dev-8884",
+    "pilosus__pip-license-checker-156",
+    "effekt-lang__effekt-1101",
+    "gradleup__shadow-1662",
+    "detekt__detekt-8642",
+    "juliasymbolics__symbolics.jl-1639",
+    "typelevel__fs2-3610",
+    "detekt__detekt-8804",
+    "scalameta__scalameta-4345",
+    "detekt__detekt-8595",
+    "kotlin__dokka-4198",
+    "effekt-lang__effekt-1154",
+    "intel__rohd-624",
+    "juliaearth__coordrefsystems.jl-322",
+    "image-rs__image-tiff-289",
+    "meggart__diskarrays.jl-280",
+    "gradleup__shadow-1666",
+    "kevincianfarini__cardiologist-166",
+    "superlistapp__super_editor-2787",
+    "kotlin__dokka-4210",
+    "arkivanov__decompose-916",
+    "julialang__juliasyntax.jl-583",
+    "gradleup__shadow-1569",
+    "detekt__detekt-8513",
+    "domluna__juliaformatter.jl-931",
+    "gradleup__shadow-1714",
+    "rmagatti__auto-session-457",
+    "verygoodopensource__dart_frog-1818",
+    "felangel__bloc-4648",
+    "detekt__detekt-8346",
+    "dart-lang__pub-dev-8913",
+    "intel__rohd-617",
+    "dart-lang__pub-dev-8959",
+    "kotlin__dokka-4254",
+    "microsoft__kiota-7021",
+    "orchestr7__ktoml-345",
+    "pwntester__octo.nvim-1175",
+    "gradleup__shadow-1553",
+    "timholy__revise.jl-943",
+    "dart-lang__pub-dev-8958",
+    "partiql__partiql-lang-kotlin-1818",
+    "celestiaorg__celestia-core-2223",
+    "felangel__bloc-4633",
+    "gradleup__shadow-1787",
+    "joernio__joern-5678",
+    "partiql__partiql-lang-kotlin-1792",
+    "microsoft__kiota-6933",
+    "juliaml__tabletransforms.jl-307",
+    "dart-lang__pana-1496",
+    "gradleup__shadow-1552",
+    "effekt-lang__effekt-1098",
+    "juliasymbolics__symbolics.jl-1673",
+    "sciml__recursivearraytools.jl-490",
+    "supabase-community__supabase-kt-1084",
+    "dart-lang__pub-dev-8991",
+    "detekt__detekt-8803",
+    "dart-lang__http-1803",
+    "dart-lang__pub-dev-8899",
+    "juliadiff__forwarddiff.jl-779",
+    "effekt-lang__effekt-1145",
+    "orchestr7__ktoml-350",
+    "dart-lang__pana-1489",
+    "gradleup__shadow-1682",
+    "kotlin__dokka-4214",
+    "effekt-lang__effekt-1139",
+    "detekt__detekt-8775",
+    "orchestr7__ktoml-353",
+    "apache__jena-3337",
+    "gradleup__shadow-1548",
+    "sciml__recursivearraytools.jl-494",
+    "gradleup__shadow-1613",
+    "gradleup__shadow-1611",
+    "partiql__partiql-lang-kotlin-1822",
+    "gradleup__shadow-1597",
+    "gradleup__shadow-1705",
+    "dart-lang__pub-dev-8922",
+    "gradleup__shadow-1627",
+    "gradleup__shadow-1675",
+    "sciml__recursivearraytools.jl-493",
+    "microsoft__kiota-7033",
+    "gradleup__shadow-1773",
+    "gradleup__shadow-1637",
+    "detekt__detekt-8524",
+    "fredrikekre__runic.jl-152",
+    "imanneo__fl_chart-1979",
+    "detekt__detekt-8523",
+    "microsoft__kiota-6835",
+    "juliamath__polynomials.jl-617",
+    "scalameta__scalameta-4306",
+    "andregasser__bigbone-613",
+    "ajalt__mordant-274",
+    "gradleup__shadow-1703",
+    "jump-dev__jump.jl-4041",
+    "detekt__detekt-8605",
+    "detekt__detekt-8506",
+    "http4s__http4s-7702",
+    "gradleup__shadow-1777",
+    "jump-dev__jump.jl-4051",
+    "apple__swift-argument-parser-821",
+    "gradleup__shadow-1565"
+  ],
+  "meta": {
+    "ajalt__mordant-274": {
+      "repo": "ajalt/mordant",
+      "language": "kotlin",
+      "created_at": "2025-09-21 20:50:30",
+      "difficulty": "medium"
+    },
+    "andregasser__bigbone-613": {
+      "repo": "andregasser/bigbone",
+      "language": "kotlin",
+      "created_at": "2025-08-22 12:07:06",
+      "difficulty": "medium"
+    },
+    "apache__jena-3337": {
+      "repo": "apache/jena",
+      "language": "java",
+      "created_at": "2025-07-22 19:38:01",
+      "difficulty": "medium"
+    },
+    "apple__swift-argument-parser-821": {
+      "repo": "apple/swift-argument-parser",
+      "language": "swift",
+      "created_at": "2025-09-30 03:25:30",
+      "difficulty": "medium"
+    },
+    "arkivanov__decompose-916": {
+      "repo": "arkivanov/Decompose",
+      "language": "kotlin",
+      "created_at": "2025-08-12 22:13:38",
+      "difficulty": "easy"
+    },
+    "celestiaorg__celestia-core-2223": {
+      "repo": "celestiaorg/celestia-core",
+      "language": "go",
+      "created_at": "2025-07-22 13:27:05",
+      "difficulty": "medium"
+    },
+    "dart-lang__http-1803": {
+      "repo": "dart-lang/http",
+      "language": "dart",
+      "created_at": "2025-08-05 14:17:23",
+      "difficulty": "easy"
+    },
+    "dart-lang__pana-1480": {
+      "repo": "dart-lang/pana",
+      "language": "dart",
+      "created_at": "2025-09-19 14:11:14",
+      "difficulty": "medium"
+    },
+    "dart-lang__pana-1489": {
+      "repo": "dart-lang/pana",
+      "language": "dart",
+      "created_at": "2025-09-29 12:00:15",
+      "difficulty": "medium"
+    },
+    "dart-lang__pana-1496": {
+      "repo": "dart-lang/pana",
+      "language": "dart",
+      "created_at": "2025-10-07 09:30:55",
+      "difficulty": "medium"
+    },
+    "dart-lang__pub-dev-8884": {
+      "repo": "dart-lang/pub-dev",
+      "language": "dart",
+      "created_at": "2025-08-07 14:11:16",
+      "difficulty": "medium"
+    },
+    "dart-lang__pub-dev-8899": {
+      "repo": "dart-lang/pub-dev",
+      "language": "dart",
+      "created_at": "2025-08-15 09:26:34",
+      "difficulty": "medium"
+    },
+    "dart-lang__pub-dev-8913": {
+      "repo": "dart-lang/pub-dev",
+      "language": "dart",
+      "created_at": "2025-08-22 13:42:41",
+      "difficulty": "medium"
+    },
+    "dart-lang__pub-dev-8922": {
+      "repo": "dart-lang/pub-dev",
+      "language": "dart",
+      "created_at": "2025-08-26 09:12:52",
+      "difficulty": "medium"
+    },
+    "dart-lang__pub-dev-8958": {
+      "repo": "dart-lang/pub-dev",
+      "language": "dart",
+      "created_at": "2025-09-17 07:35:48",
+      "difficulty": "medium"
+    },
+    "dart-lang__pub-dev-8959": {
+      "repo": "dart-lang/pub-dev",
+      "language": "dart",
+      "created_at": "2025-09-17 07:50:19",
+      "difficulty": "medium"
+    },
+    "dart-lang__pub-dev-8991": {
+      "repo": "dart-lang/pub-dev",
+      "language": "dart",
+      "created_at": "2025-10-02 10:42:25",
+      "difficulty": "easy"
+    },
+    "detekt__detekt-8346": {
+      "repo": "detekt/detekt",
+      "language": "kotlin",
+      "created_at": "2025-07-27 14:13:34",
+      "difficulty": "medium"
+    },
+    "detekt__detekt-8506": {
+      "repo": "detekt/detekt",
+      "language": "kotlin",
+      "created_at": "2025-08-20 22:04:42",
+      "difficulty": "medium"
+    },
+    "detekt__detekt-8513": {
+      "repo": "detekt/detekt",
+      "language": "kotlin",
+      "created_at": "2025-08-21 22:52:01",
+      "difficulty": "medium"
+    },
+    "detekt__detekt-8523": {
+      "repo": "detekt/detekt",
+      "language": "kotlin",
+      "created_at": "2025-08-22 23:24:51",
+      "difficulty": "medium"
+    },
+    "detekt__detekt-8524": {
+      "repo": "detekt/detekt",
+      "language": "kotlin",
+      "created_at": "2025-08-23 21:00:42",
+      "difficulty": "easy"
+    },
+    "detekt__detekt-8588": {
+      "repo": "detekt/detekt",
+      "language": "kotlin",
+      "created_at": "2025-09-03 15:54:14",
+      "difficulty": "medium"
+    },
+    "detekt__detekt-8595": {
+      "repo": "detekt/detekt",
+      "language": "kotlin",
+      "created_at": "2025-09-04 13:17:32",
+      "difficulty": "medium"
+    },
+    "detekt__detekt-8604": {
+      "repo": "detekt/detekt",
+      "language": "kotlin",
+      "created_at": "2025-09-04 19:13:37",
+      "difficulty": "easy"
+    },
+    "detekt__detekt-8605": {
+      "repo": "detekt/detekt",
+      "language": "kotlin",
+      "created_at": "2025-09-04 19:23:51",
+      "difficulty": "medium"
+    },
+    "detekt__detekt-8642": {
+      "repo": "detekt/detekt",
+      "language": "kotlin",
+      "created_at": "2025-09-11 20:24:02",
+      "difficulty": "medium"
+    },
+    "detekt__detekt-8775": {
+      "repo": "detekt/detekt",
+      "language": "kotlin",
+      "created_at": "2025-10-20 18:42:30",
+      "difficulty": "easy"
+    },
+    "detekt__detekt-8777": {
+      "repo": "detekt/detekt",
+      "language": "kotlin",
+      "created_at": "2025-10-20 20:27:21",
+      "difficulty": "easy"
+    },
+    "detekt__detekt-8787": {
+      "repo": "detekt/detekt",
+      "language": "kotlin",
+      "created_at": "2025-10-21 12:49:08",
+      "difficulty": "easy"
+    },
+    "detekt__detekt-8803": {
+      "repo": "detekt/detekt",
+      "language": "kotlin",
+      "created_at": "2025-10-22 17:54:05",
+      "difficulty": "medium"
+    },
+    "detekt__detekt-8804": {
+      "repo": "detekt/detekt",
+      "language": "kotlin",
+      "created_at": "2025-10-22 18:46:26",
+      "difficulty": "medium"
+    },
+    "domluna__juliaformatter.jl-931": {
+      "repo": "domluna/JuliaFormatter.jl",
+      "language": "julia",
+      "created_at": "2025-07-29 07:56:15",
+      "difficulty": "medium"
+    },
+    "effekt-lang__effekt-1098": {
+      "repo": "effekt-lang/effekt",
+      "language": "scala",
+      "created_at": "2025-08-05 13:17:49",
+      "difficulty": "medium"
+    },
+    "effekt-lang__effekt-1101": {
+      "repo": "effekt-lang/effekt",
+      "language": "scala",
+      "created_at": "2025-08-06 10:31:06",
+      "difficulty": "easy"
+    },
+    "effekt-lang__effekt-1139": {
+      "repo": "effekt-lang/effekt",
+      "language": "scala",
+      "created_at": "2025-10-02 08:41:21",
+      "difficulty": "easy"
+    },
+    "effekt-lang__effekt-1145": {
+      "repo": "effekt-lang/effekt",
+      "language": "scala",
+      "created_at": "2025-10-02 10:21:44",
+      "difficulty": "medium"
+    },
+    "effekt-lang__effekt-1154": {
+      "repo": "effekt-lang/effekt",
+      "language": "scala",
+      "created_at": "2025-10-21 12:38:38",
+      "difficulty": "easy"
+    },
+    "felangel__bloc-4633": {
+      "repo": "felangel/bloc",
+      "language": "dart",
+      "created_at": "2025-10-09 01:40:26",
+      "difficulty": "medium"
+    },
+    "felangel__bloc-4648": {
+      "repo": "felangel/bloc",
+      "language": "dart",
+      "created_at": "2025-10-25 22:24:40",
+      "difficulty": "medium"
+    },
+    "ferrite-fem__ferrite.jl-1235": {
+      "repo": "Ferrite-FEM/Ferrite.jl",
+      "language": "julia",
+      "created_at": "2025-09-19 05:22:14",
+      "difficulty": "easy"
+    },
+    "fredrikekre__runic.jl-152": {
+      "repo": "fredrikekre/Runic.jl",
+      "language": "julia",
+      "created_at": "2025-07-24 12:52:06",
+      "difficulty": "medium"
+    },
+    "fredrikekre__runic.jl-170": {
+      "repo": "fredrikekre/Runic.jl",
+      "language": "julia",
+      "created_at": "2025-09-24 06:28:53",
+      "difficulty": "easy"
+    },
+    "geoswift__geoswift-307": {
+      "repo": "GEOSwift/GEOSwift",
+      "language": "swift",
+      "created_at": "2025-10-31 18:00:44",
+      "difficulty": "medium"
+    },
+    "gradleup__shadow-1548": {
+      "repo": "GradleUp/shadow",
+      "language": "kotlin",
+      "created_at": "2025-07-30 08:39:19",
+      "difficulty": "medium"
+    },
+    "gradleup__shadow-1552": {
+      "repo": "GradleUp/shadow",
+      "language": "kotlin",
+      "created_at": "2025-07-30 14:14:11",
+      "difficulty": "medium"
+    },
+    "gradleup__shadow-1553": {
+      "repo": "GradleUp/shadow",
+      "language": "kotlin",
+      "created_at": "2025-07-31 04:20:00",
+      "difficulty": "medium"
+    },
+    "gradleup__shadow-1565": {
+      "repo": "GradleUp/shadow",
+      "language": "kotlin",
+      "created_at": "2025-08-02 13:07:44",
+      "difficulty": "medium"
+    },
+    "gradleup__shadow-1569": {
+      "repo": "GradleUp/shadow",
+      "language": "kotlin",
+      "created_at": "2025-08-03 01:31:03",
+      "difficulty": "medium"
+    },
+    "gradleup__shadow-1596": {
+      "repo": "GradleUp/shadow",
+      "language": "kotlin",
+      "created_at": "2025-08-07 01:54:30",
+      "difficulty": "medium"
+    },
+    "gradleup__shadow-1597": {
+      "repo": "GradleUp/shadow",
+      "language": "kotlin",
+      "created_at": "2025-08-07 02:46:35",
+      "difficulty": "easy"
+    },
+    "gradleup__shadow-1611": {
+      "repo": "GradleUp/shadow",
+      "language": "kotlin",
+      "created_at": "2025-08-08 01:35:10",
+      "difficulty": "medium"
+    },
+    "gradleup__shadow-1613": {
+      "repo": "GradleUp/shadow",
+      "language": "kotlin",
+      "created_at": "2025-08-08 03:05:30",
+      "difficulty": "easy"
+    },
+    "gradleup__shadow-1627": {
+      "repo": "GradleUp/shadow",
+      "language": "kotlin",
+      "created_at": "2025-08-11 01:44:13",
+      "difficulty": "easy"
+    },
+    "gradleup__shadow-1637": {
+      "repo": "GradleUp/shadow",
+      "language": "kotlin",
+      "created_at": "2025-08-12 01:43:19",
+      "difficulty": "easy"
+    },
+    "gradleup__shadow-1662": {
+      "repo": "GradleUp/shadow",
+      "language": "kotlin",
+      "created_at": "2025-08-16 15:47:20",
+      "difficulty": "medium"
+    },
+    "gradleup__shadow-1666": {
+      "repo": "GradleUp/shadow",
+      "language": "kotlin",
+      "created_at": "2025-08-18 14:34:07",
+      "difficulty": "medium"
+    },
+    "gradleup__shadow-1675": {
+      "repo": "GradleUp/shadow",
+      "language": "kotlin",
+      "created_at": "2025-08-20 12:18:56",
+      "difficulty": "medium"
+    },
+    "gradleup__shadow-1682": {
+      "repo": "GradleUp/shadow",
+      "language": "kotlin",
+      "created_at": "2025-08-21 19:52:30",
+      "difficulty": "medium"
+    },
+    "gradleup__shadow-1703": {
+      "repo": "GradleUp/shadow",
+      "language": "kotlin",
+      "created_at": "2025-08-31 08:35:08",
+      "difficulty": "medium"
+    },
+    "gradleup__shadow-1705": {
+      "repo": "GradleUp/shadow",
+      "language": "kotlin",
+      "created_at": "2025-08-31 10:24:47",
+      "difficulty": "medium"
+    },
+    "gradleup__shadow-1714": {
+      "repo": "GradleUp/shadow",
+      "language": "kotlin",
+      "created_at": "2025-09-04 08:55:55",
+      "difficulty": "medium"
+    },
+    "gradleup__shadow-1731": {
+      "repo": "GradleUp/shadow",
+      "language": "kotlin",
+      "created_at": "2025-09-10 14:20:36",
+      "difficulty": "easy"
+    },
+    "gradleup__shadow-1773": {
+      "repo": "GradleUp/shadow",
+      "language": "kotlin",
+      "created_at": "2025-09-20 16:41:03",
+      "difficulty": "medium"
+    },
+    "gradleup__shadow-1777": {
+      "repo": "GradleUp/shadow",
+      "language": "kotlin",
+      "created_at": "2025-09-23 02:03:49",
+      "difficulty": "medium"
+    },
+    "gradleup__shadow-1787": {
+      "repo": "GradleUp/shadow",
+      "language": "kotlin",
+      "created_at": "2025-09-26 09:06:43",
+      "difficulty": "medium"
+    },
+    "http4s__http4s-7702": {
+      "repo": "http4s/http4s",
+      "language": "scala",
+      "created_at": "2025-08-20 16:53:01",
+      "difficulty": "medium"
+    },
+    "image-rs__image-tiff-289": {
+      "repo": "image-rs/image-tiff",
+      "language": "rust",
+      "created_at": "2025-07-22 03:51:02",
+      "difficulty": "easy"
+    },
+    "imanneo__fl_chart-1979": {
+      "repo": "imaNNeo/fl_chart",
+      "language": "dart",
+      "created_at": "2025-08-26 13:11:54",
+      "difficulty": "medium"
+    },
+    "intel__rohd-617": {
+      "repo": "intel/rohd",
+      "language": "dart",
+      "created_at": "2025-07-31 21:16:27",
+      "difficulty": "easy"
+    },
+    "intel__rohd-624": {
+      "repo": "intel/rohd",
+      "language": "dart",
+      "created_at": "2025-10-10 17:31:20",
+      "difficulty": "medium"
+    },
+    "joernio__joern-5678": {
+      "repo": "joernio/joern",
+      "language": "scala",
+      "created_at": "2025-10-14 09:29:41",
+      "difficulty": "medium"
+    },
+    "juliaai__mljbase.jl-1023": {
+      "repo": "JuliaAI/MLJBase.jl",
+      "language": "julia",
+      "created_at": "2025-10-16 23:39:28",
+      "difficulty": "medium"
+    },
+    "juliadiff__forwarddiff.jl-770": {
+      "repo": "JuliaDiff/ForwardDiff.jl",
+      "language": "julia",
+      "created_at": "2025-09-03 21:07:21",
+      "difficulty": "medium"
+    },
+    "juliadiff__forwarddiff.jl-779": {
+      "repo": "JuliaDiff/ForwardDiff.jl",
+      "language": "julia",
+      "created_at": "2025-10-02 10:41:51",
+      "difficulty": "easy"
+    },
+    "juliaearth__coordrefsystems.jl-322": {
+      "repo": "JuliaEarth/CoordRefSystems.jl",
+      "language": "julia",
+      "created_at": "2025-10-18 00:07:40",
+      "difficulty": "easy"
+    },
+    "julialang__juliasyntax.jl-583": {
+      "repo": "JuliaLang/JuliaSyntax.jl",
+      "language": "julia",
+      "created_at": "2025-08-11 03:23:17",
+      "difficulty": "medium"
+    },
+    "juliamath__polynomials.jl-617": {
+      "repo": "JuliaMath/Polynomials.jl",
+      "language": "julia",
+      "created_at": "2025-09-27 19:56:27",
+      "difficulty": "medium"
+    },
+    "juliaml__tabletransforms.jl-307": {
+      "repo": "JuliaML/TableTransforms.jl",
+      "language": "julia",
+      "created_at": "2025-10-17 13:44:34",
+      "difficulty": "easy"
+    },
+    "juliastats__mixedmodels.jl-858": {
+      "repo": "JuliaStats/MixedModels.jl",
+      "language": "julia",
+      "created_at": "2025-08-25 14:37:37",
+      "difficulty": "medium"
+    },
+    "juliasymbolics__symbolics.jl-1613": {
+      "repo": "JuliaSymbolics/Symbolics.jl",
+      "language": "julia",
+      "created_at": "2025-08-07 16:59:54",
+      "difficulty": "easy"
+    },
+    "juliasymbolics__symbolics.jl-1639": {
+      "repo": "JuliaSymbolics/Symbolics.jl",
+      "language": "julia",
+      "created_at": "2025-09-07 15:02:59",
+      "difficulty": "medium"
+    },
+    "juliasymbolics__symbolics.jl-1673": {
+      "repo": "JuliaSymbolics/Symbolics.jl",
+      "language": "julia",
+      "created_at": "2025-10-29 07:26:20",
+      "difficulty": "medium"
+    },
+    "jump-dev__jump.jl-4041": {
+      "repo": "jump-dev/JuMP.jl",
+      "language": "julia",
+      "created_at": "2025-08-05 01:22:59",
+      "difficulty": "easy"
+    },
+    "jump-dev__jump.jl-4050": {
+      "repo": "jump-dev/JuMP.jl",
+      "language": "julia",
+      "created_at": "2025-08-10 21:44:29",
+      "difficulty": "easy"
+    },
+    "jump-dev__jump.jl-4051": {
+      "repo": "jump-dev/JuMP.jl",
+      "language": "julia",
+      "created_at": "2025-08-10 23:16:47",
+      "difficulty": "medium"
+    },
+    "kevincianfarini__cardiologist-164": {
+      "repo": "kevincianfarini/cardiologist",
+      "language": "kotlin",
+      "created_at": "2025-08-28 17:21:25",
+      "difficulty": "easy"
+    },
+    "kevincianfarini__cardiologist-166": {
+      "repo": "kevincianfarini/cardiologist",
+      "language": "kotlin",
+      "created_at": "2025-09-09 14:53:39",
+      "difficulty": "medium"
+    },
+    "kotlin__dokka-4198": {
+      "repo": "Kotlin/dokka",
+      "language": "kotlin",
+      "created_at": "2025-08-10 21:38:07",
+      "difficulty": "easy"
+    },
+    "kotlin__dokka-4210": {
+      "repo": "Kotlin/dokka",
+      "language": "kotlin",
+      "created_at": "2025-08-18 07:11:45",
+      "difficulty": "medium"
+    },
+    "kotlin__dokka-4214": {
+      "repo": "Kotlin/dokka",
+      "language": "kotlin",
+      "created_at": "2025-08-18 14:12:55",
+      "difficulty": "medium"
+    },
+    "kotlin__dokka-4254": {
+      "repo": "Kotlin/dokka",
+      "language": "kotlin",
+      "created_at": "2025-09-14 22:11:50",
+      "difficulty": "medium"
+    },
+    "meggart__diskarrays.jl-280": {
+      "repo": "meggart/DiskArrays.jl",
+      "language": "julia",
+      "created_at": "2025-10-20 13:27:23",
+      "difficulty": "medium"
+    },
+    "microsoft__kiota-6835": {
+      "repo": "microsoft/kiota",
+      "language": "csharp",
+      "created_at": "2025-08-14 00:18:02",
+      "difficulty": "easy"
+    },
+    "microsoft__kiota-6933": {
+      "repo": "microsoft/kiota",
+      "language": "csharp",
+      "created_at": "2025-09-19 17:58:18",
+      "difficulty": "medium"
+    },
+    "microsoft__kiota-6947": {
+      "repo": "microsoft/kiota",
+      "language": "csharp",
+      "created_at": "2025-09-23 19:38:29",
+      "difficulty": "easy"
+    },
+    "microsoft__kiota-7021": {
+      "repo": "microsoft/kiota",
+      "language": "csharp",
+      "created_at": "2025-10-17 20:51:09",
+      "difficulty": "easy"
+    },
+    "microsoft__kiota-7033": {
+      "repo": "microsoft/kiota",
+      "language": "csharp",
+      "created_at": "2025-10-23 18:53:45",
+      "difficulty": "medium"
+    },
+    "orchestr7__ktoml-345": {
+      "repo": "orchestr7/ktoml",
+      "language": "kotlin",
+      "created_at": "2025-08-26 18:16:28",
+      "difficulty": "medium"
+    },
+    "orchestr7__ktoml-350": {
+      "repo": "orchestr7/ktoml",
+      "language": "kotlin",
+      "created_at": "2025-09-12 15:52:56",
+      "difficulty": "medium"
+    },
+    "orchestr7__ktoml-353": {
+      "repo": "orchestr7/ktoml",
+      "language": "kotlin",
+      "created_at": "2025-10-02 08:08:09",
+      "difficulty": "medium"
+    },
+    "orchestr7__ktoml-357": {
+      "repo": "orchestr7/ktoml",
+      "language": "kotlin",
+      "created_at": "2025-10-11 14:14:41",
+      "difficulty": "medium"
+    },
+    "partiql__partiql-lang-kotlin-1789": {
+      "repo": "partiql/partiql-lang-kotlin",
+      "language": "kotlin",
+      "created_at": "2025-07-24 18:57:30",
+      "difficulty": "easy"
+    },
+    "partiql__partiql-lang-kotlin-1792": {
+      "repo": "partiql/partiql-lang-kotlin",
+      "language": "kotlin",
+      "created_at": "2025-07-25 06:32:59",
+      "difficulty": "medium"
+    },
+    "partiql__partiql-lang-kotlin-1818": {
+      "repo": "partiql/partiql-lang-kotlin",
+      "language": "kotlin",
+      "created_at": "2025-08-21 22:58:55",
+      "difficulty": "medium"
+    },
+    "partiql__partiql-lang-kotlin-1822": {
+      "repo": "partiql/partiql-lang-kotlin",
+      "language": "kotlin",
+      "created_at": "2025-08-25 23:16:56",
+      "difficulty": "medium"
+    },
+    "pilosus__pip-license-checker-156": {
+      "repo": "pilosus/pip-license-checker",
+      "language": "clojure",
+      "created_at": "2025-07-24 08:54:35",
+      "difficulty": "easy"
+    },
+    "pwntester__octo.nvim-1175": {
+      "repo": "pwntester/octo.nvim",
+      "language": "lua",
+      "created_at": "2025-10-08 23:31:07",
+      "difficulty": "medium"
+    },
+    "r-lib__usethis-2142": {
+      "repo": "r-lib/usethis",
+      "language": "r",
+      "created_at": "2025-07-24 17:46:50",
+      "difficulty": "easy"
+    },
+    "rmagatti__auto-session-457": {
+      "repo": "rmagatti/auto-session",
+      "language": "lua",
+      "created_at": "2025-07-26 22:15:52",
+      "difficulty": "medium"
+    },
+    "rook__rook-16165": {
+      "repo": "rook/rook",
+      "language": "go",
+      "created_at": "2025-07-22 20:23:04",
+      "difficulty": "easy"
+    },
+    "scalameta__scalameta-4306": {
+      "repo": "scalameta/scalameta",
+      "language": "scala",
+      "created_at": "2025-09-05 13:38:04",
+      "difficulty": "easy"
+    },
+    "scalameta__scalameta-4345": {
+      "repo": "scalameta/scalameta",
+      "language": "scala",
+      "created_at": "2025-10-28 22:36:38",
+      "difficulty": "medium"
+    },
+    "sciml__recursivearraytools.jl-490": {
+      "repo": "SciML/RecursiveArrayTools.jl",
+      "language": "julia",
+      "created_at": "2025-10-17 12:33:28",
+      "difficulty": "easy"
+    },
+    "sciml__recursivearraytools.jl-493": {
+      "repo": "SciML/RecursiveArrayTools.jl",
+      "language": "julia",
+      "created_at": "2025-10-24 11:19:56",
+      "difficulty": "easy"
+    },
+    "sciml__recursivearraytools.jl-494": {
+      "repo": "SciML/RecursiveArrayTools.jl",
+      "language": "julia",
+      "created_at": "2025-10-24 13:54:36",
+      "difficulty": "medium"
+    },
+    "segmentio__analytics-swift-406": {
+      "repo": "segmentio/analytics-swift",
+      "language": "swift",
+      "created_at": "2025-10-13 19:47:26",
+      "difficulty": "medium"
+    },
+    "spectreconsole__spectre.console-1942": {
+      "repo": "spectreconsole/spectre.console",
+      "language": "csharp",
+      "created_at": "2025-10-31 15:54:08",
+      "difficulty": "medium"
+    },
+    "supabase-community__supabase-kt-1084": {
+      "repo": "supabase-community/supabase-kt",
+      "language": "kotlin",
+      "created_at": "2025-10-28 14:26:31",
+      "difficulty": "easy"
+    },
+    "superlistapp__super_editor-2787": {
+      "repo": "superlistapp/super_editor",
+      "language": "dart",
+      "created_at": "2025-08-27 23:32:27",
+      "difficulty": "easy"
+    },
+    "timholy__revise.jl-943": {
+      "repo": "timholy/Revise.jl",
+      "language": "julia",
+      "created_at": "2025-07-28 11:01:03",
+      "difficulty": "medium"
+    },
+    "typelevel__fs2-3610": {
+      "repo": "typelevel/fs2",
+      "language": "scala",
+      "created_at": "2025-09-16 07:58:11",
+      "difficulty": "medium"
+    },
+    "verygoodopensource__dart_frog-1818": {
+      "repo": "VeryGoodOpenSource/dart_frog",
+      "language": "dart",
+      "created_at": "2025-08-04 03:37:51",
+      "difficulty": "easy"
+    }
+  }
+}
