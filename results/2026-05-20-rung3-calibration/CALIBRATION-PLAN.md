@@ -30,6 +30,24 @@ grade. We commit one seeded order now and reveal it in doubling prefixes
 (**5 → 10 → 20 → 40 …**) so we fix the skill on cheap evidence before scaling spend. The
 doubling is a spend cadence, not a statistical design — and it doubles as the burn ledger.
 
+## The ladder is per-skill-version; modification resets it to 5
+The doubling ladder belongs to a **single, unmodified skill version**. **Any modification to
+the `/investigate` skill or the harness resets the rung back to 5.** A config "earns" its way
+up only by climbing **without changes**.
+
+This is *why optional stopping is harmless here* — it is not a statistical design we're
+peeking at. No claim ever rides on a peeked-then-extended sequence, because the moment we
+change anything the evidence ladder is voided and restarts from scratch. The eventual
+publishable config is a skill version that climbed the full ladder with **zero modifications**,
+then gets graded on the clean (never-revealed) tail.
+
+**Reset mechanics (minimize burn):** a restart re-runs the modified skill on the instances
+**already revealed** (they're already burned — re-running costs no new contamination, and it
+verifies the fix didn't regress instances that previously passed). **Fresh instances are
+revealed only when a skill version climbs past the deepest prefix any prior version reached.**
+So the clean tail is spent slowly — a new instance is burned only when the skill is good
+enough to deserve it.
+
 ## Calibration pool (frozen order, NOT an evaluation population)
 - **Source:** `nebius/SWE-rebench-V2`, parquet `default/train/0.parquet` (32,079 rows).
 - **Filter:** `created_at > '2025-07-22' AND language != 'python'` → **123 instances**, 51
@@ -95,8 +113,14 @@ harness — never the agent's prose. Gate-grounded: the agent declares RESOLVED 
   `box-sh`, isolated hygraph dir, `~/Documents/sweep` off-limits, no gold patch visible.
 
 ## Feedback loop (the actual deliverable)
-After each round: `/retro` over the trajectories, compress recurring failure modes into
-skill/harness patches, re-freeze the skill hash, reveal the next prefix. **Each retro patch
-must name the generalized invariant it improves and list the calibration instances that
-motivated it** — generalized fixes only, never instance-specific recipes (that would be
-overfitting the burned set). Output: a hardened, frozen, SOTA-competitive config — not a rate.
+After each round, `/retro` over the trajectories:
+- **If the round surfaced a fault** → patch the skill/harness, record the new skill git hash,
+  and **reset the rung to 5** (re-run on already-revealed instances first; see reset mechanics).
+  Each retro patch must name the **generalized invariant** it improves and list the calibration
+  instances that motivated it — generalized fixes only, never instance-specific recipes (that
+  would be overfitting the burned set).
+- **If the round was clean** (no modification needed) → keep the skill hash frozen and **double
+  the prefix**, revealing fresh instances.
+
+Output: a hardened skill version that climbed the full ladder unmodified — a frozen,
+SOTA-competitive config — not a rate.
