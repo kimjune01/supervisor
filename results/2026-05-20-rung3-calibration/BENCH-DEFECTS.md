@@ -28,6 +28,7 @@ auto-mined benchmarks.)*
 | `gradleup__shadow-1596` | kotlin | A/B | gold exit 0, reg 0, but 0/4 F2P — recorded F2P names never matched in parsed output (JVM) | rung 3 R3a |
 | `detekt__detekt-8787` | kotlin | A/B | gold exit 0, reg 0, F2P names unmatched (full-suite ran clean) | rung 3 R3a |
 | `detekt__detekt-8588` | kotlin | A/B | gold exit 0, reg 0, F2P names unmatched | rung 3 R3a |
+| `partiql__partiql-lang-kotlin-1789` | kotlin | B | gold exit 0, reg 0, `passed_match=False`; metadata has 117,788 ktlint F2P names (`TopLevelInternalRuleTest`, `TopLevelPublicRuleTest`); gold runs planner tests, emitting 117,630 different F2P IDs — completely disjoint test suites | rung 3 R3b |
 
 ## Patterns worth flagging in any report (systemic, not one-off)
 - **C# is 3/3 defective** (kiota-6835, kiota-6947, spectre.console-1942) — all class C, gold patch
@@ -42,7 +43,8 @@ auto-mined benchmarks.)*
   precisely where the problems are hardest — the instances most worth testing reasoning on are
   disproportionately the unscoreable ones. This is the load-bearing finding for any "eval for
   evals" writeup.
-- **Running defect rate: 7/15 (~47%) once R3a is counted** (R1 2/5, R2 1/5, R3a 4/5).
+- **partiql-lang-kotlin-1789** (kotlin) adds a new defect subtype to class B: the metadata F2P names come from a *completely different test module* (ktlint rules) than what the gold patch targets (planner tests). The gold emits 117,630 passing tests that are all wrong-module — not just names that parse differently, but a module mismatch.
+- **Running defect rate: 8/20 (40%) once R3b is counted** (R1 2/5, R2 1/5, R3a 4/5, R3b 1/5).
 
 ## Evidence artifacts
 Per instance: `golden_report.json` / `r2_golden_<id>.json` / `<tag>_golden_<id>.json` in this dir

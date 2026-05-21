@@ -1,0 +1,18 @@
+{
+  "max_workers": 1,
+  "total": 1,
+  "all_ok": true,
+  "items": [
+    {
+      "instance_id": "juliadiff__forwarddiff.jl-770",
+      "from_fail_to_pass": [
+        "ForwardDiff.jl"
+      ],
+      "failed_from_pass_to_pass": [],
+      "passed_match": true,
+      "exit_code": 0,
+      "log_path": "logs/juliadiff__forwarddiff.jl-770_log.txt",
+      "error": ""
+    }
+  ]
+}

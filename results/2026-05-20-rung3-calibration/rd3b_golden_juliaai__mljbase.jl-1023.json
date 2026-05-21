@@ -1,0 +1,29 @@
+{
+  "max_workers": 1,
+  "total": 1,
+  "all_ok": true,
+  "items": [
+    {
+      "instance_id": "juliaai__mljbase.jl-1023",
+      "from_fail_to_pass": [
+        "composition_learning_networks",
+        "composition_models",
+        "data",
+        "default_measures",
+        "hyperparam",
+        "interface",
+        "machines",
+        "misc",
+        "models",
+        "operations",
+        "resampling",
+        "sources"
+      ],
+      "failed_from_pass_to_pass": [],
+      "passed_match": true,
+      "exit_code": 0,
+      "log_path": "logs/juliaai__mljbase.jl-1023_log.txt",
+      "error": ""
+    }
+  ]
+}

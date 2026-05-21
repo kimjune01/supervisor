@@ -1,0 +1,18 @@
+{
+  "max_workers": 1,
+  "total": 1,
+  "all_ok": true,
+  "items": [
+    {
+      "instance_id": "juliasymbolics__symbolics.jl-1613",
+      "from_fail_to_pass": [
+        "Coeff Test"
+      ],
+      "failed_from_pass_to_pass": [],
+      "passed_match": true,
+      "exit_code": 1,
+      "log_path": "logs/juliasymbolics__symbolics.jl-1613_log.txt",
+      "error": ""
+    }
+  ]
+}
