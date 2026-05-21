@@ -1,0 +1,44 @@
+{
+  "max_workers": 1,
+  "total": 1,
+  "all_ok": true,
+  "items": [
+    {
+      "instance_id": "fredrikekre__runic.jl-170",
+      "from_fail_to_pass": [
+        "# runic: (on|off)",
+        "--lines",
+        "Floating point literals",
+        "Hex/oct/bin literal integers",
+        "braces around where rhs",
+        "continuation/soft indentation",
+        "explicit return",
+        "https://youtu.be/SsoOG6ZeyUI?si=xpKpnczuqsOThtFP",
+        "indent of multiline strings",
+        "leading and trailing newline in multiline listlike",
+        "leading and trailing newlines in filemode",
+        "max three consecutive newlines",
+        "parens around op calls in colon",
+        "parsing new syntax",
+        "replace ∈ and = with in in for loops and generators",
+        "spaces around keywords",
+        "spaces in export/public/global/local",
+        "spaces in listlike",
+        "spaces in using/import",
+        "trailing semicolon",
+        "whitespace around ->",
+        "whitespace around <: and >:, no whitespace around ::",
+        "whitespace around assignments",
+        "whitespace around ternary",
+        "whitespace between operators",
+        "whitespace in comparison chains",
+        "whitespace in let"
+      ],
+      "failed_from_pass_to_pass": [],
+      "passed_match": true,
+      "exit_code": 1,
+      "log_path": "logs/fredrikekre__runic.jl-170_log.txt",
+      "error": ""
+    }
+  ]
+}

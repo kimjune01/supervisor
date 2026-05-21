@@ -1,0 +1,8 @@
+{"instance": "ferrite-fem__ferrite.jl-1235", "stage": "start"}
+{"instance": "ferrite-fem__ferrite.jl-1235", "stage": "done", "agent_claim": true, "wall_s": 1007, "patch_bytes": 6784, "agent_log": "/tmp/swebench-abduction/r3_out_ferrite-fem__ferrite.jl-1235.txt", "patch_file": "/tmp/swebench-abduction/r3_patch_ferrite-fem__ferrite.jl-1235.diff"}
+{"instance": "fredrikekre__runic.jl-170", "stage": "start"}
+{"instance": "fredrikekre__runic.jl-170", "stage": "done", "agent_claim": true, "wall_s": 428, "patch_bytes": 661, "agent_log": "/tmp/swebench-abduction/r3_out_fredrikekre__runic.jl-170.txt", "patch_file": "/tmp/swebench-abduction/r3_patch_fredrikekre__runic.jl-170.diff"}
+{"instance": "r-lib__usethis-2142", "stage": "start"}
+{"instance": "r-lib__usethis-2142", "stage": "done", "agent_claim": true, "wall_s": 265, "patch_bytes": 840, "agent_log": "/tmp/swebench-abduction/r3_out_r-lib__usethis-2142.txt", "patch_file": "/tmp/swebench-abduction/r3_patch_r-lib__usethis-2142.diff"}
+{"instance": "segmentio__analytics-swift-406", "stage": "start"}
+{"instance": "segmentio__analytics-swift-406", "stage": "done", "agent_claim": true, "wall_s": 818, "patch_bytes": 70699, "agent_log": "/tmp/swebench-abduction/r3_out_segmentio__analytics-swift-406.txt", "patch_file": "/tmp/swebench-abduction/r3_patch_segmentio__analytics-swift-406.diff"}

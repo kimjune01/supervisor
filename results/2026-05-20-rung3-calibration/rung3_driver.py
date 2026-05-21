@@ -134,7 +134,11 @@ def capture_patch(inst, cid, root, tsha):
     """model_patch = impl diff since the test-patch commit (covers staged/unstaged AND any
     commits the agent made after T; test_patch itself is in T so it's excluded)."""
     iid = inst["instance_id"]
-    r = ssh(f"sudo docker exec {cid} bash -lc 'cd {root} && git add -A >/dev/null 2>&1; "
+    # strip agent working detritus (backup copies like *.bak, *.bak2, *.orig) so they don't
+    # pollute the model_patch — round-2 finding #2 (swift agent left KeyPath.swift.bak..bak9)
+    r = ssh(f"sudo docker exec {cid} bash -lc 'cd {root} && "
+            f"find . -path ./.git -prune -o \\( -name \"*.bak\" -o -name \"*.bak[0-9]*\" -o -name \"*.orig\" \\) -print -delete >/dev/null 2>&1; "
+            f"git add -A >/dev/null 2>&1; "
             f"git -c core.fileMode=false diff {tsha}'", timeout=120)
     # diagnostic snapshot so an empty patch is debuggable without the container
     diag = ssh(f"sudo docker exec {cid} bash -lc 'cd {root} && "
