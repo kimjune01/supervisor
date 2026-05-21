@@ -125,6 +125,22 @@ classes are **harness work**; only `model-*` classes are skill-calibration signa
 harness — never the agent's prose. Gate-grounded: the agent declares RESOLVED only when its
 `gate` tool prints PASS.
 
+## Execution architecture (decided round 1, 2026-05-20)
+**Fan out across N ephemeral EC2 boxes — one instance-slice per box — not one box
+sequentially.** The model runs locally on the plan and SSH-execs into the box's container;
+per-instance wall-clock is dominated by the online *warm* step (building the full
+gradle/julia test suite once) and the agent's *gate* calls (each RESOLVED check re-runs the
+whole `test_cmd` in the container). Sequential makes those additive — round 1's three solves
+ran one box, one at a time, and it dragged.
+- **Why boxes, not containers-on-one-box:** a small box (m7i.xlarge = 4 vCPU / 15 GB) can't
+  hold two concurrent gradle JVMs + a julia build without contention/OOM; and 2–3 parallel
+  local `claude --print` processes risk plan `Overloaded` DNFs (a rung-2 scar). Separate
+  ephemeral boxes give each slice full CPU/RAM and isolate failures. Boxes are cheap and torn
+  down immediately — provision N, run, terminate (+ delete key-pair & SG).
+- **Proven in rung 2** (it used 4 boxes B/C/D). Reuse that pattern for round 2+.
+- Concurrency is bounded by plan rate limits, not box count — keep local `claude` fan-out
+  modest (≤2–3 in flight) even across many boxes.
+
 ## Config to freeze (for reproducibility and the eventual real run)
 - Model `claude-sonnet-4-5`, headless invocation, `ANTHROPIC_API_KEY` scrubbed (plan tokens,
   not API), `--disallowedTools WebSearch WebFetch Task`.
