@@ -1,0 +1,48 @@
+HEAD is now at ef579c271 Merge pull request #6832 from microsoft/dependabot/npm_and_yarn/it/typescript/esbuild-0.25.9
+Build started 05/21/2026 00:08:00.
+     1>Project "/kiota/kiota.sln" on node 1 (Restore target(s)).
+     1>ValidateSolutionConfiguration:
+         Building solution configuration "Debug|Any CPU".
+       _GetAllRestoreProjectPathItems:
+         Determining projects to restore...
+     1>Project "/kiota/kiota.sln" (1) is building "/kiota/tests/Kiota.Builder.Tests/Kiota.Builder.Tests.csproj" (6:4) on node 4 (_GenerateRestoreGraphProjectEntry target(s)).
+     6>/usr/share/dotnet/sdk/8.0.416/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.TargetFrameworkInference.targets(166,5): error NETSDK1045: The current .NET SDK does not support targeting .NET 9.0.  Either target .NET 8.0 or lower, or use a version of the .NET SDK that supports .NET 9.0. Download the .NET SDK from https://aka.ms/dotnet/download [/kiota/tests/Kiota.Builder.Tests/Kiota.Builder.Tests.csproj]
+     6>Done Building Project "/kiota/tests/Kiota.Builder.Tests/Kiota.Builder.Tests.csproj" (_GenerateRestoreGraphProjectEntry target(s)) -- FAILED.
+     1>Project "/kiota/kiota.sln" (1) is building "/kiota/tests/Kiota.Builder.IntegrationTests/Kiota.Builder.IntegrationTests.csproj" (7:4) on node 3 (_GenerateRestoreGraphProjectEntry target(s)).
+     7>/usr/share/dotnet/sdk/8.0.416/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.TargetFrameworkInference.targets(166,5): error NETSDK1045: The current .NET SDK does not support targeting .NET 9.0.  Either target .NET 8.0 or lower, or use a version of the .NET SDK that supports .NET 9.0. Download the .NET SDK from https://aka.ms/dotnet/download [/kiota/tests/Kiota.Builder.IntegrationTests/Kiota.Builder.IntegrationTests.csproj]
+     7>Done Building Project "/kiota/tests/Kiota.Builder.IntegrationTests/Kiota.Builder.IntegrationTests.csproj" (_GenerateRestoreGraphProjectEntry target(s)) -- FAILED.
+     1>Project "/kiota/kiota.sln" (1) is building "/kiota/tests/Kiota.Tests/Kiota.Tests.csproj" (3:4) on node 1 (_GenerateRestoreGraphProjectEntry target(s)).
+     3>/usr/share/dotnet/sdk/8.0.416/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.TargetFrameworkInference.targets(166,5): error NETSDK1045: The current .NET SDK does not support targeting .NET 9.0.  Either target .NET 8.0 or lower, or use a version of the .NET SDK that supports .NET 9.0. Download the .NET SDK from https://aka.ms/dotnet/download [/kiota/tests/Kiota.Tests/Kiota.Tests.csproj]
+     3>Done Building Project "/kiota/tests/Kiota.Tests/Kiota.Tests.csproj" (_GenerateRestoreGraphProjectEntry target(s)) -- FAILED.
+     1>Done Building Project "/kiota/kiota.sln" (Restore target(s)) -- FAILED.
+
+Build FAILED.
+
+       "/kiota/kiota.sln" (Restore target) (1) ->
+       "/kiota/tests/Kiota.Builder.Tests/Kiota.Builder.Tests.csproj" (_GenerateRestoreGraphProjectEntry target) (6:4) ->
+       (_CheckForUnsupportedNETCoreVersion target) -> 
+         /usr/share/dotnet/sdk/8.0.416/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.TargetFrameworkInference.targets(166,5): error NETSDK1045: The current .NET SDK does not support targeting .NET 9.0.  Either target .NET 8.0 or lower, or use a version of the .NET SDK that supports .NET 9.0. Download the .NET SDK from https://aka.ms/dotnet/download [/kiota/tests/Kiota.Builder.Tests/Kiota.Builder.Tests.csproj]
+
+
+       "/kiota/kiota.sln" (Restore target) (1) ->
+       "/kiota/tests/Kiota.Builder.IntegrationTests/Kiota.Builder.IntegrationTests.csproj" (_GenerateRestoreGraphProjectEntry target) (7:4) ->
+         /usr/share/dotnet/sdk/8.0.416/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.TargetFrameworkInference.targets(166,5): error NETSDK1045: The current .NET SDK does not support targeting .NET 9.0.  Either target .NET 8.0 or lower, or use a version of the .NET SDK that supports .NET 9.0. Download the .NET SDK from https://aka.ms/dotnet/download [/kiota/tests/Kiota.Builder.IntegrationTests/Kiota.Builder.IntegrationTests.csproj]
+
+
+       "/kiota/kiota.sln" (Restore target) (1) ->
+       "/kiota/tests/Kiota.Tests/Kiota.Tests.csproj" (_GenerateRestoreGraphProjectEntry target) (3:4) ->
+         /usr/share/dotnet/sdk/8.0.416/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.TargetFrameworkInference.targets(166,5): error NETSDK1045: The current .NET SDK does not support targeting .NET 9.0.  Either target .NET 8.0 or lower, or use a version of the .NET SDK that supports .NET 9.0. Download the .NET SDK from https://aka.ms/dotnet/download [/kiota/tests/Kiota.Tests/Kiota.Tests.csproj]
+
+    0 Warning(s)
+    3 Error(s)
+
+Time Elapsed 00:00:01.83
+Checking patch CHANGELOG.md...
+Applied patch to 'CHANGELOG.md' cleanly.
+Checking patch src/Kiota.Builder/Writers/CSharp/CSharpConventionService.cs...
+Applied patch to 'src/Kiota.Builder/Writers/CSharp/CSharpConventionService.cs' cleanly.
+Applied patch CHANGELOG.md cleanly.
+Applied patch src/Kiota.Builder/Writers/CSharp/CSharpConventionService.cs cleanly.
+Checking patch tests/Kiota.Builder.Tests/Writers/CSharp/CodeMethodWriterTests.cs...
+Applied patch to 'tests/Kiota.Builder.Tests/Writers/CSharp/CodeMethodWriterTests.cs' cleanly.
+Applied patch tests/Kiota.Builder.Tests/Writers/CSharp/CodeMethodWriterTests.cs cleanly.

@@ -98,3 +98,23 @@ wall dissolves; re-running on the plan.
    (driver + instance metadata cached in `/tmp/swebench-abduction/`).
 4. For decompose/KMP: don't cut container network until AFTER the first successful build
    (so the gradle wrapper can fetch its distribution), then go offline for the clean solve.
+
+## L5 — canonical harness settles the "confusing" instances (2026-05-20)
+Ran the official SWE-rebench-V2 `scripts/eval.py` on the 4 confusing instances (offline
+`--json` mode; HF API 429-locked, so rows pulled from the dataset **parquet CDN** which
+carries `install_config` — the field the cached rows lacked). Box gotchas paid again:
+`ec2-user` not in the `docker` group → first run was all exit-126 (containers never ran);
+`usermod -aG docker` + `sg docker -c` fixed it.
+
+**Result: 2/2 of the *scoreable* instances RESOLVED** (ktoml-353 918/918, decompose-916
+594/594). The other two are **benchmark defects, proven canonically:**
+- `shadow-1613`: F2P test IDs embed JVM lambda addresses (`$$Lambda/0x..@hash`) → never
+  matchable; metadata names the wrong test class. **This overturns my earlier hand-argued
+  "6/8" dirty-base correction** — the bespoke grader was guessing; the instance is unscoreable.
+- `kiota-6835`: **golden-eval is the clincher** — the gold reference patch returns exit 1,
+  F2P 0/1, 1869 P2P regressions. Our 2 "regressions" are a strict subset of gold's. The
+  harness env can't grade this instance; our patch actually beat gold on it.
+
+**Lesson:** retire all hand-rolled grading. When an instance looks "confusing," run
+golden-eval — if gold doesn't grade, it's a bench defect, not a method failure. Artifacts +
+write-up in `results/2026-05-20-canonical-harness/`.

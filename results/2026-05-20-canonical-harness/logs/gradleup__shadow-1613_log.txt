@@ -1,0 +1,231 @@
+HEAD is now at 8f9c734b Functional test cleanups (#1604)
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.0.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+Parallel Configuration Cache is an incubating feature.
+Calculating task graph as no cached configuration is available for tasks: test
+> Task :checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :pluginDescriptors
+> Task :processResources
+> Task :processTestResources
+> Task :compileKotlin
+> Task :compileJava NO-SOURCE
+> Task :classes
+> Task :jar
+> Task :compileTestKotlin
+> Task :compileTestJava NO-SOURCE
+> Task :testClasses
+
+> Task :test
+
+BUILD SUCCESSFUL in 2m 3s
+7 actionable tasks: 7 executed
+Configuration cache entry stored.
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.github.jengelman.gradle.plugins.shadow.transformers.ApacheNoticeResourceTransformerTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:03:05.226Z" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="10.052">
+  <properties/>
+  <testcase name="noParametersShouldNotThrowNullPointerWhenNoInput()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ApacheNoticeResourceTransformerTest" time="9.843"/>
+  <testcase name="canTransformResource()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ApacheNoticeResourceTransformerTest" time="0.062"/>
+  <testcase name="noParametersShouldNotThrowNullPointerWhenTwoLinesOfInput()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ApacheNoticeResourceTransformerTest" time="0.025"/>
+  <testcase name="noParametersShouldNotThrowNullPointerWhenNoLinesOfInput()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ApacheNoticeResourceTransformerTest" time="0.011"/>
+  <testcase name="noParametersShouldNotThrowNullPointerWhenLineStartsWithSlashSlash()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ApacheNoticeResourceTransformerTest" time="0.006"/>
+  <testcase name="noParametersShouldNotThrowNullPointerWhenLineIsEmpty()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ApacheNoticeResourceTransformerTest" time="0.007"/>
+  <testcase name="noParametersShouldNotThrowNullPointerWhenLineIsSlashSlash()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ApacheNoticeResourceTransformerTest" time="0.011"/>
+  <testcase name="noParametersShouldNotThrowNullPointerWhenOneLineOfInput()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ApacheNoticeResourceTransformerTest" time="0.007"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.github.jengelman.gradle.plugins.shadow.relocation.SimpleRelocatorTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:03:02.822Z" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.569">
+  <properties/>
+  <testcase name="relocatePath()" classname="com.github.jengelman.gradle.plugins.shadow.relocation.SimpleRelocatorTest" time="0.209"/>
+  <testcase name="relocateMavenFiles()" classname="com.github.jengelman.gradle.plugins.shadow.relocation.SimpleRelocatorTest" time="0.068"/>
+  <testcase name="canRelocateIncludedSourceFile()" classname="com.github.jengelman.gradle.plugins.shadow.relocation.SimpleRelocatorTest" time="0.075"/>
+  <testcase name="canRelocateAbsClassPathWithIncludes()" classname="com.github.jengelman.gradle.plugins.shadow.relocation.SimpleRelocatorTest" time="0.002"/>
+  <testcase name="canRelocateRawString()" classname="com.github.jengelman.gradle.plugins.shadow.relocation.SimpleRelocatorTest" time="0.001"/>
+  <testcase name="relocateSourceWithExcludes()" classname="com.github.jengelman.gradle.plugins.shadow.relocation.SimpleRelocatorTest" time="0.09"/>
+  <testcase name="canRelocateExcludedSourceFile()" classname="com.github.jengelman.gradle.plugins.shadow.relocation.SimpleRelocatorTest" time="0.007"/>
+  <testcase name="relocateRawString()" classname="com.github.jengelman.gradle.plugins.shadow.relocation.SimpleRelocatorTest" time="0.008"/>
+  <testcase name="canRelocateClass()" classname="com.github.jengelman.gradle.plugins.shadow.relocation.SimpleRelocatorTest" time="0.002"/>
+  <testcase name="relocateSourceWithExcludesRaw()" classname="com.github.jengelman.gradle.plugins.shadow.relocation.SimpleRelocatorTest" time="0.001"/>
+  <testcase name="canRelocateAbsClassPathWithExcludes()" classname="com.github.jengelman.gradle.plugins.shadow.relocation.SimpleRelocatorTest" time="0.001"/>
+  <testcase name="canRelocatePathWithRegex()" classname="com.github.jengelman.gradle.plugins.shadow.relocation.SimpleRelocatorTest" time="0.001"/>
+  <testcase name="canRelocateIncludedSourceFileWithRegex()" classname="com.github.jengelman.gradle.plugins.shadow.relocation.SimpleRelocatorTest" time="0.001"/>
+  <testcase name="canRelocateAbsClassPath()" classname="com.github.jengelman.gradle.plugins.shadow.relocation.SimpleRelocatorTest" time="0.001"/>
+  <testcase name="canRelocateExcludedSourceFileWithRegex()" classname="com.github.jengelman.gradle.plugins.shadow.relocation.SimpleRelocatorTest" time="0.001"/>
+  <testcase name="relocateClass()" classname="com.github.jengelman.gradle.plugins.shadow.relocation.SimpleRelocatorTest" time="0.001"/>
+  <testcase name="canRelocatePath()" classname="com.github.jengelman.gradle.plugins.shadow.relocation.SimpleRelocatorTest" time="0.01"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.github.jengelman.gradle.plugins.shadow.transformers.ComponentsXmlResourceTransformerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:03:15.326Z" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.377">
+  <properties/>
+  <testcase name="configurationMerging()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ComponentsXmlResourceTransformerTest" time="0.377"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.github.jengelman.gradle.plugins.shadow.transformers.XmlAppendingTransformerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:03:15.714Z" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.019">
+  <properties/>
+  <testcase name="canTransformResource()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.XmlAppendingTransformerTest" time="0.019"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" tests="26" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:03:13.216Z" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="2.33">
+  <properties/>
+  <testcase name="transformation()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="0.331"/>
+  <testcase name="transformationPropertiesAreReproducible()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="1.062"/>
+  <testcase name="[1] f.properties, [f.properties], {foo=foo}, {foo=bar}, {foo=foo}" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="0.059"/>
+  <testcase name="[2] foo.properties, [.*.properties], {foo=foo}, {foo=bar}, {foo=foo}" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="0.023"/>
+  <testcase name="[3] foo.properties, [.*bar], {foo=foo}, {foo=bar}, {}" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="0.02"/>
+  <testcase name="[4] foo.properties, [], {foo=foo}, {foo=bar}, {foo=foo}" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="0.035"/>
+  <testcase name="[1] f.properties, {f.properties={mergeStrategy=first}}, {foo=foo}, {foo=bar}, {foo=foo}" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="0.017"/>
+  <testcase name="[2] f.properties, {f.properties={mergeStrategy=latest}}, {foo=foo}, {foo=bar}, {foo=bar}" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="0.005"/>
+  <testcase name="[3] f.properties, {f.properties={mergeStrategy=append}}, {foo=foo}, {foo=bar}, {foo=foo,bar}" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="0.022"/>
+  <testcase name="[4] f.properties, {f.properties={mergeStrategy=append, mergeSeparator=;}}, {foo=foo}, {foo=bar}, {foo=foo;bar}" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="0.012"/>
+  <testcase name="[5] foo.properties, {.*.properties={mergeStrategy=first}}, {foo=foo}, {foo=bar}, {foo=foo}" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="0.015"/>
+  <testcase name="[6] foo.properties, {.*bar={mergeStrategy=first}}, {foo=foo}, {foo=bar}, {}" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="0.014"/>
+  <testcase name="hasTransformedResource()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="0.015"/>
+  <testcase name="[1] utf8.properties, utf-8, {foo=传傳磨宿说説}, {foo=传傳磨宿说説}" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="0.024"/>
+  <testcase name="[1] foo.properties, true" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="0.033"/>
+  <testcase name="[2] foo/bar.properties, true" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="0.001"/>
+  <testcase name="[3] foo.props, false" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="0.001"/>
+  <testcase name="hasNotTransformedResource()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="0.001"/>
+  <testcase name="[1] foo.properties, com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest$Companion$$Lambda/0x00007f9e184af4f8@34aa8b61, {foo=bar}, {FOO=baz}, {foo=bar, FOO=baz}" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="0.048"/>
+  <testcase name="[2] foo.properties, com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest$Companion$$Lambda/0x00007f9e184af718@112c2930, {foo=bar}, {FOO=baz}, {FOO=bar,baz}" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="0.004"/>
+  <testcase name="[3] foo.properties, com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest$Companion$$Lambda/0x00007f9e184af938@beabd6b, {foo=bar}, {FOO=baz}, {bar.foo=bar,baz}" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="0.003"/>
+  <testcase name="[4] foo.properties, com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest$Companion$$Lambda/0x00007f9e184afb58@5980fa73, {foo=bar}, {FOO=baz}, {bar.foo=bar, FOO=baz}" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="0.002"/>
+  <testcase name="[1] f.properties, first, , {foo=foo}, {foo=bar}, {foo=foo}" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="0.019"/>
+  <testcase name="[2] f.properties, latest, , {foo=foo}, {foo=bar}, {foo=bar}" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="0.004"/>
+  <testcase name="[3] f.properties, append, ,, {foo=foo}, {foo=bar}, {foo=foo,bar}" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="0.01"/>
+  <testcase name="[4] f.properties, append, ;, {foo=foo}, {foo=bar}, {foo=foo;bar}" classname="com.github.jengelman.gradle.plugins.shadow.transformers.PropertiesFileTransformerTest" time="0.015"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.github.jengelman.gradle.plugins.shadow.transformers.ApacheLicenseResourceTransformerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:03:04.419Z" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="9.622">
+  <properties/>
+  <testcase name="canTransformResource()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ApacheLicenseResourceTransformerTest" time="9.622"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformerTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:03:15.158Z" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.621">
+  <properties/>
+  <testcase name="excludesGroovyExtensionModuleDescriptorFilesByDefault()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformerTest" time="0.057"/>
+  <testcase name="[1] META-INF/services/java.sql.Driver, false, true" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformerTest" time="0.043"/>
+  <testcase name="[2] META-INF/services/io.dropwizard.logging.AppenderFactory, false, true" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformerTest" time="0.005"/>
+  <testcase name="[3] META-INF/services/org.apache.maven.Shade, true, false" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformerTest" time="0.018"/>
+  <testcase name="[4] META-INF/services/foo/bar/moo.goo.Zoo, false, true" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformerTest" time="0.002"/>
+  <testcase name="[5] foo/bar.properties, false, false" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformerTest" time="0.016"/>
+  <testcase name="[6] foo.props, false, false" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformerTest" time="0.005"/>
+  <testcase name="concatenationAppliedMultipleTimes()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformerTest" time="0.051"/>
+  <testcase name="mergeRelocatedFiles()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformerTest" time="0.014"/>
+  <testcase name="concatenation()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformerTest" time="0.023"/>
+  <testcase name="[1] META-INF/services/com.acme.Foo, foo, bar, foo&#10;bar" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformerTest" time="0.031"/>
+  <testcase name="[2] META-INF/services/com.acme.Bar, foo&#10;bar, zoo, foo&#10;bar&#10;zoo" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformerTest" time="0.016"/>
+  <testcase name="relocatedClasses()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformerTest" time="0.011"/>
+  <testcase name="canTransformAlternateResource()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformerTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.github.jengelman.gradle.plugins.shadow.transformers.AppendingTransformerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:03:03.474Z" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="9.682">
+  <properties/>
+  <testcase name="canTransformResource()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.AppendingTransformerTest" time="9.682"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.github.jengelman.gradle.plugins.shadow.transformers.Log4j2PluginsCacheFileTransformerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:03:14.046Z" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.81">
+  <properties/>
+  <testcase name="transformAndModifyOutputStream()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.Log4j2PluginsCacheFileTransformerTest" time="0.184"/>
+  <testcase name="canTransformResource()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.Log4j2PluginsCacheFileTransformerTest" time="0.0"/>
+  <testcase name="relocateClassesInsideDatFile()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.Log4j2PluginsCacheFileTransformerTest" time="0.145"/>
+  <testcase name="[1] org.apache.logging, new.location.org.apache.logging, new.location.org.apache.logging" classname="com.github.jengelman.gradle.plugins.shadow.transformers.Log4j2PluginsCacheFileTransformerTest" time="0.224"/>
+  <testcase name="[2] com.apache.logging, new.location.com.apache.logging, org.apache.logging" classname="com.github.jengelman.gradle.plugins.shadow.transformers.Log4j2PluginsCacheFileTransformerTest" time="0.021"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.github.jengelman.gradle.plugins.shadow.transformers.ManifestAppenderTransformerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:03:04.865Z" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="10.268">
+  <properties/>
+  <testcase name="canTransformResource()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ManifestAppenderTransformerTest" time="10.034"/>
+  <testcase name="transformation()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ManifestAppenderTransformerTest" time="0.138"/>
+  <testcase name="hasTransformedResource()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ManifestAppenderTransformerTest" time="0.003"/>
+  <testcase name="hasNotTransformedResource()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ManifestAppenderTransformerTest" time="0.015"/>
+  <testcase name="noTransformation()" classname="com.github.jengelman.gradle.plugins.shadow.transformers.ManifestAppenderTransformerTest" time="0.01"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+Unable to find image 'swerebenchv2/gradleup-shadow:1613-8f9c734' locally
+1613-8f9c734: Pulling from swerebenchv2/gradleup-shadow
+0771ddcbd585: Pulling fs layer
+fb0eeb3fbc57: Pulling fs layer
+22c71a389991: Pulling fs layer
+0ea65b4ea458: Pulling fs layer
+c41a1a7fa9bd: Pulling fs layer
+482fffc19434: Pulling fs layer
+d67a341ed413: Pulling fs layer
+75d65a4b1079: Pulling fs layer
+798c40ba6059: Pulling fs layer
+53c336c8680a: Pulling fs layer
+5d7ee233d1a8: Pulling fs layer
+5670736f1322: Pulling fs layer
+fb0eeb3fbc57: Download complete
+0ea65b4ea458: Waiting
+c41a1a7fa9bd: Waiting
+482fffc19434: Waiting
+d67a341ed413: Waiting
+75d65a4b1079: Waiting
+798c40ba6059: Waiting
+53c336c8680a: Waiting
+5d7ee233d1a8: Waiting
+5670736f1322: Waiting
+0ea65b4ea458: Verifying Checksum
+0ea65b4ea458: Download complete
+c41a1a7fa9bd: Verifying Checksum
+c41a1a7fa9bd: Download complete
+22c71a389991: Download complete
+75d65a4b1079: Verifying Checksum
+75d65a4b1079: Download complete
+482fffc19434: Verifying Checksum
+482fffc19434: Download complete
+0771ddcbd585: Pull complete
+798c40ba6059: Verifying Checksum
+798c40ba6059: Download complete
+fb0eeb3fbc57: Pull complete
+d67a341ed413: Verifying Checksum
+d67a341ed413: Download complete
+22c71a389991: Pull complete
+0ea65b4ea458: Pull complete
+c41a1a7fa9bd: Pull complete
+5670736f1322: Verifying Checksum
+5670736f1322: Download complete
+53c336c8680a: Download complete
+5d7ee233d1a8: Verifying Checksum
+5d7ee233d1a8: Download complete
+482fffc19434: Pull complete
+d67a341ed413: Pull complete
+75d65a4b1079: Pull complete
+798c40ba6059: Pull complete
+53c336c8680a: Pull complete
+5d7ee233d1a8: Pull complete
+5670736f1322: Pull complete
+Digest: sha256:9cfa4dabd1f32949105eddcdb06939eedec12008caa8b4faa2f28bbf21cc79cd
+Status: Downloaded newer image for swerebenchv2/gradleup-shadow:1613-8f9c734
+Checking patch src/functionalTest/kotlin/com/github/jengelman/gradle/plugins/shadow/JavaPluginsTest.kt...
+Applied patch to 'src/functionalTest/kotlin/com/github/jengelman/gradle/plugins/shadow/JavaPluginsTest.kt' cleanly.
+Checking patch src/main/kotlin/com/github/jengelman/gradle/plugins/shadow/tasks/ShadowJar.kt...
+Applied patch to 'src/main/kotlin/com/github/jengelman/gradle/plugins/shadow/tasks/ShadowJar.kt' cleanly.
+Applied patch src/functionalTest/kotlin/com/github/jengelman/gradle/plugins/shadow/JavaPluginsTest.kt cleanly.
+Applied patch src/main/kotlin/com/github/jengelman/gradle/plugins/shadow/tasks/ShadowJar.kt cleanly.
+Checking patch src/functionalTest/kotlin/com/github/jengelman/gradle/plugins/shadow/JavaPluginsTest.kt...
+Applied patch to 'src/functionalTest/kotlin/com/github/jengelman/gradle/plugins/shadow/JavaPluginsTest.kt' cleanly.
+Applied patch src/functionalTest/kotlin/com/github/jengelman/gradle/plugins/shadow/JavaPluginsTest.kt cleanly.
+Picked up _JAVA_OPTIONS: -Djava.net.preferIPv6Addresses=false
+Picked up _JAVA_OPTIONS: -Djava.net.preferIPv6Addresses=false
+Picked up _JAVA_OPTIONS: -Djava.net.preferIPv6Addresses=false
+Picked up _JAVA_OPTIONS: -Djava.net.preferIPv6Addresses=false
+Picked up _JAVA_OPTIONS: -Djava.net.preferIPv6Addresses=false

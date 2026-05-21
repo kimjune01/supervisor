@@ -1,0 +1,1209 @@
+HEAD is now at 4142a86d Merge pull request #906 from JuBan1/patch-1
+Downloading https://services.gradle.org/distributions/gradle-8.11.1-all.zip
+.....................10%......................20%......................30%......................40%......................50%......................60%......................70%......................80%......................90%......................100%
+
+Welcome to Gradle 8.11.1!
+
+Here are the highlights of this release:
+ - Parallel load and store for Configuration Cache
+ - Java compilation errors at the end of the build output
+ - Consolidated report for warnings and deprecations
+
+For more details see https://docs.gradle.org/8.11.1/release-notes.html
+
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.11.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :
+w: file:///Decompose/build.gradle.kts:38:9: This declaration needs opt-in. Its usage should be marked with '@org.jetbrains.kotlin.gradle.ExperimentalWasmDsl' or '@OptIn(org.jetbrains.kotlin.gradle.ExperimentalWasmDsl::class)'
+
+> Configure project :decompose
+project ':decompose', target android (androidJvm), compilation allowed: true
+project ':decompose', target iosArm64 (native), compilation allowed: true
+project ':decompose', target iosSimulatorArm64 (native), compilation allowed: true
+project ':decompose', target iosX64 (native), compilation allowed: true
+project ':decompose', target js (js), compilation allowed: true
+project ':decompose', target jvm (jvm), compilation allowed: true
+project ':decompose', target macosArm64 (native), compilation allowed: true
+project ':decompose', target macosX64 (native), compilation allowed: true
+project ':decompose', target metadata (common), compilation allowed: true
+project ':decompose', target tvosArm64 (native), compilation allowed: true
+project ':decompose', target tvosSimulatorArm64 (native), compilation allowed: true
+project ':decompose', target tvosX64 (native), compilation allowed: true
+project ':decompose', target wasmJs (wasm), compilation allowed: true
+project ':decompose', target watchosArm32 (native), compilation allowed: true
+project ':decompose', target watchosArm64 (native), compilation allowed: true
+project ':decompose', target watchosSimulatorArm64 (native), compilation allowed: true
+project ':decompose', target watchosX64 (native), compilation allowed: true
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64, macosArm64, macosX64, tvosArm64, tvosSimulatorArm64, tvosX64, watchosArm32, watchosArm64, watchosSimulatorArm64, watchosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :decompose-test-utils
+project ':decompose-test-utils', target android (androidJvm), compilation allowed: true
+project ':decompose-test-utils', target iosArm64 (native), compilation allowed: true
+project ':decompose-test-utils', target iosSimulatorArm64 (native), compilation allowed: true
+project ':decompose-test-utils', target iosX64 (native), compilation allowed: true
+project ':decompose-test-utils', target js (js), compilation allowed: true
+project ':decompose-test-utils', target jvm (jvm), compilation allowed: true
+project ':decompose-test-utils', target macosArm64 (native), compilation allowed: true
+project ':decompose-test-utils', target macosX64 (native), compilation allowed: true
+project ':decompose-test-utils', target metadata (common), compilation allowed: true
+project ':decompose-test-utils', target tvosArm64 (native), compilation allowed: true
+project ':decompose-test-utils', target tvosSimulatorArm64 (native), compilation allowed: true
+project ':decompose-test-utils', target tvosX64 (native), compilation allowed: true
+project ':decompose-test-utils', target wasmJs (wasm), compilation allowed: true
+project ':decompose-test-utils', target watchosArm32 (native), compilation allowed: true
+project ':decompose-test-utils', target watchosArm64 (native), compilation allowed: true
+project ':decompose-test-utils', target watchosSimulatorArm64 (native), compilation allowed: true
+project ':decompose-test-utils', target watchosX64 (native), compilation allowed: true
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64, macosArm64, macosX64, tvosArm64, tvosSimulatorArm64, tvosX64, watchosArm32, watchosArm64, watchosSimulatorArm64, watchosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :extensions-compose
+w: file:///Decompose/extensions-compose/build.gradle.kts:25:5: This declaration needs opt-in. Its usage should be marked with '@org.jetbrains.kotlin.gradle.ExperimentalWasmDsl' or '@OptIn(org.jetbrains.kotlin.gradle.ExperimentalWasmDsl::class)'
+project ':extensions-compose', target android (androidJvm), compilation allowed: true
+project ':extensions-compose', target iosArm64 (native), compilation allowed: true
+project ':extensions-compose', target iosSimulatorArm64 (native), compilation allowed: true
+project ':extensions-compose', target iosX64 (native), compilation allowed: true
+project ':extensions-compose', target js (js), compilation allowed: true
+project ':extensions-compose', target jvm (jvm), compilation allowed: true
+project ':extensions-compose', target macosArm64 (native), compilation allowed: true
+project ':extensions-compose', target macosX64 (native), compilation allowed: true
+project ':extensions-compose', target metadata (common), compilation allowed: true
+project ':extensions-compose', target wasmJs (wasm), compilation allowed: true
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64, macosArm64, macosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :extensions-compose-experimental
+w: file:///Decompose/extensions-compose-experimental/build.gradle.kts:24:5: This declaration needs opt-in. Its usage should be marked with '@org.jetbrains.kotlin.gradle.ExperimentalWasmDsl' or '@OptIn(org.jetbrains.kotlin.gradle.ExperimentalWasmDsl::class)'
+project ':extensions-compose-experimental', target android (androidJvm), compilation allowed: true
+project ':extensions-compose-experimental', target iosArm64 (native), compilation allowed: true
+project ':extensions-compose-experimental', target iosSimulatorArm64 (native), compilation allowed: true
+project ':extensions-compose-experimental', target iosX64 (native), compilation allowed: true
+project ':extensions-compose-experimental', target js (js), compilation allowed: true
+project ':extensions-compose-experimental', target jvm (jvm), compilation allowed: true
+project ':extensions-compose-experimental', target macosArm64 (native), compilation allowed: true
+project ':extensions-compose-experimental', target macosX64 (native), compilation allowed: true
+project ':extensions-compose-experimental', target metadata (common), compilation allowed: true
+project ':extensions-compose-experimental', target wasmJs (wasm), compilation allowed: true
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64, macosArm64, macosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :jetpack-component-context
+project ':jetpack-component-context', target android (androidJvm), compilation allowed: true
+project ':jetpack-component-context', target iosArm64 (native), compilation allowed: true
+project ':jetpack-component-context', target iosSimulatorArm64 (native), compilation allowed: true
+project ':jetpack-component-context', target iosX64 (native), compilation allowed: true
+project ':jetpack-component-context', target js (js), compilation allowed: true
+project ':jetpack-component-context', target jvm (jvm), compilation allowed: true
+project ':jetpack-component-context', target macosArm64 (native), compilation allowed: true
+project ':jetpack-component-context', target macosX64 (native), compilation allowed: true
+project ':jetpack-component-context', target metadata (common), compilation allowed: true
+project ':jetpack-component-context', target tvosArm64 (native), compilation allowed: true
+project ':jetpack-component-context', target tvosSimulatorArm64 (native), compilation allowed: true
+project ':jetpack-component-context', target tvosX64 (native), compilation allowed: true
+project ':jetpack-component-context', target wasmJs (wasm), compilation allowed: true
+project ':jetpack-component-context', target watchosArm32 (native), compilation allowed: true
+project ':jetpack-component-context', target watchosArm64 (native), compilation allowed: true
+project ':jetpack-component-context', target watchosSimulatorArm64 (native), compilation allowed: true
+project ':jetpack-component-context', target watchosX64 (native), compilation allowed: true
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64, macosArm64, macosX64, tvosArm64, tvosSimulatorArm64, tvosX64, watchosArm32, watchosArm64, watchosSimulatorArm64, watchosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :sample:app-android
+w: file:///Decompose/sample/app-android/build.gradle.kts:20:5: 'packagingOptions(Packaging.() -> Unit): Unit' is deprecated. Renamed to packaging
+w: file:///Decompose/sample/app-android/build.gradle.kts:21:9: 'exclude(String): Unit' is deprecated. This method is deprecated. Use resources.excludes.add() or jniLibs.excludes.add() instead. Use jniLibs.excludes.add() for .so file patterns, and use resources.excludes.add() for all other file patterns.
+
+> Configure project :sample:app-desktop
+project ':sample:app-desktop', target jvm (jvm), compilation allowed: true
+project ':sample:app-desktop', target metadata (common), compilation allowed: true
+
+> Configure project :sample:app-js
+project ':sample:app-js', target js (js), compilation allowed: true
+w: 'kotlin-js' Gradle plugin is deprecated and will be removed in the future. 
+Please use 'kotlin("multiplatform")' plugin with a 'js()' target instead. See the migration guide: https://kotl.in/t6m3vu
+
+> Configure project :sample:app-js-compose
+w: file:///Decompose/sample/app-js-compose/build.gradle.kts:38:5: 'web: ExperimentalWebExtension' is deprecated. Starting from 1.6.10, Compose for Web goes to Alpha. Experimental configuration is not needed anymore.
+w: file:///Decompose/sample/app-js-compose/build.gradle.kts:38:5: 'web: ExperimentalWebExtension' is deprecated. Starting from 1.6.10, Compose for Web goes to Alpha. Experimental configuration is not needed anymore.
+w: file:///Decompose/sample/app-js-compose/build.gradle.kts:38:9: 'application(Action<ExperimentalWebApplication>): Unit' is deprecated. Starting from 1.6.10, Compose for Web goes to Alpha. Experimental configuration is not needed anymore.
+project ':sample:app-js-compose', target js (js), compilation allowed: true
+project ':sample:app-js-compose', target metadata (common), compilation allowed: true
+
+> Configure project :sample:shared:compose
+project ':sample:shared:compose', target android (androidJvm), compilation allowed: true
+project ':sample:shared:compose', target iosArm64 (native), compilation allowed: true
+project ':sample:shared:compose', target iosSimulatorArm64 (native), compilation allowed: true
+project ':sample:shared:compose', target iosX64 (native), compilation allowed: true
+project ':sample:shared:compose', target js (js), compilation allowed: true
+project ':sample:shared:compose', target jvm (jvm), compilation allowed: true
+project ':sample:shared:compose', target metadata (common), compilation allowed: true
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :sample:shared:shared
+project ':sample:shared:shared', target android (androidJvm), compilation allowed: true
+project ':sample:shared:shared', target iosArm64 (native), compilation allowed: true
+project ':sample:shared:shared', target iosSimulatorArm64 (native), compilation allowed: true
+project ':sample:shared:shared', target iosX64 (native), compilation allowed: true
+project ':sample:shared:shared', target js (js), compilation allowed: true
+project ':sample:shared:shared', target jvm (jvm), compilation allowed: true
+project ':sample:shared:shared', target metadata (common), compilation allowed: true
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :sample:shared:dynamic-features:api
+project ':sample:shared:dynamic-features:api', target android (androidJvm), compilation allowed: true
+project ':sample:shared:dynamic-features:api', target iosArm64 (native), compilation allowed: true
+project ':sample:shared:dynamic-features:api', target iosSimulatorArm64 (native), compilation allowed: true
+project ':sample:shared:dynamic-features:api', target iosX64 (native), compilation allowed: true
+project ':sample:shared:dynamic-features:api', target js (js), compilation allowed: true
+project ':sample:shared:dynamic-features:api', target jvm (jvm), compilation allowed: true
+project ':sample:shared:dynamic-features:api', target metadata (common), compilation allowed: true
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :sample:shared:dynamic-features:compose-api
+project ':sample:shared:dynamic-features:compose-api', target android (androidJvm), compilation allowed: true
+project ':sample:shared:dynamic-features:compose-api', target iosArm64 (native), compilation allowed: true
+project ':sample:shared:dynamic-features:compose-api', target iosSimulatorArm64 (native), compilation allowed: true
+project ':sample:shared:dynamic-features:compose-api', target iosX64 (native), compilation allowed: true
+project ':sample:shared:dynamic-features:compose-api', target js (js), compilation allowed: true
+project ':sample:shared:dynamic-features:compose-api', target jvm (jvm), compilation allowed: true
+project ':sample:shared:dynamic-features:compose-api', target metadata (common), compilation allowed: true
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :sample:shared:dynamic-features:feature1Impl
+project ':sample:shared:dynamic-features:feature1Impl', target android (androidJvm), compilation allowed: true
+project ':sample:shared:dynamic-features:feature1Impl', target iosArm64 (native), compilation allowed: true
+project ':sample:shared:dynamic-features:feature1Impl', target iosSimulatorArm64 (native), compilation allowed: true
+project ':sample:shared:dynamic-features:feature1Impl', target iosX64 (native), compilation allowed: true
+project ':sample:shared:dynamic-features:feature1Impl', target js (js), compilation allowed: true
+project ':sample:shared:dynamic-features:feature1Impl', target jvm (jvm), compilation allowed: true
+project ':sample:shared:dynamic-features:feature1Impl', target metadata (common), compilation allowed: true
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :sample:shared:dynamic-features:feature2Impl
+project ':sample:shared:dynamic-features:feature2Impl', target android (androidJvm), compilation allowed: true
+project ':sample:shared:dynamic-features:feature2Impl', target iosArm64 (native), compilation allowed: true
+project ':sample:shared:dynamic-features:feature2Impl', target iosSimulatorArm64 (native), compilation allowed: true
+project ':sample:shared:dynamic-features:feature2Impl', target iosX64 (native), compilation allowed: true
+project ':sample:shared:dynamic-features:feature2Impl', target js (js), compilation allowed: true
+project ':sample:shared:dynamic-features:feature2Impl', target jvm (jvm), compilation allowed: true
+project ':sample:shared:dynamic-features:feature2Impl', target metadata (common), compilation allowed: true
+w: The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, iosX64
+To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Task :decompose:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :decompose-test-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :decompose-test-utils:jvmProcessResources NO-SOURCE
+> Task :decompose:jvmProcessResources NO-SOURCE
+> Task :decompose:jvmTestProcessResources NO-SOURCE
+> Task :decompose:compileKotlinJvm
+> Task :decompose:jvmMainClasses
+> Task :decompose:jvmJar
+> Task :decompose-test-utils:compileKotlinJvm
+> Task :decompose-test-utils:jvmMainClasses
+> Task :decompose-test-utils:jvmJar
+> Task :decompose:compileTestKotlinJvm
+> Task :decompose:jvmTestClasses
+
+> Task :decompose:jvmTest
+
+BUILD SUCCESSFUL in 3m 46s
+6 actionable tasks: 6 executed
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.panels.ChildPanelsSavedStateTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.007">
+  <properties/>
+  <testcase name="GIVEN_not_persistent_WHEN_recreated_THEN_initial_state_applied[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsSavedStateTest" time="0.001"/>
+  <testcase name="GIVEN_persistent_WHEN_recreated_THEN_state_restored[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsSavedStateTest" time="0.006"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" tests="33" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:54" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.088">
+  <properties/>
+  <testcase name="GIVEN_enabled_callback_registered_in_created_child_and_switched_to_started_WHEN_back_THEN_callback_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.015"/>
+  <testcase name="GIVEN_child_switched_from_destroyed_to_created_and_enabled_callback_registered_WHEN_back_THEN_callback_not_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.006"/>
+  <testcase name="GIVEN_callback_registered_in_context_and_in_child_WHEN_back_THEN_child_callback_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.0"/>
+  <testcase name="GIVEN_enabled_callback_registered_in_started_child_and_switched_to_destroyed_WHEN_back_THEN_callback_not_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.001"/>
+  <testcase name="GIVEN_children_created_with_resumed_child_and_enabled_callback_registered_WHEN_back_THEN_callback_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.001"/>
+  <testcase name="GIVEN_enabled_callback_registered_in_started_child_and_switched_to_created_WHEN_back_THEN_callback_not_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.001"/>
+  <testcase name="GIVEN_children_created_with_created_child_and_disabled_callback_registered_WHEN_back_THEN_callback_not_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.001"/>
+  <testcase name="WHEN_back_and_navigate_recursively_THEN_childFactory_not_called_recursively[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.002"/>
+  <testcase name="GIVEN_child_switched_from_resumed_to_started_and_enabled_callback_registered_WHEN_back_THEN_callback_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.003"/>
+  <testcase name="GIVEN_enabled_callback_registered_in_started_child_and_switched_to_resumed_WHEN_back_THEN_callback_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.001"/>
+  <testcase name="GIVEN_enabled_callback_registered_in_created_child_and_switched_to_resumed_WHEN_back_THEN_callback_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.002"/>
+  <testcase name="WHEN_back_THEN_onStateChanged_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.001"/>
+  <testcase name="GIVEN_child_switched_from_created_to_resumed_and_enabled_callback_registered_WHEN_back_THEN_callback_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.002"/>
+  <testcase name="GIVEN_callback_registered_in_child_and_in_context_WHEN_back_THEN_child_callback_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.0"/>
+  <testcase name="GIVEN_child_switched_from_destroyed_to_started_and_enabled_callback_registered_WHEN_back_THEN_callback_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.004"/>
+  <testcase name="GIVEN_children_created_with_resumed_child_and_disabled_callback_registered_WHEN_back_THEN_callback_not_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.001"/>
+  <testcase name="GIVEN_backTransformer_returns_null_WHEN_back_THEN_returned_false[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.001"/>
+  <testcase name="GIVEN_child_switched_from_resumed_to_created_and_enabled_callback_registered_WHEN_back_THEN_callback_not_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.001"/>
+  <testcase name="GIVEN_callback_registered_in_context_and_in_child_WHEN_back_THEN_context_callback_not_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.0"/>
+  <testcase name="GIVEN_children_created_with_started_child_and_disabled_callback_registered_WHEN_back_THEN_callback_not_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.003"/>
+  <testcase name="GIVEN_enabled_callback_registered_in_resumed_child_and_switched_to_started_WHEN_back_THEN_callback_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.001"/>
+  <testcase name="WHEN_back_and_navigate_recursively_THEN_state_updated[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.002"/>
+  <testcase name="GIVEN_child_switched_from_started_to_resumed_and_enabled_callback_registered_WHEN_back_THEN_callback_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.001"/>
+  <testcase name="GIVEN_enabled_callback_registered_in_resumed_child_and_switched_to_destroyed_WHEN_back_THEN_callback_not_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.001"/>
+  <testcase name="GIVEN_child_switched_from_destroyed_to_resumed_and_enabled_callback_registered_WHEN_back_THEN_callback_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.0"/>
+  <testcase name="GIVEN_backTransformer_returns_not_null_WHEN_back_THEN_navigated[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.001"/>
+  <testcase name="GIVEN_children_created_with_started_child_and_enabled_callback_registered_WHEN_back_THEN_callback_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.009"/>
+  <testcase name="GIVEN_navigated_and_backTransformer_returns_null_WHEN_back_THEN_returned_false[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.002"/>
+  <testcase name="GIVEN_enabled_callback_registered_in_created_child_and_switched_to_destroyed_WHEN_back_THEN_callback_not_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.005"/>
+  <testcase name="GIVEN_enabled_callback_registered_in_resumed_child_and_switched_to_created_WHEN_back_THEN_callback_not_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.001"/>
+  <testcase name="GIVEN_callback_registered_in_child_and_in_context_WHEN_back_THEN_context_callback_not_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.001"/>
+  <testcase name="GIVEN_children_created_with_created_child_and_enabled_callback_registered_WHEN_back_THEN_callback_not_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.001"/>
+  <testcase name="GIVEN_child_switched_from_created_to_started_and_enabled_callback_registered_WHEN_back_THEN_callback_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBackPressedTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.stack.ChildStackTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.0">
+  <properties/>
+  <testcase name="GIVEN_back_stack_empty_WHEN_items_THEN_returns_list_with_active_child[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackTest" time="0.0"/>
+  <testcase name="GIVEN_back_stack_not_empty_WHEN_items_THEN_returns_list_with_back_stack_and_active_child[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.stack.RouterPushNewTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.008">
+  <properties/>
+  <testcase name="GIVEN_configuration_not_present_WHEN_pushNew_THEN_pushed[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPushNewTest" time="0.003"/>
+  <testcase name="GIVEN_configuration_not_present_WHEN_pushNew_THEN_onComplete_success[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPushNewTest" time="0.0"/>
+  <testcase name="GIVEN_configuration_present_on_top_WHEN_pushNew_THEN_not_pushed[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPushNewTest" time="0.004"/>
+  <testcase name="GIVEN_configuration_present_on_top_WHEN_pushNew_THEN_onComplete_not_success[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPushNewTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.value.MutableValueThreadingTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="2.777">
+  <properties/>
+  <testcase name="atomically_changes_value_and_calls_observer[jvm]" classname="com.arkivanov.decompose.value.MutableValueThreadingTest" time="0.726"/>
+  <testcase name="atomically_subscribes_and_calls_the_observer[jvm]" classname="com.arkivanov.decompose.value.MutableValueThreadingTest" time="1.137"/>
+  <testcase name="atomically_updates_value_and_calls_observer[jvm]" classname="com.arkivanov.decompose.value.MutableValueThreadingTest" time="0.914"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" tests="36" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:54" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.108">
+  <properties/>
+  <testcase name="GIVEN_not_restoring_state_WHEN_recreated_THEN_navigation_state_not_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.002"/>
+  <testcase name="GIVEN_recreated_and_started_child_restored_as_destroyed_WHEN_child_switched_to_started_THEN_state_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.003"/>
+  <testcase name="GIVEN_not_saving_state_WHEN_recreated_THEN_navigation_state_not_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.001"/>
+  <testcase name="GIVEN_child_switched_to_created_and_recreated_twice_WHEN_child_switched_to_resumed_THEN_state_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.01"/>
+  <testcase name="WHEN_child_switched_from_destroyed_to_created_THEN_state_not_saved[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.001"/>
+  <testcase name="GIVEN_child_switched_from_started_to_destroyed_WHEN_child_switched_to_created_THEN_state_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.001"/>
+  <testcase name="GIVEN_child_switched_from_created_to_destroyed_WHEN_child_switched_to_started_THEN_state_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.001"/>
+  <testcase name="GIVEN_recreated_and_created_child_restored_as_destroyed_WHEN_child_switched_to_resumed_THEN_state_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.011"/>
+  <testcase name="GIVEN_saving_state_WHEN_recreated_THEN_navigation_state_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.002"/>
+  <testcase name="WHEN_child_switched_from_resumed_to_created_THEN_state_not_saved[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.001"/>
+  <testcase name="GIVEN_child_switched_from_started_to_destroyed_WHEN_child_switched_to_resumed_THEN_state_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.001"/>
+  <testcase name="GIVEN_recreated_and_created_child_restored_as_destroyed_WHEN_child_switched_to_started_THEN_state_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.003"/>
+  <testcase name="WHEN_child_switched_from_created_to_started_THEN_state_not_saved[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.001"/>
+  <testcase name="WHEN_child_switched_from_destroyed_to_started_THEN_state_not_saved[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.0"/>
+  <testcase name="GIVEN_child_switched_from_started_to_destroyed_WHEN_child_switched_to_started_THEN_state_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.001"/>
+  <testcase name="GIVEN_first_and_last_children_duplicated_WHEN_children_recreated_THEN_states_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.005"/>
+  <testcase name="WHEN_child_switched_from_created_to_destroyed_THEN_state_saved[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.002"/>
+  <testcase name="GIVEN_not_restoring_state_WHEN_recreated_THEN_child_states_not_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.005"/>
+  <testcase name="GIVEN_recreated_and_resumed_child_restored_as_destroyed_WHEN_child_switched_to_created_THEN_state_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.005"/>
+  <testcase name="WHEN_child_switched_from_resumed_to_started_THEN_state_not_saved[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.001"/>
+  <testcase name="GIVEN_first_and_last_children_duplicated_WHEN_recreated_THEN_states_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.002"/>
+  <testcase name="GIVEN_not_saving_state_WHEN_recreated_THEN_child_states_not_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.002"/>
+  <testcase name="WHEN_child_switched_from_resumed_to_destroyed_THEN_state_saved[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.0"/>
+  <testcase name="GIVEN_recreated_and_resumed_child_restored_as_destroyed_WHEN_child_switched_to_resumed_THEN_state_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.003"/>
+  <testcase name="GIVEN_child_switched_from_resumed_to_destroyed_WHEN_child_switched_to_created_THEN_state_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.0"/>
+  <testcase name="GIVEN_recreated_and_resumed_child_restored_as_destroyed_WHEN_child_switched_to_started_THEN_state_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.008"/>
+  <testcase name="GIVEN_recreated_and_started_child_restored_as_destroyed_WHEN_child_switched_to_created_THEN_state_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.004"/>
+  <testcase name="WHEN_child_switched_from_created_to_resumed_THEN_state_not_saved[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.0"/>
+  <testcase name="WHEN_child_switched_from_destroyed_to_resumed_THEN_state_not_saved[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.001"/>
+  <testcase name="GIVEN_child_switched_from_resumed_to_destroyed_WHEN_child_switched_to_resumed_THEN_state_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.001"/>
+  <testcase name="GIVEN_child_switched_from_created_to_destroyed_WHEN_child_switched_to_created_THEN_state_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.001"/>
+  <testcase name="GIVEN_recreated_and_started_child_restored_as_destroyed_WHEN_child_switched_to_resumed_THEN_state_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.005"/>
+  <testcase name="GIVEN_child_switched_from_resumed_to_destroyed_WHEN_child_switched_to_started_THEN_state_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.002"/>
+  <testcase name="GIVEN_saving_state_WHEN_recreated_THEN_child_states_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.002"/>
+  <testcase name="GIVEN_child_switched_from_created_to_destroyed_WHEN_child_switched_to_resumed_THEN_state_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.0"/>
+  <testcase name="GIVEN_recreated_and_created_child_restored_as_destroyed_WHEN_child_switched_to_created_THEN_state_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenSavedStateTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.pages.ChildPagesBackButtonTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:54" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.015">
+  <properties/>
+  <testcase name="GIVEN_5_pages_and_selected_1_WHEN_back_THEN_selected_0[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesBackButtonTest" time="0.013"/>
+  <testcase name="WHEN_5_pages_and_selected_1_THEN_isEnabled_true[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesBackButtonTest" time="0.0"/>
+  <testcase name="WHEN_5_pages_and_selected_0_THEN_isEnabled_false[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesBackButtonTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" tests="31" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:54" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.048">
+  <properties/>
+  <testcase name="WHEN_started_child_removed_THEN_lifecycle_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.001"/>
+  <testcase name="WHEN_child_switched_from_created_to_destroyed_THEN_lifecycle_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.0"/>
+  <testcase name="WHEN_created_child_removed_THEN_lifecycle_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.001"/>
+  <testcase name="WHEN_child_switched_from_resumed_to_created_THEN_lifecycle_created[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.002"/>
+  <testcase name="WHEN_started_child_removed_THEN_state_updated[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.001"/>
+  <testcase name="WHEN_child_switched_from_started_to_destroyed_THEN_lifecycle_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.001"/>
+  <testcase name="WHEN_child_switched_from_destroyed_to_created_THEN_lifecycle_created[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_first_and_last_children_duplicated_and_last_child_resumed_WHEN_first_child_removed_THEN_first_child_resumed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.001"/>
+  <testcase name="WHEN_all_children_removed_THEN_lifecycles_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.001"/>
+  <testcase name="WHEN_created_child_removed_THEN_state_updated[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.001"/>
+  <testcase name="WHEN_context_lifecycle_stopped_THEN_all_component_lifecycles_stopped[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.0"/>
+  <testcase name="WHEN_all_children_removed_THEN_state_updated[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.002"/>
+  <testcase name="WHEN_resumed_child_removed_THEN_lifecycle_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.001"/>
+  <testcase name="WHEN_child_switched_from_resumed_to_destroyed_THEN_lifecycle_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_first_and_last_children_duplicated_WHEN_first_child_removed_THEN_last_child_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.001"/>
+  <testcase name="WHEN_created_THEN_lifecycles_correct[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.001"/>
+  <testcase name="WHEN_children_added_THEN_lifecycles_correct[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.002"/>
+  <testcase name="WHEN_child_switched_from_started_to_resumed_THEN_lifecycle_resumed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.001"/>
+  <testcase name="WHEN_destroyed_child_removed_THEN_state_updated[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.001"/>
+  <testcase name="WHEN_created_THEN_initial_state[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.0"/>
+  <testcase name="GIVEN_first_and_last_children_duplicated_first_child_created_WHEN_last_child_removed_THEN_first_child_created[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.0"/>
+  <testcase name="WHEN_child_switched_from_created_to_resumed_THEN_lifecycle_resumed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.0"/>
+  <testcase name="WHEN_child_switched_from_destroyed_to_resumed_THEN_lifecycle_resumed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.0"/>
+  <testcase name="WHEN_context_lifecycle_destroyed_THEN_all_component_lifecycles_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.0"/>
+  <testcase name="WHEN_child_switched_from_resumed_to_started_THEN_lifecycle_started[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_first_and_last_children_duplicated_WHEN_last_child_removed_THEN_last_child_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.001"/>
+  <testcase name="WHEN_children_added_THEN_state_updated[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.002"/>
+  <testcase name="WHEN_resumed_child_removed_THEN_state_updated[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.001"/>
+  <testcase name="WHEN_child_switched_from_created_to_started_THEN_lifecycle_started[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.001"/>
+  <testcase name="WHEN_child_switched_from_destroyed_to_started_THEN_lifecycle_started[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.001"/>
+  <testcase name="WHEN_child_switched_from_started_to_created_THEN_lifecycle_created[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenLifecycleTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.ChildContextWithLifecycleTest" tests="18" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:51" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.093">
+  <properties/>
+  <testcase name="WHEN_destroyed_THEN_child_instance_not_destroyed[jvm]" classname="com.arkivanov.decompose.ChildContextWithLifecycleTest" time="0.01"/>
+  <testcase name="GIVEN_created_WHEN_parent_lifecycle_resumed_and_child_lifecycle_resumed_THEN_child_lifecycle_resumed[jvm]" classname="com.arkivanov.decompose.ChildContextWithLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_child_lifecycle_started_and_enabled_child_BackHandler_registered_WHEN_child_lifecycle_stopped_and_backHandler_back_THEN_returns_false[jvm]" classname="com.arkivanov.decompose.ChildContextWithLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_child_lifecycle_started_and_enabled_child_BackHandler_registered_WHEN_backHandler_back_THEN_returns_true[jvm]" classname="com.arkivanov.decompose.ChildContextWithLifecycleTest" time="0.001"/>
+  <testcase name="WHEN_parent_InstanceKeeper_destroyed_THEN_child_instance_destroyed[jvm]" classname="com.arkivanov.decompose.ChildContextWithLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_child_lifecycle_stopped_and_disabled_child_BackHandler_registered_WHEN_child_lifecycle_started_and_backHandler_back_THEN_returns_false[jvm]" classname="com.arkivanov.decompose.ChildContextWithLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_created_WHEN_parent_lifecycle_resumed_and_child_lifecycle_initialized_THEN_child_lifecycle_initialized[jvm]" classname="com.arkivanov.decompose.ChildContextWithLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_disabled_child_BackHandler_registered_WHEN_backHandler_back_THEN_returns_false[jvm]" classname="com.arkivanov.decompose.ChildContextWithLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_child_BackHandler_not_registered_WHEN_backHandler_back_THEN_returns_false[jvm]" classname="com.arkivanov.decompose.ChildContextWithLifecycleTest" time="0.0"/>
+  <testcase name="GIVEN_created_WHEN_parent_lifecycle_initialized_and_child_lifecycle_resumed_THEN_child_lifecycle_initialized[jvm]" classname="com.arkivanov.decompose.ChildContextWithLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_child_lifecycle_stopped_and_enabled_child_BackHandler_registered_WHEN_backHandler_back_THEN_returns_false[jvm]" classname="com.arkivanov.decompose.ChildContextWithLifecycleTest" time="0.004"/>
+  <testcase name="GIVEN_created_WHEN_parent_lifecycle_destroyed_and_child_lifecycle_resumed_THEN_child_lifecycle_destroyed[jvm]" classname="com.arkivanov.decompose.ChildContextWithLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_parent_and_child_lifecycles_resumed_WHEN_child_lifecycle_destroyed_THEN_error_thrown[jvm]" classname="com.arkivanov.decompose.ChildContextWithLifecycleTest" time="0.002"/>
+  <testcase name="WHEN_created_THEN_child_registered_in_InstanceKeeper[jvm]" classname="com.arkivanov.decompose.ChildContextWithLifecycleTest" time="0.0"/>
+  <testcase name="WHEN_created_THEN_child_registered_in_StateKeeper[jvm]" classname="com.arkivanov.decompose.ChildContextWithLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_child_lifecycle_started_and_disabled_child_BackHandler_registered_WHEN_backHandler_back_THEN_returns_false[jvm]" classname="com.arkivanov.decompose.ChildContextWithLifecycleTest" time="0.001"/>
+  <testcase name="WHEN_recreated_THEN_child_state_restored[jvm]" classname="com.arkivanov.decompose.ChildContextWithLifecycleTest" time="0.056"/>
+  <testcase name="WHEN_recreated_THEN_child_instance_retained[jvm]" classname="com.arkivanov.decompose.ChildContextWithLifecycleTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" tests="34" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.073">
+  <properties/>
+  <testcase name="WHEN_child_pushed_THEN_lifecycles_events_in_correct_order[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.006"/>
+  <testcase name="WHEN_created_with_multiple_children_THEN_lifecycles_events_in_correct_order[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.002"/>
+  <testcase name="GIVEN_three_children_in_stack_WHEN_pop_one_child_THEN_two_children_in_stack[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.002"/>
+  <testcase name="WHEN_multiple_children_popped_and_pushed_THEN_lifecycles_events_in_correct_order[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.001"/>
+  <testcase name="GIVEN_one_child_in_stack_WHEN_push_one_child_THEN_two_children_in_stack[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.001"/>
+  <testcase name="GIVEN_two_children_in_stack_and_last_child_has_disabled_back_callback_WHEN_back_pressed_THEN_stack_popped[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.0"/>
+  <testcase name="GIVEN_persistent_WHEN_recreated_THEN_instance_not_destroyed_for_any_component[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.002"/>
+  <testcase name="GIVEN_persistent_WHEN_recreated_twice_THEN_state_restored_for_all_components[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.003"/>
+  <testcase name="GIVEN_not_persistent_WHEN_recreated_THEN_instances_destroyed_for_all_component[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.001"/>
+  <testcase name="GIVEN_stack_with_duplicated_children_WHEN_remove_duplicated_children_THEN_stack_contains_unique_children[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.001"/>
+  <testcase name="GIVEN_two_children_stack_WHEN_replaceCurrent_THEN_two_children_in_stack_and_new_child_is_active[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.011"/>
+  <testcase name="WHEN_child_popped_THEN_lifecycles_events_in_correct_order[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.001"/>
+  <testcase name="GIVEN_another_child_pushed_WHEN_recreated_THEN_instance_not_destroyed_for_previous_child[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.002"/>
+  <testcase name="GIVEN_three_children_in_stack_WHEN_back_pressed_THEN_two_children_in_stack[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.0"/>
+  <testcase name="WHEN_another_child_pushed_THEN_instance_not_destroyed_for_previous_child[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.001"/>
+  <testcase name="GIVEN_not_persistent_WHEN_recreated_THEN_stack_not_restored[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.0"/>
+  <testcase name="GIVEN_nested_navigation_with_back_handling_and_back_stack_not_empty_and_back_pressed_WHEN_back_pressed_again_THEN_outer_stack_popped[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.016"/>
+  <testcase name="GIVEN_two_children_in_stack_and_last_child_has_disabled_back_callback_WHEN_back_pressed_THEN_back_callback_not_called[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.001"/>
+  <testcase name="GIVEN_persistent_WHEN_recreated_THEN_stack_restored[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.001"/>
+  <testcase name="GIVEN_persistent_WHEN_recreated_THEN_state_restored_for_all_components[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.002"/>
+  <testcase name="GIVEN_nested_navigation_with_back_handling_and_back_stack_not_empty_WHEN_back_pressed_THEN_inner_stack_popped[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.001"/>
+  <testcase name="GIVEN_two_children_in_stack_and_last_child_has_enabled_back_callback_WHEN_back_pressed_THEN_stack_not_popped[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.0"/>
+  <testcase name="WHEN_multiple_children_popped_THEN_lifecycles_events_in_correct_order[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.001"/>
+  <testcase name="GIVEN_one_child_in_stack_WHEN_push_two_children_and_pop_one_child_THEN_two_children_in_stack[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.001"/>
+  <testcase name="GIVEN_not_persistent_WHEN_recreated_THEN_instance_not_retained_for_any_component[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.001"/>
+  <testcase name="GIVEN_initial_three_children_in_stack_WHEN_reverse_THEN_three_children_reversed_in_stack[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.0"/>
+  <testcase name="WHEN_child_replaced_THEN_lifecycles_events_in_correct_order[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.001"/>
+  <testcase name="WHEN_push_duplicated_children_THEN_stack_contains_duplicated_children[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.001"/>
+  <testcase name="GIVEN_persistent_WHEN_recreated_THEN_instance_retained_for_all_components[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.001"/>
+  <testcase name="GIVEN_one_child_in_stack_WHEN_push_two_children_and_back_pressed_THEN_two_children_in_stack[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.001"/>
+  <testcase name="GIVEN_three_active_children_in_stack_WHEN_reverse_THEN_three_children_reversed_in_stack[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.009"/>
+  <testcase name="WHEN_component_pushed_THEN_state_not_saved_for_previous_component[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.001"/>
+  <testcase name="GIVEN_not_persistent_WHEN_recreated_THEN_state_not_restored_for_any_component[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.0"/>
+  <testcase name="GIVEN_two_children_in_stack_and_last_child_has_enabled_back_callback_WHEN_back_pressed_THEN_back_callback_called[jvm]" classname="com.arkivanov.decompose.router.stack.ChildStackIntegrationTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.stack.RouterPopTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.002">
+  <properties/>
+  <testcase name="GIVEN_stack_size_1_WHEN_pop_THEN_onComplete_not_success[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPopTest" time="0.001"/>
+  <testcase name="GIVEN_stack_size_2_WHEN_pop_THEN_popped[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPopTest" time="0.0"/>
+  <testcase name="GIVEN_stack_size_2_WHEN_pop_THEN_onComplete_success[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPopTest" time="0.001"/>
+  <testcase name="GIVEN_stack_size_1_WHEN_pop_THEN_not_popped[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPopTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.pages.ChildPagesSavedStateTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.003">
+  <properties/>
+  <testcase name="GIVEN_not_persistent_WHEN_recreated_THEN_initial_state_applied[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSavedStateTest" time="0.001"/>
+  <testcase name="GIVEN_persistent_WHEN_recreated_THEN_state_restored[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSavedStateTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.KeyHashStringTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:51" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.021">
+  <properties/>
+  <testcase name="keyed_keyHashString_returns_distinct_values[jvm]" classname="com.arkivanov.decompose.KeyHashStringTest" time="0.021"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.children.TransientNavStateSaverTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:54" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.003">
+  <properties/>
+  <testcase name="WHEN_not_persistent_THEN_restores_saved_state[jvm]" classname="com.arkivanov.decompose.router.children.TransientNavStateSaverTest" time="0.002"/>
+  <testcase name="WHEN_persistent_THEN_does_not_restore_saved_state[jvm]" classname="com.arkivanov.decompose.router.children.TransientNavStateSaverTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.pages.ChildPagesSelectLastTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.003">
+  <properties/>
+  <testcase name="GIVEN_pages_empty_WHEN_selectLast_THEN_pages_empty[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectLastTest" time="0.001"/>
+  <testcase name="GIVEN_5_pages_and_selected_4_WHEN_selectLast_THEN_selected_0[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectLastTest" time="0.0"/>
+  <testcase name="GIVEN_5_pages_and_selected_2_WHEN_selectLast_THEN_selected_0[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectLastTest" time="0.001"/>
+  <testcase name="GIVEN_5_pages_and_selected_0_WHEN_selectLast_THEN_selected_0[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectLastTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.RelayThreadingTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:51" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="2.804">
+  <properties/>
+  <testcase name="emits_all_values_synchronized[jvm]" classname="com.arkivanov.decompose.RelayThreadingTest" time="2.804"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.children.ChildrenBasicTest" tests="18" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:54" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.043">
+  <properties/>
+  <testcase name="WHEN_navigate_THEN_onEventComplete_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBasicTest" time="0.004"/>
+  <testcase name="GIVEN_duplicated_children_WHEN_remove_duplicated_children_from_start_THEN_duplicated_instances_removed_from_end[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBasicTest" time="0.002"/>
+  <testcase name="WHEN_created_THEN_onStateChanged_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBasicTest" time="0.0"/>
+  <testcase name="WHEN_add_duplicated_children_THEN_duplicated_children_added[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBasicTest" time="0.001"/>
+  <testcase name="WHEN_destroyed_THEN_components_destroyed_in_reversed_order[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBasicTest" time="0.003"/>
+  <testcase name="WHEN_navigate_recursively_during_init_THEN_state_updated[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBasicTest" time="0.002"/>
+  <testcase name="WHEN_recreated_THEN_components_created_in_original_order[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBasicTest" time="0.006"/>
+  <testcase name="WHEN_navigate_THEN_onEventComplete_called_after_onStateChanged_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBasicTest" time="0.006"/>
+  <testcase name="WHEN_created_THEN_components_created_in_order[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBasicTest" time="0.002"/>
+  <testcase name="GIVEN_resumed_child_with_retained_instance_WHEN_child_switched_to_destroyed_THEN_component_destroyed_before_instance[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBasicTest" time="0.001"/>
+  <testcase name="WHEN_navigate_THEN_onStateChanged_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBasicTest" time="0.001"/>
+  <testcase name="WHEN_navigate_recursively_during_init_THEN_childFactory_not_called_recursively[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBasicTest" time="0.002"/>
+  <testcase name="GIVEN_duplicated_children_WHEN_remove_duplicated_children_from_start_THEN_duplicated_children_removed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBasicTest" time="0.001"/>
+  <testcase name="GIVEN_resumed_child_with_retained_instance_WHEN_child_removed_THEN_component_destroyed_before_instance[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBasicTest" time="0.001"/>
+  <testcase name="WHEN_navigate_and_navigate_recursively_THEN_childFactory_not_called_recursively[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBasicTest" time="0.001"/>
+  <testcase name="GIVEN_duplicated_children_WHEN_remove_duplicated_children_from_end_THEN_duplicated_children_removed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBasicTest" time="0.004"/>
+  <testcase name="WHEN_navigate_and_navigate_recursively_THEN_state_updated[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBasicTest" time="0.002"/>
+  <testcase name="GIVEN_duplicated_children_WHEN_remove_duplicated_children_from_end_THEN_duplicated_instances_removed_from_end[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenBasicTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.pages.ChildPagesSelectFirstTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.001">
+  <properties/>
+  <testcase name="GIVEN_5_pages_and_selected_4_WHEN_selectFirst_THEN_selected_0[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectFirstTest" time="0.001"/>
+  <testcase name="GIVEN_5_pages_and_selected_0_WHEN_selectFirst_THEN_selected_0[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectFirstTest" time="0.0"/>
+  <testcase name="GIVEN_pages_empty_WHEN_selectFirst_THEN_pages_empty[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectFirstTest" time="0.0"/>
+  <testcase name="GIVEN_5_pages_and_selected_2_WHEN_selectFirst_THEN_selected_0[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectFirstTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.slot.ChildSlotIntegrationTest" tests="23" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.026">
+  <properties/>
+  <testcase name="GIVEN_persistent_and_slot_not_active_WHEN_recreated_THEN_slot_not_active[jvm]" classname="com.arkivanov.decompose.router.slot.ChildSlotIntegrationTest" time="0.014"/>
+  <testcase name="GIVEN_not_active_WHEN_parent_backDispatcher_isEnabled_THEN_false[jvm]" classname="com.arkivanov.decompose.router.slot.ChildSlotIntegrationTest" time="0.0"/>
+  <testcase name="GIVEN_not_active_WHEN_activate_THEN_lifecycle_resumed[jvm]" classname="com.arkivanov.decompose.router.slot.ChildSlotIntegrationTest" time="0.001"/>
+  <testcase name="GIVEN_not_persistent_WHEN_recreated_THEN_slot_not_active[jvm]" classname="com.arkivanov.decompose.router.slot.ChildSlotIntegrationTest" time="0.001"/>
+  <testcase name="GIVEN_persistent_WHEN_recreated_THEN_slot_instance_not_destroyed[jvm]" classname="com.arkivanov.decompose.router.slot.ChildSlotIntegrationTest" time="0.001"/>
+  <testcase name="GIVEN_active_WHEN_activate_with_same_configuration_THEN_same_instance_active[jvm]" classname="com.arkivanov.decompose.router.slot.ChildSlotIntegrationTest" time="0.0"/>
+  <testcase name="WHEN_created_without_configuration_THEN_child_not_active[jvm]" classname="com.arkivanov.decompose.router.slot.ChildSlotIntegrationTest" time="0.0"/>
+  <testcase name="GIVEN_not_persistent_WHEN_recreated_THEN_slot_instance_not_retained[jvm]" classname="com.arkivanov.decompose.router.slot.ChildSlotIntegrationTest" time="0.001"/>
+  <testcase name="GIVEN_active_WHEN_back_pressed_THEN_slot_not_active[jvm]" classname="com.arkivanov.decompose.router.slot.ChildSlotIntegrationTest" time="0.0"/>
+  <testcase name="WHEN_created_with_configuration_THEN_slot_active[jvm]" classname="com.arkivanov.decompose.router.slot.ChildSlotIntegrationTest" time="0.0"/>
+  <testcase name="GIVEN_persistent_WHEN_recreated_THEN_slot_state_restored[jvm]" classname="com.arkivanov.decompose.router.slot.ChildSlotIntegrationTest" time="0.002"/>
+  <testcase name="GIVEN_persistent_and_slot_active_WHEN_recreated_THEN_slot_active[jvm]" classname="com.arkivanov.decompose.router.slot.ChildSlotIntegrationTest" time="0.001"/>
+  <testcase name="GIVEN_active_WHEN_activate_with_same_configuration_THEN_same_slot_active[jvm]" classname="com.arkivanov.decompose.router.slot.ChildSlotIntegrationTest" time="0.0"/>
+  <testcase name="GIVEN_active_WHEN_activate_with_other_configuration_THEN_other_slot_active[jvm]" classname="com.arkivanov.decompose.router.slot.ChildSlotIntegrationTest" time="0.001"/>
+  <testcase name="GIVEN_dismissed_via_back_pressed_WHEN_parent_backDispatcher_isEnabled_THEN_false[jvm]" classname="com.arkivanov.decompose.router.slot.ChildSlotIntegrationTest" time="0.0"/>
+  <testcase name="GIVEN_active_WHEN_parent_backDispatcher_isEnabled_THEN_true[jvm]" classname="com.arkivanov.decompose.router.slot.ChildSlotIntegrationTest" time="0.0"/>
+  <testcase name="GIVEN_active_WHEN_dismiss_THEN_slot_not_active[jvm]" classname="com.arkivanov.decompose.router.slot.ChildSlotIntegrationTest" time="0.001"/>
+  <testcase name="WHEN_created_persistent_THEN_registered_in_parent_InstanceKeeper[jvm]" classname="com.arkivanov.decompose.router.slot.ChildSlotIntegrationTest" time="0.0"/>
+  <testcase name="GIVEN_not_active_WHEN_activate_THEN_slot_active[jvm]" classname="com.arkivanov.decompose.router.slot.ChildSlotIntegrationTest" time="0.0"/>
+  <testcase name="WHEN_created_persistent_THEN_registered_in_parent_StateKeeper[jvm]" classname="com.arkivanov.decompose.router.slot.ChildSlotIntegrationTest" time="0.001"/>
+  <testcase name="GIVEN_active_WHEN_dismiss_THEN_lifecycle_destroyed[jvm]" classname="com.arkivanov.decompose.router.slot.ChildSlotIntegrationTest" time="0.0"/>
+  <testcase name="GIVEN_persistent_WHEN_recreated_THEN_slot_instance_retained[jvm]" classname="com.arkivanov.decompose.router.slot.ChildSlotIntegrationTest" time="0.001"/>
+  <testcase name="GIVEN_not_persistent_WHEN_recreated_THEN_slot_instance_destroyed[jvm]" classname="com.arkivanov.decompose.router.slot.ChildSlotIntegrationTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.stack.RouterReplaceAllTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.001">
+  <properties/>
+  <testcase name="WHEN_replaceAll_THEN_configurations_correctly_applied[jvm]" classname="com.arkivanov.decompose.router.stack.RouterReplaceAllTest" time="0.0"/>
+  <testcase name="WHEN_replace_all_THEN_onComplete_called[jvm]" classname="com.arkivanov.decompose.router.stack.RouterReplaceAllTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.items.LazyItemsSavedStateTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:54" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.088">
+  <properties/>
+  <testcase name="GIVEN_transientNavStateSaver_WHEN_configuration_change_without_initial_state_THEN_navigation_state_restored[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsSavedStateTest" time="0.004"/>
+  <testcase name="WHEN_items_deactivated_and_recreated_and_same_items_activated_THEN_child_state_restored[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsSavedStateTest" time="0.016"/>
+  <testcase name="WHEN_recreated_without_initial_state_THEN_active_child_state_restored[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsSavedStateTest" time="0.015"/>
+  <testcase name="WHEN_recreated_with_same_initial_state_THEN_active_child_state_restored[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsSavedStateTest" time="0.003"/>
+  <testcase name="GIVEN_stateSaver_null_WHEN_recreated_with_another_initial_state_THEN_new_navigation_state[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsSavedStateTest" time="0.002"/>
+  <testcase name="WHEN_recreated_without_initial_state_THEN_navigation_state_restored[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsSavedStateTest" time="0.013"/>
+  <testcase name="WHEN_items_removed_and_added_active_again_THEN_child_state_not_restored[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsSavedStateTest" time="0.002"/>
+  <testcase name="WHEN_items_deactivated_and_activated_again_THEN_child_state_restored[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsSavedStateTest" time="0.002"/>
+  <testcase name="WHEN_items_deactivated_and_recreated_twice_and_same_items_activated_THEN_child_state_restored[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsSavedStateTest" time="0.01"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.items.LazyItemsBackButtonTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:54" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.038">
+  <properties/>
+  <testcase name="GIVEN_created_with_active_items_and_started_item_registered_enabled_callback_WHEN_callback_disabled_THEN_back_handler_disabled[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsBackButtonTest" time="0.011"/>
+  <testcase name="GIVEN_created_with_active_items_WHEN_created_item_registered_enabled_callback_THEN_back_handler_disabled[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsBackButtonTest" time="0.001"/>
+  <testcase name="GIVEN_created_with_active_items_and_started_item_registered_enabled_callback_WHEN_back_THEN_callback_called[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsBackButtonTest" time="0.002"/>
+  <testcase name="GIVEN_created_with_active_items_and_resumed_item_registered_enabled_callback_WHEN_callback_disabled_THEN_back_handler_enabled[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsBackButtonTest" time="0.002"/>
+  <testcase name="GIVEN_created_with_active_items_and_started_item_registered_enabled_callback_and_item_removed_WHEN_back_THEN_callback_not_called[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsBackButtonTest" time="0.005"/>
+  <testcase name="WHEN_created_with_active_items_THEN_back_handler_disabled[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsBackButtonTest" time="0.001"/>
+  <testcase name="GIVEN_created_with_active_items_and_resumed_item_registered_enabled_callback_WHEN_item_deactivated_THEN_back_handler_disabled[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsBackButtonTest" time="0.002"/>
+  <testcase name="GIVEN_created_with_active_items_and_started_item_registered_enabled_callback_WHEN_item_removed_THEN_back_handler_disabled[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsBackButtonTest" time="0.001"/>
+  <testcase name="GIVEN_created_with_active_items_WHEN_resumed_item_registered_enabled_callback_THEN_back_handler_enabled[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsBackButtonTest" time="0.003"/>
+  <testcase name="GIVEN_created_with_active_items_and_started_item_registered_enabled_callback_WHEN_item_deactivated_THEN_back_handler_disabled[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsBackButtonTest" time="0.001"/>
+  <testcase name="GIVEN_created_with_active_items_and_resumed_item_registered_enabled_callback_and_item_removed_WHEN_back_THEN_callback_not_called[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsBackButtonTest" time="0.001"/>
+  <testcase name="GIVEN_created_with_active_items_and_created_item_registered_enabled_callback_WHEN_back_THEN_callback_not_called[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsBackButtonTest" time="0.001"/>
+  <testcase name="GIVEN_created_with_active_items_and_resumed_item_registered_enabled_callback_WHEN_back_THEN_callback_called[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsBackButtonTest" time="0.001"/>
+  <testcase name="GIVEN_created_with_active_items_and_resumed_item_registered_enabled_callback_WHEN_item_removed_THEN_back_handler_disabled[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsBackButtonTest" time="0.001"/>
+  <testcase name="GIVEN_created_with_active_items_WHEN_started_item_registered_enabled_callback_THEN_back_handler_enabled[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsBackButtonTest" time="0.001"/>
+  <testcase name="GIVEN_created_with_active_items_and_started_item_registered_enabled_callback_and_item_deactivated_WHEN_back_THEN_callback_not_called[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsBackButtonTest" time="0.002"/>
+  <testcase name="GIVEN_created_with_active_items_and_resumed_item_registered_enabled_callback_and_item_deactivated_WHEN_back_THEN_callback_not_called[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsBackButtonTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.ChildContextWithoutLifecycleTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:51" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.031">
+  <properties/>
+  <testcase name="WHEN_destroyed_THEN_child_instance_not_destroyed[jvm]" classname="com.arkivanov.decompose.ChildContextWithoutLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_enabled_child_BackHandler_registered_WHEN_backHandler_back_THEN_returns_true[jvm]" classname="com.arkivanov.decompose.ChildContextWithoutLifecycleTest" time="0.001"/>
+  <testcase name="WHEN_parent_InstanceKeeper_destroyed_THEN_child_instance_destroyed[jvm]" classname="com.arkivanov.decompose.ChildContextWithoutLifecycleTest" time="0.019"/>
+  <testcase name="GIVEN_disabled_child_BackHandler_registered_WHEN_backHandler_back_THEN_returns_false[jvm]" classname="com.arkivanov.decompose.ChildContextWithoutLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_child_BackHandler_not_registered_WHEN_backHandler_back_THEN_returns_false[jvm]" classname="com.arkivanov.decompose.ChildContextWithoutLifecycleTest" time="0.0"/>
+  <testcase name="WHEN_created_THEN_child_registered_in_InstanceKeeper[jvm]" classname="com.arkivanov.decompose.ChildContextWithoutLifecycleTest" time="0.0"/>
+  <testcase name="GIVEN_created_WHEN_parent_lifecycle_resumed_THEN_child_lifecycle_resumed[jvm]" classname="com.arkivanov.decompose.ChildContextWithoutLifecycleTest" time="0.001"/>
+  <testcase name="WHEN_created_THEN_child_registered_in_StateKeeper[jvm]" classname="com.arkivanov.decompose.ChildContextWithoutLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_created_WHEN_parent_lifecycle_destroyed_THEN_child_lifecycle_destroyed[jvm]" classname="com.arkivanov.decompose.ChildContextWithoutLifecycleTest" time="0.0"/>
+  <testcase name="WHEN_recreated_THEN_child_state_restored[jvm]" classname="com.arkivanov.decompose.ChildContextWithoutLifecycleTest" time="0.002"/>
+  <testcase name="WHEN_recreated_THEN_child_instance_retained[jvm]" classname="com.arkivanov.decompose.ChildContextWithoutLifecycleTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.items.LazyItemsRetainedInstanceTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:54" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.11">
+  <properties/>
+  <testcase name="GIVEN_without_state_saver_WHEN_configuration_change_with_same_initial_state_THEN_active_instances_destroyed[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsRetainedInstanceTest" time="0.008"/>
+  <testcase name="WHEN_configuration_change_THEN_active_instances_not_destroyed[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsRetainedInstanceTest" time="0.003"/>
+  <testcase name="WHEN_some_items_removed_THEN_remaining_active_instances_not_destroyed[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsRetainedInstanceTest" time="0.005"/>
+  <testcase name="WHEN_some_items_removed_THEN_removed_instances_destroyed[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsRetainedInstanceTest" time="0.002"/>
+  <testcase name="WHEN_some_items_deactivated_THEN_deactivated_instances_destroyed[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsRetainedInstanceTest" time="0.001"/>
+  <testcase name="WHEN_some_items_deactivated_THEN_remaining_active_instances_not_recreated[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsRetainedInstanceTest" time="0.001"/>
+  <testcase name="GIVEN_without_state_saver_WHEN_configuration_change_without_initial_state_THEN_active_instances_destroyed[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsRetainedInstanceTest" time="0.081"/>
+  <testcase name="WHEN_some_items_deactivated_THEN_remaining_active_instances_not_destroyed[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsRetainedInstanceTest" time="0.002"/>
+  <testcase name="GIVEN_without_state_saver_WHEN_configuration_change_with_same_initial_state_THEN_active_instances_recreated[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsRetainedInstanceTest" time="0.001"/>
+  <testcase name="WHEN_configuration_change_THEN_active_instances_not_recreated[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsRetainedInstanceTest" time="0.003"/>
+  <testcase name="WHEN_some_items_removed_THEN_remaining_active_instances_not_recreated[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsRetainedInstanceTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.panels.ChildPanelsNavigationExtTest" tests="24" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.02">
+  <properties/>
+  <testcase name="WHEN_navigate_with_extra_THEN_onComplete_called[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationExtTest" time="0.002"/>
+  <testcase name="WHEN_navigate_with_details_and_extra_THEN_onComplete_called[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationExtTest" time="0.0"/>
+  <testcase name="GIVEN_extra_active_WHEN_dismissExtra_THEN_onComplete_called[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationExtTest" time="0.0"/>
+  <testcase name="WHEN_activateMain_THEN_main_panel_changed[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationExtTest" time="0.001"/>
+  <testcase name="WHEN_pop_THEN_onComplete_called[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationExtTest" time="0.0"/>
+  <testcase name="GIVEN_extra_not_active_WHEN_dismissExtra_THEN_onComplete_called[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationExtTest" time="0.0"/>
+  <testcase name="WHEN_setMode_THEN_mode_changed[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationExtTest" time="0.001"/>
+  <testcase name="WHEN_activateExtra_THEN_extra_panel_changed[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationExtTest" time="0.0"/>
+  <testcase name="GIVEN_extra_panel_exists_WHEN_pop_THEN_extra_panel_dismissed[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationExtTest" time="0.0"/>
+  <testcase name="WHEN_activateExtra_THEN_onComplete_called[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationExtTest" time="0.0"/>
+  <testcase name="WHEN_navigate_with_extra_THEN_panels_changed[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationExtTest" time="0.0"/>
+  <testcase name="WHEN_setMode_THEN_complete_called[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationExtTest" time="0.0"/>
+  <testcase name="WHEN_activateDetails_THEN_details_panel_changed[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationExtTest" time="0.0"/>
+  <testcase name="WHEN_navigate_with_details_and_extra_THEN_panels_changed[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationExtTest" time="0.0"/>
+  <testcase name="GIVEN_details_active_WHEN_dismissDetails_THEN_onComplete_called[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationExtTest" time="0.0"/>
+  <testcase name="WHEN_dismissDetails_THEN_details_panel_dismissed[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationExtTest" time="0.001"/>
+  <testcase name="GIVEN_details_panel_exists_WHEN_pop_THEN_details_panel_dismissed[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationExtTest" time="0.0"/>
+  <testcase name="WHEN_dismissExtra_THEN_extra_panel_dismissed[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationExtTest" time="0.0"/>
+  <testcase name="WHEN_activateMain_THEN_onComplete_called[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationExtTest" time="0.0"/>
+  <testcase name="WHEN_navigate_with_main_and_details_and_extra_THEN_onComplete_called[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationExtTest" time="0.0"/>
+  <testcase name="GIVEN_details_and_extra_panels_exist_WHEN_pop_THEN_extra_panel_dismissed[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationExtTest" time="0.0"/>
+  <testcase name="WHEN_navigate_with_main_and_details_and_extra_THEN_panels_changed[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationExtTest" time="0.0"/>
+  <testcase name="WHEN_activateDetails_THEN_onComplete_called[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationExtTest" time="0.012"/>
+  <testcase name="GIVEN_details_not_active_WHEN_dismissDetails_THEN_onComplete_called[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationExtTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.stack.RouterBringToFrontTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.004">
+  <properties/>
+  <testcase name="WHEN_exists_with_different_value_at_the_end_THEN_removed_and_new_added_to_end[jvm]" classname="com.arkivanov.decompose.router.stack.RouterBringToFrontTest" time="0.001"/>
+  <testcase name="WHEN_does_not_contain_THEN_new_configuration_pushed[jvm]" classname="com.arkivanov.decompose.router.stack.RouterBringToFrontTest" time="0.0"/>
+  <testcase name="WHEN_multiple_exist_THEN_all_removed_and_new_added_to_end[jvm]" classname="com.arkivanov.decompose.router.stack.RouterBringToFrontTest" time="0.001"/>
+  <testcase name="WHEN_exists_with_same_value_in_the_middle_THEN_existing_configuration_moved_to_end[jvm]" classname="com.arkivanov.decompose.router.stack.RouterBringToFrontTest" time="0.0"/>
+  <testcase name="WHEN_exists_with_different_value_at_start_THEN_removed_and_new_added_to_end[jvm]" classname="com.arkivanov.decompose.router.stack.RouterBringToFrontTest" time="0.0"/>
+  <testcase name="WHEN_exists_with_different_value_in_the_middle_THEN_removed_and_new_added_to_end[jvm]" classname="com.arkivanov.decompose.router.stack.RouterBringToFrontTest" time="0.001"/>
+  <testcase name="WHEN_exists_with_same_value_at_the_end_THEN_existing_configuration_moved_to_end[jvm]" classname="com.arkivanov.decompose.router.stack.RouterBringToFrontTest" time="0.0"/>
+  <testcase name="WHEN_bringToFront_base_class_THEN_pushed[jvm]" classname="com.arkivanov.decompose.router.stack.RouterBringToFrontTest" time="0.001"/>
+  <testcase name="WHEN_exists_with_same_value_at_start_THEN_existing_configuration_moved_to_end[jvm]" classname="com.arkivanov.decompose.router.stack.RouterBringToFrontTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" tests="33" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.024">
+  <properties/>
+  <testcase name="GIVEN_single_with_all_panels_WHEN_replace_details_THEN_details_panel_replaced[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.0"/>
+  <testcase name="GIVEN_triple_with_main_WHEN_activate_extra_THEN_extra_panel_activated[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.001"/>
+  <testcase name="GIVEN_single_with_main_and_details_WHEN_activate_extra_THEN_extra_panel_activated[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.006"/>
+  <testcase name="GIVEN_dual_with_all_panels_WHEN_replace_main_THEN_main_panel_replaced[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.0"/>
+  <testcase name="GIVEN_triple_with_main_WHEN_activate_details_and_extra_THEN_details_and_extra_panels_activated[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.001"/>
+  <testcase name="GIVEN_triple_with_all_panels_WHEN_replace_details_THEN_old_details_panel_destroyed[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.0"/>
+  <testcase name="GIVEN_dual_with_main_WHEN_activate_details_and_extra_THEN_details_and_extra_panels_activated[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.001"/>
+  <testcase name="GIVEN_triple_with_all_panels_WHEN_replace_extra_THEN_old_extra_panel_destroyed[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.0"/>
+  <testcase name="GIVEN_single_with_main_WHEN_activate_extra_THEN_extra_panel_activated[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.0"/>
+  <testcase name="GIVEN_dual_with_main_WHEN_activate_details_THEN_details_panel_activated[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.001"/>
+  <testcase name="GIVEN_dual_with_main_WHEN_activate_extra_THEN_extra_panel_activated[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.0"/>
+  <testcase name="GIVEN_dual_with_all_panels_WHEN_replace_details_THEN_old_details_panel_destroyed[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.001"/>
+  <testcase name="GIVEN_dual_with_all_panels_WHEN_replace_extra_THEN_old_extra_panel_destroyed[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.0"/>
+  <testcase name="GIVEN_single_with_all_panels_WHEN_replace_main_THEN_main_panel_replaced[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.0"/>
+  <testcase name="GIVEN_single_with_all_panels_WHEN_replace_extra_THEN_extra_panel_replaced[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.001"/>
+  <testcase name="GIVEN_single_with_all_panels_WHEN_replace_extra_THEN_old_extra_panel_destroyed[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.0"/>
+  <testcase name="GIVEN_triple_with_main_WHEN_activate_details_THEN_details_panel_activated[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.0"/>
+  <testcase name="GIVEN_dual_with_main_and_details_WHEN_activate_extra_THEN_extra_panel_activated[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.001"/>
+  <testcase name="GIVEN_triple_with_all_panels_WHEN_replace_main_THEN_main_panel_replaced[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.0"/>
+  <testcase name="GIVEN_single_with_all_panels_WHEN_replace_details_THEN_old_details_panel_destroyed[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.0"/>
+  <testcase name="GIVEN_single_with_all_panels_WHEN_replace_main_THEN_old_main_panel_destroyed[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.001"/>
+  <testcase name="GIVEN_dual_with_main_and_extra_WHEN_activate_details_THEN_details_panel_activated[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.0"/>
+  <testcase name="GIVEN_single_with_main_and_extra_WHEN_activate_details_THEN_details_panel_activated[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.006"/>
+  <testcase name="GIVEN_triple_with_all_panels_WHEN_replace_details_THEN_details_panel_replaced[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.001"/>
+  <testcase name="GIVEN_single_with_main_WHEN_activate_details_and_extra_THEN_details_and_extra_panels_activated[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.0"/>
+  <testcase name="GIVEN_dual_with_all_panels_WHEN_replace_extra_THEN_extra_panel_replaced[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.001"/>
+  <testcase name="GIVEN_dual_with_all_panels_WHEN_replace_details_THEN_details_panel_replaced[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.0"/>
+  <testcase name="GIVEN_triple_with_main_and_extra_WHEN_activate_details_THEN_details_panel_activated[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.0"/>
+  <testcase name="GIVEN_triple_with_all_panels_WHEN_replace_extra_THEN_extra_panel_replaced[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.001"/>
+  <testcase name="GIVEN_single_with_main_WHEN_activate_details_THEN_details_panel_activated[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.0"/>
+  <testcase name="GIVEN_dual_with_all_panels_WHEN_replace_main_THEN_old_main_panel_destroyed[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.001"/>
+  <testcase name="GIVEN_triple_with_main_and_details_WHEN_activate_extra_THEN_extra_panel_activated[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.0"/>
+  <testcase name="GIVEN_triple_with_all_panels_WHEN_replace_main_THEN_old_main_panel_destroyed[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsNavigationTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.children.ChildControllerTest" tests="24" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:54" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.047">
+  <properties/>
+  <testcase name="WHEN_create_THEN_returns_created_child[jvm]" classname="com.arkivanov.decompose.router.children.ChildControllerTest" time="0.011"/>
+  <testcase name="GIVEN_child_resumed_WHEN_create_THEN_child_created[jvm]" classname="com.arkivanov.decompose.router.children.ChildControllerTest" time="0.001"/>
+  <testcase name="GIVEN_child_resumed_WHEN_recreated_THEN_child_state_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildControllerTest" time="0.003"/>
+  <testcase name="GIVEN_child_created_WHEN_back_callback_registered_THEN_back_handler_disabled[jvm]" classname="com.arkivanov.decompose.router.children.ChildControllerTest" time="0.006"/>
+  <testcase name="GIVEN_child_resumed_WHEN_start_THEN_returns_started_child[jvm]" classname="com.arkivanov.decompose.router.children.ChildControllerTest" time="0.001"/>
+  <testcase name="GIVEN_child_resumed_WHEN_create_THEN_returns_created_child[jvm]" classname="com.arkivanov.decompose.router.children.ChildControllerTest" time="0.003"/>
+  <testcase name="GIVEN_child_resumed_WHEN_start_THEN_child_started[jvm]" classname="com.arkivanov.decompose.router.children.ChildControllerTest" time="0.001"/>
+  <testcase name="GIVEN_child_resumed_WHEN_destroy_THEN_destroy_events_called_in_order[jvm]" classname="com.arkivanov.decompose.router.children.ChildControllerTest" time="0.002"/>
+  <testcase name="WHEN_start_THEN_returns_started_child[jvm]" classname="com.arkivanov.decompose.router.children.ChildControllerTest" time="0.0"/>
+  <testcase name="GIVEN_child_resumed_and_retained_instance_created_WHEN_destroy_THEN_instance_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildControllerTest" time="0.001"/>
+  <testcase name="WHEN_resume_THEN_returns_resumed_child[jvm]" classname="com.arkivanov.decompose.router.children.ChildControllerTest" time="0.0"/>
+  <testcase name="GIVEN_child_started_and_back_callback_registered_and_child_created_WHEN_back_THEN_callback_not_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildControllerTest" time="0.0"/>
+  <testcase name="GIVEN_child_resumed_and_retained_instance_created_WHEN_configuration_changed_THEN_same_instance[jvm]" classname="com.arkivanov.decompose.router.children.ChildControllerTest" time="0.0"/>
+  <testcase name="GIVEN_child_created_and_back_callback_registered_WHEN_back_THEN_callback_not_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildControllerTest" time="0.0"/>
+  <testcase name="GIVEN_child_started_and_back_callback_registered_WHEN_back_THEN_callback_called[jvm]" classname="com.arkivanov.decompose.router.children.ChildControllerTest" time="0.0"/>
+  <testcase name="GIVEN_child_resumed_and_retained_instance_created_WHEN_configuration_changed_and_drop_state_THEN_new_instance[jvm]" classname="com.arkivanov.decompose.router.children.ChildControllerTest" time="0.001"/>
+  <testcase name="WHEN_start_THEN_child_started[jvm]" classname="com.arkivanov.decompose.router.children.ChildControllerTest" time="0.0"/>
+  <testcase name="GIVEN_child_resumed_WHEN_destroy_THEN_child_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildControllerTest" time="0.0"/>
+  <testcase name="WHEN_create_THEN_child_created[jvm]" classname="com.arkivanov.decompose.router.children.ChildControllerTest" time="0.001"/>
+  <testcase name="GIVEN_child_created_WHEN_recreated_THEN_child_state_restored[jvm]" classname="com.arkivanov.decompose.router.children.ChildControllerTest" time="0.002"/>
+  <testcase name="GIVEN_child_created_WHEN_destroy_THEN_child_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildControllerTest" time="0.001"/>
+  <testcase name="GIVEN_child_resumed_and_retained_instance_created_WHEN_configuration_changed_and_drop_state_THEN_instance_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildControllerTest" time="0.003"/>
+  <testcase name="GIVEN_child_started_and_back_callback_registered_WHEN_create_THEN_back_handler_disabled[jvm]" classname="com.arkivanov.decompose.router.children.ChildControllerTest" time="0.001"/>
+  <testcase name="WHEN_resume_THEN_child_resumed[jvm]" classname="com.arkivanov.decompose.router.children.ChildControllerTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.stack.RouterReplaceCurrentTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.001">
+  <properties/>
+  <testcase name="WHEN_replaceCurrent_THEN_onComplete_called[jvm]" classname="com.arkivanov.decompose.router.stack.RouterReplaceCurrentTest" time="0.001"/>
+  <testcase name="WHEN_replaceCurrent_THEN_last_configuration_replaced[jvm]" classname="com.arkivanov.decompose.router.stack.RouterReplaceCurrentTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.pages.ChildPagesClearTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:54" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.007">
+  <properties/>
+  <testcase name="GIVEN_5_pages_and_selected_2_WHEN_clear_THEN_pages_empty[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesClearTest" time="0.006"/>
+  <testcase name="GIVEN_pages_empty_WHEN_clear_THEN_pages_empty[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesClearTest" time="0.0"/>
+  <testcase name="GIVEN_5_pages_and_selected_4_WHEN_clear_THEN_pages_empty[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesClearTest" time="0.0"/>
+  <testcase name="GIVEN_5_pages_and_selected_0_WHEN_clear_THEN_pages_empty[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesClearTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.backhandler.DefaultChildBackHandlerTest" tests="22" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:54" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.046">
+  <properties/>
+  <testcase name="GIVEN_started_and_enabled_and_disabled_callback_registered_WHEN_callback_enabled_THEN_parent_enabled[jvm]" classname="com.arkivanov.decompose.backhandler.DefaultChildBackHandlerTest" time="0.001"/>
+  <testcase name="GIVEN_started_and_enabled_and_multiple_callbacks_registered_WHEN_parent_back_THEN_last_enabled_callback_called[jvm]" classname="com.arkivanov.decompose.backhandler.DefaultChildBackHandlerTest" time="0.002"/>
+  <testcase name="GIVEN_not_started_and_enabled_enabled_callback_registered_WHEN_started_THEN_parent_enabled[jvm]" classname="com.arkivanov.decompose.backhandler.DefaultChildBackHandlerTest" time="0.0"/>
+  <testcase name="GIVEN_disabled_stopped_WHEN_started_THEN_registered_in_parent[jvm]" classname="com.arkivanov.decompose.backhandler.DefaultChildBackHandlerTest" time="0.0"/>
+  <testcase name="GIVEN_started_and_disabled_WHEN_enabled_callback_registered_THEN_parent_disabled[jvm]" classname="com.arkivanov.decompose.backhandler.DefaultChildBackHandlerTest" time="0.0"/>
+  <testcase name="GIVEN_started_and_enabled_and_two_disabled_callbacks_registered_WHEN_one_callback_enabled_THEN_parent_enabled[jvm]" classname="com.arkivanov.decompose.backhandler.DefaultChildBackHandlerTest" time="0.0"/>
+  <testcase name="WHEN_created_disabled_THEN_not_registered_in_parent[jvm]" classname="com.arkivanov.decompose.backhandler.DefaultChildBackHandlerTest" time="0.0"/>
+  <testcase name="GIVEN_started_and_enabled_WHEN_two_callbacks_registered_enabled_disabled_THEN_parent_enabled[jvm]" classname="com.arkivanov.decompose.backhandler.DefaultChildBackHandlerTest" time="0.0"/>
+  <testcase name="GIVEN_started_and_enabled_and_two_enabled_callbacks_registered_WHEN_one_callback_disabled_THEN_parent_enabled[jvm]" classname="com.arkivanov.decompose.backhandler.DefaultChildBackHandlerTest" time="0.0"/>
+  <testcase name="GIVEN_created_disabled_WHEN_started_THEN_registered_in_parent[jvm]" classname="com.arkivanov.decompose.backhandler.DefaultChildBackHandlerTest" time="0.0"/>
+  <testcase name="GIVEN_created_enabled_WHEN_started_THEN_registered_in_parent[jvm]" classname="com.arkivanov.decompose.backhandler.DefaultChildBackHandlerTest" time="0.001"/>
+  <testcase name="GIVEN_started_and_disabled_and_enabled_callback_registered_WHEN_enabled_THEN_parent_enabled[jvm]" classname="com.arkivanov.decompose.backhandler.DefaultChildBackHandlerTest" time="0.001"/>
+  <testcase name="GIVEN_enabled_stopped_WHEN_started_THEN_registered_in_parent[jvm]" classname="com.arkivanov.decompose.backhandler.DefaultChildBackHandlerTest" time="0.0"/>
+  <testcase name="GIVEN_started_and_enabled_WHEN_two_disabled_callbacks_registered_THEN_parent_disabled[jvm]" classname="com.arkivanov.decompose.backhandler.DefaultChildBackHandlerTest" time="0.014"/>
+  <testcase name="GIVEN_started_and_disabled_WHEN_disabled_callback_registered_THEN_parent_disabled[jvm]" classname="com.arkivanov.decompose.backhandler.DefaultChildBackHandlerTest" time="0.0"/>
+  <testcase name="WHEN_created_enabled_THEN_not_registered_in_parent[jvm]" classname="com.arkivanov.decompose.backhandler.DefaultChildBackHandlerTest" time="0.0"/>
+  <testcase name="GIVEN_started_and_enabled_WHEN_disabled_callback_registered_THEN_parent_disabled[jvm]" classname="com.arkivanov.decompose.backhandler.DefaultChildBackHandlerTest" time="0.0"/>
+  <testcase name="GIVEN_enabled_and_started_WHEN_stopped_THEN_not_registered_in_parent[jvm]" classname="com.arkivanov.decompose.backhandler.DefaultChildBackHandlerTest" time="0.001"/>
+  <testcase name="GIVEN_started_and_disabled_and_disabled_callback_registered_WHEN_enabled_THEN_parent_disabled[jvm]" classname="com.arkivanov.decompose.backhandler.DefaultChildBackHandlerTest" time="0.001"/>
+  <testcase name="GIVEN_started_and_disabled_and_disabled_callback_registered_WHEN_callback_enabled_THEN_parent_disabled[jvm]" classname="com.arkivanov.decompose.backhandler.DefaultChildBackHandlerTest" time="0.001"/>
+  <testcase name="GIVEN_disabled_and_started_WHEN_stopped_THEN_not_registered_in_parent[jvm]" classname="com.arkivanov.decompose.backhandler.DefaultChildBackHandlerTest" time="0.001"/>
+  <testcase name="GIVEN_started_and_enabled_WHEN_enabled_callback_registered_THEN_parent_enabled[jvm]" classname="com.arkivanov.decompose.backhandler.DefaultChildBackHandlerTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.pages.ChildPagesIntegrationTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:54" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.004">
+  <properties/>
+  <testcase name="GIVEN_three_pages_and_first_selected_WHEN_selectNext_circular_THEN_first_selected[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesIntegrationTest" time="0.004"/>
+  <testcase name="GIVEN_three_pages_and_last_selected_WHEN_selectNext_circular_THEN_first_selected[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesIntegrationTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.stack.RouterPushTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.001">
+  <properties/>
+  <testcase name="WHEN_push_THEN_onComplete_called[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPushTest" time="0.001"/>
+  <testcase name="WHEN_push_THEN_pushed[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPushTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.panels.ChildPanelsBackButtonTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.014">
+  <properties/>
+  <testcase name="GIVEN_single_with_main_and_details_WHEN_back_THEN_isEnabled_true[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsBackButtonTest" time="0.011"/>
+  <testcase name="WHEN_triple_with_main_and_details_THEN_isEnabled_false[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsBackButtonTest" time="0.0"/>
+  <testcase name="WHEN_dual_with_main_and_extra_THEN_isEnabled_false[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsBackButtonTest" time="0.001"/>
+  <testcase name="WHEN_single_with_main_THEN_isEnabled_false[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsBackButtonTest" time="0.0"/>
+  <testcase name="GIVEN_single_with_main_and_extra_WHEN_back_THEN_isEnabled_true[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsBackButtonTest" time="0.001"/>
+  <testcase name="WHEN_dual_with_all_panels_THEN_isEnabled_false[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsBackButtonTest" time="0.0"/>
+  <testcase name="WHEN_dual_with_main_and_details_THEN_isEnabled_false[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsBackButtonTest" time="0.0"/>
+  <testcase name="GIVEN_single_with_all_panels_WHEN_back_THEN_isEnabled_true[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsBackButtonTest" time="0.0"/>
+  <testcase name="WHEN_triple_with_main_THEN_isEnabled_false[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsBackButtonTest" time="0.0"/>
+  <testcase name="WHEN_single_with_all_panels_THEN_isEnabled_true[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsBackButtonTest" time="0.0"/>
+  <testcase name="WHEN_single_with_main_and_extra_THEN_isEnabled_true[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsBackButtonTest" time="0.0"/>
+  <testcase name="WHEN_triple_with_main_and_extra_THEN_isEnabled_false[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsBackButtonTest" time="0.001"/>
+  <testcase name="WHEN_single_with_main_and_details_THEN_isEnabled_true[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsBackButtonTest" time="0.0"/>
+  <testcase name="WHEN_dual_with_main_THEN_isEnabled_false[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsBackButtonTest" time="0.0"/>
+  <testcase name="WHEN_triple_with_all_panels_THEN_isEnabled_false[jvm]" classname="com.arkivanov.decompose.router.panels.ChildPanelsBackButtonTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.items.LazyItemsLazinessTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:54" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.04">
+  <properties/>
+  <testcase name="WHEN_created_with_initial_and_active_items_THEN_get_returns_components_with_correct_lifecycles[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsLazinessTest" time="0.005"/>
+  <testcase name="WHEN_created_with_initial_items_THEN_get_returns_components[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsLazinessTest" time="0.002"/>
+  <testcase name="WHEN_items_and_active_items_changed_THEN_get_returns_components_with_correct_lifecycles[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsLazinessTest" time="0.002"/>
+  <testcase name="WHEN_created_with_initial_items_THEN_get_returns_components_with_correct_lifecycles[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsLazinessTest" time="0.001"/>
+  <testcase name="WHEN_items_and_active_items_changed_THEN_get_returns_same_components[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsLazinessTest" time="0.008"/>
+  <testcase name="WHEN_created_with_initial_and_active_items_THEN_get_returns_same_components[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsLazinessTest" time="0.001"/>
+  <testcase name="WHEN_items_and_active_items_changed_THEN_get_returns_components[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsLazinessTest" time="0.002"/>
+  <testcase name="WHEN_active_items_changed_THEN_get_returns_components[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsLazinessTest" time="0.003"/>
+  <testcase name="WHEN_created_with_initial_and_active_items_THEN_get_returns_components[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsLazinessTest" time="0.002"/>
+  <testcase name="WHEN_active_items_changed_THEN_get_returns_same_components[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsLazinessTest" time="0.003"/>
+  <testcase name="WHEN_active_items_changed_THEN_get_returns_components_with_correct_lifecycles[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsLazinessTest" time="0.009"/>
+  <testcase name="WHEN_created_with_initial_items_THEN_get_returns_same_components[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsLazinessTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.pages.ChildPagesSelectNextTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.002">
+  <properties/>
+  <testcase name="GIVEN_5_pages_and_selected_4_WHEN_selectNext_circular_THEN_selected_0[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectNextTest" time="0.0"/>
+  <testcase name="GIVEN_pages_empty_WHEN_selectNext_THEN_pages_empty[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectNextTest" time="0.0"/>
+  <testcase name="GIVEN_5_pages_and_selected_4_WHEN_selectNext_THEN_selected_4[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectNextTest" time="0.001"/>
+  <testcase name="GIVEN_5_pages_and_selected_0_WHEN_selectNext_THEN_selected_1[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectNextTest" time="0.0"/>
+  <testcase name="GIVEN_5_pages_and_selected_1_WHEN_selectNext_THEN_selected_2[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectNextTest" time="0.0"/>
+  <testcase name="GIVEN_5_pages_and_selected_0_WHEN_selectNext_circular_THEN_selected_1[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectNextTest" time="0.0"/>
+  <testcase name="GIVEN_5_pages_and_selected_1_WHEN_selectNext_circular_THEN_selected_2[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectNextTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.value.operator.ValueMapThreadingTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:58" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="1.255">
+  <properties/>
+  <testcase name="atomically_maps_values_and_calls_observer[jvm]" classname="com.arkivanov.decompose.value.operator.ValueMapThreadingTest" time="1.255"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.stack.RouterPopWhileTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.012">
+  <properties/>
+  <testcase name="WHEN_popWhile_THEN_onComplete_called[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPopWhileTest" time="0.007"/>
+  <testcase name="WHEN_popWhile_THEN_popped[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPopWhileTest" time="0.004"/>
+  <testcase name="WHEN_popWhile_all_THEN_first_child_not_removed[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPopWhileTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.stack.RouterPopToTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.019">
+  <properties/>
+  <testcase name="GIVEN_stack_size_1_WHEN_popTo_0_THEN_not_popped[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPopToTest" time="0.0"/>
+  <testcase name="GIVEN_stack_size_3_WHEN_popTo_1_THEN_onComplete_success[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPopToTest" time="0.001"/>
+  <testcase name="GIVEN_stack_size_1_WHEN_popTo_0_THEN_onComplete_not_success[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPopToTest" time="0.0"/>
+  <testcase name="GIVEN_stack_size_2_WHEN_popTo_0_THEN_onComplete_success[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPopToTest" time="0.003"/>
+  <testcase name="GIVEN_stack_size_2_WHEN_popTo_1_THEN_onComplete_not_success[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPopToTest" time="0.0"/>
+  <testcase name="GIVEN_stack_size_2_WHEN_popTo_1_THEN_not_popped[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPopToTest" time="0.008"/>
+  <testcase name="GIVEN_stack_size_3_WHEN_popTo_1_THEN_popped[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPopToTest" time="0.001"/>
+  <testcase name="GIVEN_stack_size_2_WHEN_popTo_0_THEN_popped[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPopToTest" time="0.0"/>
+  <testcase name="GIVEN_stack_size_3_WHEN_popTo_0_THEN_popped[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPopToTest" time="0.0"/>
+  <testcase name="GIVEN_stack_size_3_WHEN_popTo_2_THEN_onComplete_not_success[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPopToTest" time="0.002"/>
+  <testcase name="GIVEN_stack_size_3_WHEN_popTo_0_THEN_onComplete_success[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPopToTest" time="0.002"/>
+  <testcase name="GIVEN_stack_size_3_WHEN_popTo_2_THEN_not_popped[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPopToTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.value.MutableValueTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.02">
+  <properties/>
+  <testcase name="WHEN_compareAndSet_with_expected_value_THEN_returns_true[jvm]" classname="com.arkivanov.decompose.value.MutableValueTest" time="0.0"/>
+  <testcase name="GIVEN_multiple_subscribes_and_one_unsubscribed_WHEN_value_changed_THEN_value_emitted_to_subscribed[jvm]" classname="com.arkivanov.decompose.value.MutableValueTest" time="0.007"/>
+  <testcase name="WHEN_compareAndSet_with_unexpected_value_THEN_returns_false[jvm]" classname="com.arkivanov.decompose.value.MutableValueTest" time="0.0"/>
+  <testcase name="WHEN_compareAndSet_with_unexpected_value_THEN_old_value[jvm]" classname="com.arkivanov.decompose.value.MutableValueTest" time="0.0"/>
+  <testcase name="WHEN_getAndUpdate_THEN_new_value[jvm]" classname="com.arkivanov.decompose.value.MutableValueTest" time="0.001"/>
+  <testcase name="WHEN_getAndUpdate_THEN_returns_old_value[jvm]" classname="com.arkivanov.decompose.value.MutableValueTest" time="0.001"/>
+  <testcase name="WHEN_value_changed_THEN_new_value[jvm]" classname="com.arkivanov.decompose.value.MutableValueTest" time="0.0"/>
+  <testcase name="GIVEN_multiple_observers_subscribed_WHEN_value_changed_THEN_new_value_emitted[jvm]" classname="com.arkivanov.decompose.value.MutableValueTest" time="0.001"/>
+  <testcase name="WHEN_updateAndGet_THEN_returns_new_value[jvm]" classname="com.arkivanov.decompose.value.MutableValueTest" time="0.0"/>
+  <testcase name="GIVEN_multiple_subscribes_and_one_unsubscribed_WHEN_value_changed_THEN_value_not_emitted_to_unsubscribed[jvm]" classname="com.arkivanov.decompose.value.MutableValueTest" time="0.001"/>
+  <testcase name="WHEN_created_THEN_initial_value[jvm]" classname="com.arkivanov.decompose.value.MutableValueTest" time="0.0"/>
+  <testcase name="GIVEN_unsubscribed_WHEN_value_changed_THEN_not_emitted[jvm]" classname="com.arkivanov.decompose.value.MutableValueTest" time="0.001"/>
+  <testcase name="WHEN_subscribe_THEN_current_value_emitted[jvm]" classname="com.arkivanov.decompose.value.MutableValueTest" time="0.0"/>
+  <testcase name="WHEN_update_THEN_new_value[jvm]" classname="com.arkivanov.decompose.value.MutableValueTest" time="0.004"/>
+  <testcase name="WHEN_updateAndGet_THEN_new_value[jvm]" classname="com.arkivanov.decompose.value.MutableValueTest" time="0.001"/>
+  <testcase name="WHEN_compareAndSet_with_expected_value_THEN_new_value[jvm]" classname="com.arkivanov.decompose.value.MutableValueTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" tests="46" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:54" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.061">
+  <properties/>
+  <testcase name="GIVEN_lifecycle2_created_WHEN_lifecycle1_resumed_THEN_onCreate_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.002"/>
+  <testcase name="GIVEN_lifecycle1_initialized_WHEN_lifecycle2_resumed_THEN_no_events[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.001"/>
+  <testcase name="WHEN_lifecycle2_destroyed_THEN_all_callbacks_unsubscribed[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.0"/>
+  <testcase name="GIVEN_lifecycle1_resumed_WHEN_lifecycle2_created_THEN_onCreate_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.0"/>
+  <testcase name="GIVEN_lifecycle2_resumed_WHEN_lifecycle1_started_THEN_onCreate_onStart_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_lifecycle1_resumed_and_lifecycle2_resumed_WHEN_lifecycle1_stopped_THEN_onPause_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.0"/>
+  <testcase name="GIVEN_lifecycle1_started_WHEN_lifecycle2_resumed_THEN_onCreate_onStart_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_lifecycle2_destroyed_WHEN_MergedLifecycle_created_THEN_state_destroyed[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.0"/>
+  <testcase name="WHEN_lifecycle1_destroyed_THEN_all_callbacks_unsubscribed[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_lifecycle2_resumed_WHEN_lifecycle1_created_THEN_onCreate_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.0"/>
+  <testcase name="GIVEN_lifecycle1_resumed_and_lifecycle2_resumed_WHEN_lifecycle2_destroyed_THEN_onPause_onStop_onDestroy_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.0"/>
+  <testcase name="GIVEN_lifecycle2_initialized_WHEN_lifecycle1_started_THEN_no_events[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_lifecycle1_created_WHEN_lifecycle2_created_THEN_onCreate_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.0"/>
+  <testcase name="GIVEN_lifecycle2_initialized_WHEN_lifecycle1_resumed_THEN_no_events[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_lifecycle1_resumed_and_lifecycle2_destroyed_WHEN_lifecycle1_destroyed_THEN_no_events[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.0"/>
+  <testcase name="GIVEN_lifecycle2_created_WHEN_lifecycle1_created_THEN_onCreate_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.0"/>
+  <testcase name="GIVEN_lifecycle2_started_WHEN_lifecycle1_resumed_THEN_onCreate_onStart_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_lifecycle1_destroyed_WHEN_MergedLifecycle_created_THEN_state_destroyed[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.0"/>
+  <testcase name="GIVEN_lifecycle1_resumed_WHEN_lifecycle2_resumed_THEN_onCreate_onStart_onResume_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_lifecycle1_initialized_WHEN_lifecycle2_created_THEN_no_events[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.0"/>
+  <testcase name="GIVEN_lifecycle1_resumed_and_lifecycle2_paused_WHEN_lifecycle1_paused_THEN_no_events[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.0"/>
+  <testcase name="GIVEN_lifecycle1_created_WHEN_lifecycle2_started_THEN_onCreate_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.0"/>
+  <testcase name="GIVEN_lifecycle1_destroyed_WHEN_MergedLifecycle_created_THEN_not_subscribed[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.011"/>
+  <testcase name="WHEN_lifecycle1_destroyed_and_lifecycle2_destroyed_THEN_onCreate_onDestroy_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_lifecycle2_destroyed_WHEN_MergedLifecycle_created_THEN_not_subscribed[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.0"/>
+  <testcase name="GIVEN_lifecycle2_created_WHEN_lifecycle1_started_THEN_onCreate_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.0"/>
+  <testcase name="GIVEN_lifecycle1_started_WHEN_lifecycle2_started_THEN_onCreate_onStart_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_lifecycle2_initialized_WHEN_lifecycle1_created_THEN_no_events[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_lifecycle2_resumed_WHEN_lifecycle1_resumed_THEN_onCreate_onStart_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_lifecycle1_paused_and_lifecycle2_resumed_WHEN_lifecycle2_paused_THEN_no_events[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.0"/>
+  <testcase name="GIVEN_lifecycle1_resumed_and_not_emitting_on_subscribe_and_lifecycle2_initialized_WHEN_lifecycle2_and_lifecycle1_resumed_THEN_onCreate_onStart_onResume_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_lifecycle2_started_WHEN_lifecycle1_started_THEN_onCreate_onStart_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_lifecycle1_started_WHEN_lifecycle2_created_THEN_onCreate_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.0"/>
+  <testcase name="WHEN_lifecycle1_created_and_destroyed_and_lifecycle2_created_and_destroyed_THEN_state_destroyed[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.01"/>
+  <testcase name="GIVEN_lifecycle1_destroyed_and_lifecycle2_resumed_WHEN_lifecycle2_destroyed_THEN_no_events[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_lifecycle1_resumed_and_lifecycle2_stopped_WHEN_lifecycle1_stopped_THEN_no_events[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.0"/>
+  <testcase name="GIVEN_lifecycle1_resumed_WHEN_lifecycle2_started_THEN_onCreate_onStart_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.0"/>
+  <testcase name="GIVEN_lifecycle1_resumed_and_lifecycle2_resumed_WHEN_lifecycle2_stopped_THEN_onPause_onStop_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.002"/>
+  <testcase name="GIVEN_lifecycle2_started_WHEN_lifecycle1_created_THEN_onCreate_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.0"/>
+  <testcase name="GIVEN_lifecycle1_created_WHEN_lifecycle2_resumed_THEN_onCreate_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_lifecycle1_resumed_and_lifecycle2_resumed_WHEN_lifecycle1_destroyed_THEN_onPause_onStop_onDestroy_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.0"/>
+  <testcase name="GIVEN_lifecycle2_resumed_and_not_emitting_on_subscribe_and_lifecycle1_initialized_WHEN_lifecycle1_and_lifecycle2_resumed_THEN_onCreate_onStart_onResume_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.0"/>
+  <testcase name="GIVEN_lifecycle1_resumed_and_lifecycle2_resumed_WHEN_lifecycle2_paused_THEN_onPause_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_lifecycle1_initialized_WHEN_lifecycle2_started_THEN_no_events[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.001"/>
+  <testcase name="GIVEN_lifecycle1_stopped_and_lifecycle2_resumed_WHEN_lifecycle2_stopped_THEN_no_events[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.0"/>
+  <testcase name="GIVEN_lifecycle1_resumed_and_lifecycle2_resumed_WHEN_lifecycle1_paused_THEN_onPause_called[jvm]" classname="com.arkivanov.decompose.lifecycle.MergedLifecycleTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.value.operator.ValueMapTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:58" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.039">
+  <properties/>
+  <testcase name="GIVEN_multiple_subscribers_and_upstream_changed_WHEN_read_value_THEN_mapper_not_called[jvm]" classname="com.arkivanov.decompose.value.operator.ValueMapTest" time="0.006"/>
+  <testcase name="GIVEN_subscribed_WHEN_upstream_changed_THEN_value_mapped[jvm]" classname="com.arkivanov.decompose.value.operator.ValueMapTest" time="0.001"/>
+  <testcase name="GIVEN_multiple_subscribes_and_one_unsubscribed_WHEN_value_changed_THEN_value_emitted_to_subscribed[jvm]" classname="com.arkivanov.decompose.value.operator.ValueMapTest" time="0.001"/>
+  <testcase name="WHEN_upstream_changed_THEN_value_mapped[jvm]" classname="com.arkivanov.decompose.value.operator.ValueMapTest" time="0.0"/>
+  <testcase name="WHEN_subscribed_multiple_times_THEN_mapper_called_only_once[jvm]" classname="com.arkivanov.decompose.value.operator.ValueMapTest" time="0.002"/>
+  <testcase name="GIVEN_multiple_observers_subscribed_WHEN_upstream_changed_THEN_new_value_emitted[jvm]" classname="com.arkivanov.decompose.value.operator.ValueMapTest" time="0.016"/>
+  <testcase name="GIVEN_multiple_subscribers_and_upstream_changed_WHEN_subscribe_THEN_mapper_not_called[jvm]" classname="com.arkivanov.decompose.value.operator.ValueMapTest" time="0.002"/>
+  <testcase name="GIVEN_multiple_subscribes_and_one_unsubscribed_WHEN_value_changed_THEN_value_not_emitted_to_unsubscribed[jvm]" classname="com.arkivanov.decompose.value.operator.ValueMapTest" time="0.0"/>
+  <testcase name="GIVEN_multiple_subscribers_WHEN_upstream_changed_THEN_mapper_called_only_once[jvm]" classname="com.arkivanov.decompose.value.operator.ValueMapTest" time="0.001"/>
+  <testcase name="GIVEN_unsubscribed_WHEN_value_changed_THEN_not_emitted[jvm]" classname="com.arkivanov.decompose.value.operator.ValueMapTest" time="0.0"/>
+  <testcase name="WHEN_subscribe_THEN_current_value_emitted[jvm]" classname="com.arkivanov.decompose.value.operator.ValueMapTest" time="0.0"/>
+  <testcase name="WHEN_created_THEN_value_mapped[jvm]" classname="com.arkivanov.decompose.value.operator.ValueMapTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.pages.ChildPagesSetItemsTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.008">
+  <properties/>
+  <testcase name="WHEN_setItems_with_all_items_removed_THEN_items_removed[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSetItemsTest" time="0.0"/>
+  <testcase name="WHEN_setItems_with_items_removed_from_end_THEN_items_removed_and_selected_index_coerced[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSetItemsTest" time="0.001"/>
+  <testcase name="WHEN_setItems_with_items_removed_from_start_THEN_items_removed[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSetItemsTest" time="0.006"/>
+  <testcase name="WHEN_setItems_with_new_items_THEN_items_added[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSetItemsTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.pages.ChildPagesSelectTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.006">
+  <properties/>
+  <testcase name="GIVEN_pages_empty_WHEN_select_THEN_pages_empty[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectTest" time="0.004"/>
+  <testcase name="GIVEN_5_pages_and_selected_0_WHEN_select_4_THEN_selected_4[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectTest" time="0.0"/>
+  <testcase name="GIVEN_5_pages_and_selected_4_WHEN_select_0_THEN_selected_0[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectTest" time="0.001"/>
+  <testcase name="GIVEN_5_pages_and_selected_4_WHEN_select_4_THEN_selected_4[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectTest" time="0.0"/>
+  <testcase name="GIVEN_5_pages_and_selected_0_WHEN_select_2_THEN_selected_2[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectTest" time="0.0"/>
+  <testcase name="GIVEN_5_pages_and_selected_4_WHEN_select_2_THEN_selected_2[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectTest" time="0.001"/>
+  <testcase name="GIVEN_5_pages_and_selected_0_WHEN_select_0_THEN_selected_0[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.children.ChildrenRetainedInstanceTest" tests="20" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:54" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.061">
+  <properties/>
+  <testcase name="WHEN_child_switched_from_created_to_destroyed_THEN_instance_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenRetainedInstanceTest" time="0.001"/>
+  <testcase name="WHEN_child_switched_from_started_to_created_THEN_instance_not_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenRetainedInstanceTest" time="0.001"/>
+  <testcase name="GIVEN_child_switched_from_resumed_to_destroyed_WHEN_child_switched_to_resumed_THEN_instance_not_retained[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenRetainedInstanceTest" time="0.001"/>
+  <testcase name="WHEN_recreated_and_started_child_restored_as_destroyed_THEN_instance_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenRetainedInstanceTest" time="0.003"/>
+  <testcase name="WHEN_started_child_recreated_THEN_instance_not_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenRetainedInstanceTest" time="0.007"/>
+  <testcase name="WHEN_resumed_child_recreated_THEN_instance_not_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenRetainedInstanceTest" time="0.005"/>
+  <testcase name="WHEN_created_child_recreated_THEN_instance_not_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenRetainedInstanceTest" time="0.002"/>
+  <testcase name="WHEN_child_switched_from_started_to_destroyed_THEN_instance_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenRetainedInstanceTest" time="0.002"/>
+  <testcase name="WHEN_resumed_child_recreated_THEN_instance_retained[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenRetainedInstanceTest" time="0.003"/>
+  <testcase name="WHEN_recreated_and_resumed_child_restored_as_destroyed_THEN_instance_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenRetainedInstanceTest" time="0.002"/>
+  <testcase name="WHEN_child_switched_from_resumed_to_started_THEN_instance_not_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenRetainedInstanceTest" time="0.0"/>
+  <testcase name="WHEN_child_switched_from_resumed_to_created_THEN_instance_not_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenRetainedInstanceTest" time="0.0"/>
+  <testcase name="WHEN_recreated_and_created_child_restored_as_destroyed_THEN_instance_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenRetainedInstanceTest" time="0.002"/>
+  <testcase name="GIVEN_child_switched_from_created_to_destroyed_WHEN_child_switched_to_created_THEN_instance_not_retained[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenRetainedInstanceTest" time="0.002"/>
+  <testcase name="GIVEN_child_switched_from_started_to_destroyed_WHEN_child_switched_to_started_THEN_instance_not_retained[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenRetainedInstanceTest" time="0.001"/>
+  <testcase name="WHEN_duplicated_children_recreated_THEN_instances_not_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenRetainedInstanceTest" time="0.003"/>
+  <testcase name="WHEN_child_switched_from_resumed_to_destroyed_THEN_instance_destroyed[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenRetainedInstanceTest" time="0.001"/>
+  <testcase name="WHEN_started_child_recreated_THEN_instance_retained[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenRetainedInstanceTest" time="0.004"/>
+  <testcase name="WHEN_created_child_recreated_THEN_instance_retained[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenRetainedInstanceTest" time="0.002"/>
+  <testcase name="WHEN_duplicated_children_recreated_THEN_instances_retained[jvm]" classname="com.arkivanov.decompose.router.children.ChildrenRetainedInstanceTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.ChildContextWithBackHandlerPriorityTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:50" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.115">
+  <properties/>
+  <testcase name="GIVEN_backHandlerPriority_not_specified_WHEN_back_THEN_reverse_order[jvm]" classname="com.arkivanov.decompose.ChildContextWithBackHandlerPriorityTest" time="0.107"/>
+  <testcase name="GIVEN_backHandlerPriority_specified_WHEN_back_THEN_order_according_to_priority[jvm]" classname="com.arkivanov.decompose.ChildContextWithBackHandlerPriorityTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.stack.RouterPushToFrontTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.002">
+  <properties/>
+  <testcase name="WHEN_does_not_contain_THEN_new_configuration_pushed[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPushToFrontTest" time="0.001"/>
+  <testcase name="WHEN_exists_with_same_value_in_the_middle_THEN_existing_configuration_moved_to_end[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPushToFrontTest" time="0.0"/>
+  <testcase name="WHEN_exists_with_same_value_at_the_end_THEN_not_changed[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPushToFrontTest" time="0.001"/>
+  <testcase name="WHEN_exists_with_same_value_at_start_THEN_existing_configuration_moved_to_end[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPushToFrontTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.RelayTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:51" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.03">
+  <properties/>
+  <testcase name="GIVEN_two_observers_and_first_throws_WHEN_accept_THEN_second_observer_not_called[jvm]" classname="com.arkivanov.decompose.RelayTest" time="0.01"/>
+  <testcase name="WHEN_accept_recursively_THEN_values_emitted_in_order[jvm]" classname="com.arkivanov.decompose.RelayTest" time="0.009"/>
+  <testcase name="GIVEN_observer_throws_WHEN_accept_twice_THEN_observer_called_only_once[jvm]" classname="com.arkivanov.decompose.RelayTest" time="0.001"/>
+  <testcase name="GIVEN_subscribed_and_unsubscribed_WHEN_accept_value_THEN_value_not_emitted[jvm]" classname="com.arkivanov.decompose.RelayTest" time="0.001"/>
+  <testcase name="GIVEN_observer_throws_WHEN_accept_second_time_THEN_exception_thrown_with_cause[jvm]" classname="com.arkivanov.decompose.RelayTest" time="0.001"/>
+  <testcase name="GIVEN_subscribed_WHEN_accept_values_THEN_values_emitted_in_order[jvm]" classname="com.arkivanov.decompose.RelayTest" time="0.001"/>
+  <testcase name="GIVEN_two_observers_and_first_throws_WHEN_accept_THEN_exception_thrown[jvm]" classname="com.arkivanov.decompose.RelayTest" time="0.001"/>
+  <testcase name="GIVEN_observer_throws_WHEN_accept_THEN_exception_thrown[jvm]" classname="com.arkivanov.decompose.RelayTest" time="0.001"/>
+  <testcase name="GIVEN_multiple_observers_subscribed_WHEN_accept_values_THEN_values_emitted_in_order_to_all_observers[jvm]" classname="com.arkivanov.decompose.RelayTest" time="0.0"/>
+  <testcase name="GIVEN_observer_sends_recursively_and_throws_WHEN_accept_THEN_exception_thrown[jvm]" classname="com.arkivanov.decompose.RelayTest" time="0.0"/>
+  <testcase name="GIVEN_observer_sends_recursively_and_throws_WHEN_accept_THEN_observer_called_only_once[jvm]" classname="com.arkivanov.decompose.RelayTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.pages.ChildPagesSelectPrevTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.002">
+  <properties/>
+  <testcase name="GIVEN_5_pages_and_selected_3_WHEN_selectPrev_THEN_selected_2[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectPrevTest" time="0.001"/>
+  <testcase name="GIVEN_5_pages_and_selected_0_WHEN_selectPrev_circular_THEN_selected_4[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectPrevTest" time="0.0"/>
+  <testcase name="GIVEN_5_pages_and_selected_3_WHEN_selectPrev_circular_THEN_selected_2[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectPrevTest" time="0.0"/>
+  <testcase name="GIVEN_pages_empty_WHEN_selectPrev_THEN_pages_empty[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectPrevTest" time="0.0"/>
+  <testcase name="GIVEN_5_pages_and_selected_4_WHEN_selectPrev_circular_THEN_selected_3[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectPrevTest" time="0.001"/>
+  <testcase name="GIVEN_5_pages_and_selected_4_WHEN_selectPrev_THEN_selected_3[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectPrevTest" time="0.0"/>
+  <testcase name="GIVEN_5_pages_and_selected_0_WHEN_selectPrev_THEN_selected_0[jvm]" classname="com.arkivanov.decompose.router.pages.ChildPagesSelectPrevTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.stack.RouterPopToFirstTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:55" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.002">
+  <properties/>
+  <testcase name="GIVEN_stack_size_3_WHEN_popToFirst_THEN_popped[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPopToFirstTest" time="0.0"/>
+  <testcase name="GIVEN_stack_size_1_WHEN_popToFirst_THEN_onComplete_not_success[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPopToFirstTest" time="0.001"/>
+  <testcase name="GIVEN_stack_size_3_WHEN_popToFirst_THEN_onComplete_success[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPopToFirstTest" time="0.0"/>
+  <testcase name="GIVEN_stack_size_1_WHEN_popToFirst_THEN_not_popped[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPopToFirstTest" time="0.001"/>
+  <testcase name="GIVEN_stack_size_2_WHEN_popToFirst_THEN_onComplete_success[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPopToFirstTest" time="0.0"/>
+  <testcase name="GIVEN_stack_size_2_WHEN_popToFirst_THEN_popped[jvm]" classname="com.arkivanov.decompose.router.stack.RouterPopToFirstTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.arkivanov.decompose.router.items.LazyItemsNavigationTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-05-21T00:04:54" hostname="ip-172-31-19-181.us-west-2.compute.internal" time="0.044">
+  <properties/>
+  <testcase name="GIVEN_initial_items_and_all_active_items_WHEN_some_last_items_removed_THEN_active_children_instantiated_and_others_removed[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsNavigationTest" time="0.003"/>
+  <testcase name="WHEN_created_with_initial_items_THEN_all_children_pending[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsNavigationTest" time="0.001"/>
+  <testcase name="GIVEN_initial_items_WHEN_some_last_items_removed_THEN_all_children_pending[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsNavigationTest" time="0.001"/>
+  <testcase name="GIVEN_initial_items_and_some_active_items_WHEN_some_active_items_changed_THEN_active_children_instantiated_and_others_destroyed[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsNavigationTest" time="0.001"/>
+  <testcase name="GIVEN_initial_items_WHEN_some_first_items_removed_THEN_all_children_pending[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsNavigationTest" time="0.011"/>
+  <testcase name="GIVEN_initial_items_and_all_active_WHEN_all_active_items_removed_THEN_all_children_destroyed[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsNavigationTest" time="0.005"/>
+  <testcase name="WHEN_initial_items_and_some_active_items_THEN_active_children_instantiated_and_others_pending[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsNavigationTest" time="0.005"/>
+  <testcase name="GIVEN_initial_items_WHEN_some_items_activated_THEN_active_children_instantiated_and_others_pending[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsNavigationTest" time="0.007"/>
+  <testcase name="GIVEN_initial_items_and_all_active_items_WHEN_all_items_removed_THEN_all_children_removed[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsNavigationTest" time="0.001"/>
+  <testcase name="GIVEN_initial_items_WHEN_more_items_added_THEN_all_children_pending[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsNavigationTest" time="0.001"/>
+  <testcase name="GIVEN_initial_items_WHEN_some_items_removed_THEN_all_children_pending[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsNavigationTest" time="0.003"/>
+  <testcase name="GIVEN_initial_and_active_items_WHEN_items_and_active_items_changed_THEN_active_instantiated_and_missing_removed_and_new_pending[jvm]" classname="com.arkivanov.decompose.router.items.LazyItemsNavigationTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
+Unable to find image 'swerebenchv2/arkivanov-decompose:916-4142a86' locally
+916-4142a86: Pulling from swerebenchv2/arkivanov-decompose
+0771ddcbd585: Pulling fs layer
+fb0eeb3fbc57: Pulling fs layer
+22c71a389991: Pulling fs layer
+0ea65b4ea458: Pulling fs layer
+c41a1a7fa9bd: Pulling fs layer
+482fffc19434: Pulling fs layer
+d67a341ed413: Pulling fs layer
+75d65a4b1079: Pulling fs layer
+798c40ba6059: Pulling fs layer
+82811c4e5d84: Pulling fs layer
+88fbff8fb272: Pulling fs layer
+8f32d8f1c68a: Pulling fs layer
+75d65a4b1079: Waiting
+798c40ba6059: Waiting
+d67a341ed413: Waiting
+82811c4e5d84: Waiting
+c41a1a7fa9bd: Waiting
+88fbff8fb272: Waiting
+482fffc19434: Waiting
+8f32d8f1c68a: Waiting
+0ea65b4ea458: Waiting
+fb0eeb3fbc57: Verifying Checksum
+fb0eeb3fbc57: Download complete
+0771ddcbd585: Download complete
+0ea65b4ea458: Verifying Checksum
+0ea65b4ea458: Download complete
+c41a1a7fa9bd: Verifying Checksum
+c41a1a7fa9bd: Download complete
+22c71a389991: Verifying Checksum
+22c71a389991: Download complete
+75d65a4b1079: Verifying Checksum
+75d65a4b1079: Download complete
+482fffc19434: Verifying Checksum
+482fffc19434: Download complete
+0771ddcbd585: Pull complete
+798c40ba6059: Verifying Checksum
+798c40ba6059: Download complete
+fb0eeb3fbc57: Pull complete
+d67a341ed413: Verifying Checksum
+d67a341ed413: Download complete
+88fbff8fb272: Verifying Checksum
+88fbff8fb272: Download complete
+8f32d8f1c68a: Verifying Checksum
+8f32d8f1c68a: Download complete
+82811c4e5d84: Verifying Checksum
+82811c4e5d84: Download complete
+22c71a389991: Pull complete
+0ea65b4ea458: Pull complete
+c41a1a7fa9bd: Pull complete
+482fffc19434: Pull complete
+d67a341ed413: Pull complete
+75d65a4b1079: Pull complete
+798c40ba6059: Pull complete
+82811c4e5d84: Pull complete
+88fbff8fb272: Pull complete
+8f32d8f1c68a: Pull complete
+Digest: sha256:faf07b721db9b6a601f3813ed1c04dc4bfcfca6081eba86c034af722b2fb5bc3
+Status: Downloaded newer image for swerebenchv2/arkivanov-decompose:916-4142a86
+Checking patch decompose/src/commonMain/kotlin/com/arkivanov/decompose/router/slot/ChildSlotFactory.kt...
+Applied patch to 'decompose/src/commonMain/kotlin/com/arkivanov/decompose/router/slot/ChildSlotFactory.kt' cleanly.
+Checking patch decompose/src/commonTest/kotlin/com/arkivanov/decompose/router/slot/ChildSlotIntegrationTest.kt...
+Applied patch to 'decompose/src/commonTest/kotlin/com/arkivanov/decompose/router/slot/ChildSlotIntegrationTest.kt' cleanly.
+Applied patch decompose/src/commonMain/kotlin/com/arkivanov/decompose/router/slot/ChildSlotFactory.kt cleanly.
+Applied patch decompose/src/commonTest/kotlin/com/arkivanov/decompose/router/slot/ChildSlotIntegrationTest.kt cleanly.
+Checking patch decompose/src/commonTest/kotlin/com/arkivanov/decompose/router/slot/ChildSlotIntegrationTest.kt...
+Applied patch to 'decompose/src/commonTest/kotlin/com/arkivanov/decompose/router/slot/ChildSlotIntegrationTest.kt' cleanly.
+Applied patch decompose/src/commonTest/kotlin/com/arkivanov/decompose/router/slot/ChildSlotIntegrationTest.kt cleanly.
+Picked up _JAVA_OPTIONS: -Djava.net.preferIPv6Addresses=false
+Picked up _JAVA_OPTIONS: -Djava.net.preferIPv6Addresses=false
