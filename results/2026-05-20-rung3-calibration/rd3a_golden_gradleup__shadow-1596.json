@@ -1,0 +1,16 @@
+{
+  "max_workers": 1,
+  "total": 1,
+  "all_ok": false,
+  "items": [
+    {
+      "instance_id": "gradleup__shadow-1596",
+      "from_fail_to_pass": [],
+      "failed_from_pass_to_pass": [],
+      "passed_match": false,
+      "exit_code": 0,
+      "log_path": "logs/gradleup__shadow-1596_log.txt",
+      "error": ""
+    }
+  ]
+}

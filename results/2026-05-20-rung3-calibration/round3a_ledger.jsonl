@@ -1,0 +1,2 @@
+{"instance": "geoswift__geoswift-307", "stage": "start"}
+{"instance": "geoswift__geoswift-307", "stage": "done", "agent_claim": true, "wall_s": 313, "patch_bytes": 2357, "agent_log": "/tmp/swebench-abduction/r3_out_geoswift__geoswift-307.txt", "patch_file": "/tmp/swebench-abduction/r3_patch_geoswift__geoswift-307.diff"}

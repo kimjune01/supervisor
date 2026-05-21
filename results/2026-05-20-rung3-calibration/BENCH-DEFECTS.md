@@ -24,12 +24,25 @@ auto-mined benchmarks.)*
 | `detekt__detekt-8604` | kotlin | A | gold 5442/5444 F2P; 2 missing IDs embed `BindingContext$1@217d67f` (JVM addresses) | rung 3 R1 |
 | `juliastats__mixedmodels.jl-858` | julia | B | F2P names `Piracy`/`Persistent tasks`/`Compare Project.toml` (Aqua.jl) never run under `test_cmd`; gold 0/5 | rung 3 R1 |
 | `microsoft__kiota-6947` | csharp | C | gold 0/5 F2P, **1868 P2P regressions** (same as kiota-6835) | rung 3 R2 |
+| `spectreconsole__spectre.console-1942` | csharp | C | gold exit **145** (runner killed), 0/495 F2P, **952 P2P regressions** | rung 3 R3a |
+| `gradleup__shadow-1596` | kotlin | A/B | gold exit 0, reg 0, but 0/4 F2P — recorded F2P names never matched in parsed output (JVM) | rung 3 R3a |
+| `detekt__detekt-8787` | kotlin | A/B | gold exit 0, reg 0, F2P names unmatched (full-suite ran clean) | rung 3 R3a |
+| `detekt__detekt-8588` | kotlin | A/B | gold exit 0, reg 0, F2P names unmatched | rung 3 R3a |
 
-## Patterns worth flagging in any report
-- **microsoft/kiota is chronically defective** (2/2 sampled: 6835, 6947) — both class C with ~1868
-  P2P regressions. Suggests a systemic env/test-harness mismatch for that repo, not one-off.
-- **Class A (non-deterministic IDs)** appears in JVM repos (shadow, detekt) — F2P extraction is
-  capturing `Object.toString()`-style identity hashes that can't be reproduced.
+## Patterns worth flagging in any report (systemic, not one-off)
+- **C# is 3/3 defective** (kiota-6835, kiota-6947, spectre.console-1942) — all class C, gold patch
+  yields mass P2P regressions (~950–1870) and/or a killed runner (exit 145). Strongly suggests a
+  systemic dotnet test-runner / log-parser failure in the C# lane, not per-instance bad luck.
+- **detekt is 3/3 defective** (8604, 8787, 8588) and **GradleUp/shadow 2/2** (1613, 1596) — the
+  JVM/kotlin "meaty" repos. Class A/B: gold runs clean (exit 0, 0 regressions) but the recorded
+  `FAIL_TO_PASS` names never match the parsed test output (non-deterministic identity IDs and/or
+  names the `test_cmd` doesn't emit).
+- **The defects cluster in exactly the hard corner** (detekt, shadow, C#). The easy/portable
+  toolchains (go, R, swift, most julia) grade cleanly. So the bench is *least* trustworthy
+  precisely where the problems are hardest — the instances most worth testing reasoning on are
+  disproportionately the unscoreable ones. This is the load-bearing finding for any "eval for
+  evals" writeup.
+- **Running defect rate: 7/15 (~47%) once R3a is counted** (R1 2/5, R2 1/5, R3a 4/5).
 
 ## Evidence artifacts
 Per instance: `golden_report.json` / `r2_golden_<id>.json` / `<tag>_golden_<id>.json` in this dir
