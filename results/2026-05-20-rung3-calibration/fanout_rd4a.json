@@ -1,0 +1,34 @@
+{
+ "tag": "rd4a",
+ "sg": "sg-0368d7d25a89aea83",
+ "key": "rung3-rd4a-key",
+ "tasks": "/Users/junekim/Documents/supervisor/results/2026-05-20-rung3-calibration/round4a_tasks.json",
+ "boxes": {
+  "pilosus__pip-license-checker-156": {
+   "iid": "i-07cfdd99130de7870",
+   "ip": "44.249.199.132"
+  },
+  "juliasymbolics__symbolics.jl-1639": {
+   "iid": "i-0b7d2b177743d4a68",
+   "ip": "44.242.247.236"
+  },
+  "dart-lang__pub-dev-8884": {
+   "iid": "i-03b521c13f78468d2",
+   "ip": "44.251.96.236"
+  },
+  "dart-lang__pana-1480": {
+   "iid": "i-0cc24901fa29ac1f4",
+   "ip": "35.88.45.172"
+  },
+  "effekt-lang__effekt-1101": {
+   "iid": "i-046f78be91dd51ee4",
+   "ip": "184.33.142.168"
+  }
+ },
+ "survivors": [
+  "pilosus__pip-license-checker-156",
+  "juliasymbolics__symbolics.jl-1639",
+  "dart-lang__pana-1480",
+  "effekt-lang__effekt-1101"
+ ]
+}

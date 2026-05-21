@@ -1,0 +1,18 @@
+{
+  "max_workers": 1,
+  "total": 1,
+  "all_ok": true,
+  "items": [
+    {
+      "instance_id": "effekt-lang__effekt-1101",
+      "from_fail_to_pass": [
+        "documentSymbols returns expected symbols"
+      ],
+      "failed_from_pass_to_pass": [],
+      "passed_match": true,
+      "exit_code": 0,
+      "log_path": "logs/effekt-lang__effekt-1101_log.txt",
+      "error": ""
+    }
+  ]
+}

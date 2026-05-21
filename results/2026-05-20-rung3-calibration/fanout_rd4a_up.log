@@ -1,0 +1,14 @@
+provisioned 5 boxes
+=== bootstrap ===
+  boot pilosus__pip-license-checker-156: ok
+  boot juliasymbolics__symbolics.jl-1639: ok
+  boot dart-lang__pub-dev-8884: ok
+  boot dart-lang__pana-1480: ok
+  boot effekt-lang__effekt-1101: ok
+=== golden-screen ===
+  golden pilosus__pip-license-checker-156: VALID
+  golden juliasymbolics__symbolics.jl-1639: VALID
+  golden dart-lang__pub-dev-8884: DEFECT(reg=0)
+  golden dart-lang__pana-1480: VALID
+  golden effekt-lang__effekt-1101: VALID
+survivors (4): ['pilosus__pip-license-checker-156', 'juliasymbolics__symbolics.jl-1639', 'dart-lang__pana-1480', 'effekt-lang__effekt-1101']

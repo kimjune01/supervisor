@@ -1,0 +1,27 @@
+{
+  "max_workers": 1,
+  "total": 1,
+  "all_ok": true,
+  "items": [
+    {
+      "instance_id": "dart-lang__pana-1480",
+      "from_fail_to_pass": [
+        "Format option extracted from dev-dependency lint package with transient formatting rule",
+        "default options",
+        "ignore include in original",
+        "include only in custom: keepInclude=false",
+        "include only in custom: keepInclude=true",
+        "keep include does not override the value",
+        "keep include preserves the value",
+        "keep include without include value",
+        "passthrough for empty options",
+        "passthrough for some options"
+      ],
+      "failed_from_pass_to_pass": [],
+      "passed_match": true,
+      "exit_code": 1,
+      "log_path": "logs/dart-lang__pana-1480_log.txt",
+      "error": ""
+    }
+  ]
+}

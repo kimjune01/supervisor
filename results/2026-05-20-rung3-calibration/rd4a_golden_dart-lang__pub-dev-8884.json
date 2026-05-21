@@ -1,0 +1,22 @@
+{
+  "max_workers": 1,
+  "total": 1,
+  "all_ok": false,
+  "items": [
+    {
+      "instance_id": "dart-lang__pub-dev-8884",
+      "from_fail_to_pass": [
+        "404 page link to package page",
+        "404 page link to search page",
+        "Adjust like counts no need to change like counts #1",
+        "DatastoreStatusProvider get empty status - global",
+        "pub.dev importer tests retry"
+      ],
+      "failed_from_pass_to_pass": [],
+      "passed_match": false,
+      "exit_code": 1,
+      "log_path": "logs/dart-lang__pub-dev-8884_log.txt",
+      "error": ""
+    }
+  ]
+}

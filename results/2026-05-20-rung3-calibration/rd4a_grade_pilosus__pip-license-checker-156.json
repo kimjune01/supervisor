@@ -1,0 +1,18 @@
+{
+  "max_workers": 1,
+  "total": 1,
+  "all_ok": true,
+  "items": [
+    {
+      "instance_id": "pilosus__pip-license-checker-156",
+      "from_fail_to_pass": [
+        "pip-license-checker.license-test"
+      ],
+      "failed_from_pass_to_pass": [],
+      "passed_match": true,
+      "exit_code": 0,
+      "log_path": "logs/pilosus__pip-license-checker-156_log.txt",
+      "error": ""
+    }
+  ]
+}
